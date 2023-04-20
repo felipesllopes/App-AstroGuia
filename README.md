@@ -39,3 +39,31 @@ This button opens a screen where images provided by NASA, through the API, of th
 This button opens a screen where the polychromatic image of the Earth taken by the NOAA DSCOVR satellite will be shown. Contains a picker where all the shooting dates will be shown. Each date corresponds to a different image.
 
 ![App-theUniverse-photoEarth](https://user-images.githubusercontent.com/99768939/233470446-5ab1360f-ccb0-47af-96c1-0a6fc728c4f4.png)
+
+
+
+### Technologies used:
+
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+
+
+### API used
+[NASA Open APIs](https://api.nasa.gov/)
+ 
+### Services used:
+
+- APOD
+- EPIC
+- Mars Rover Photos
+
+
+### 📚 External libraries used
+
+[ReactNavigation](https://reactnavigation.org/docs/getting-started/)
+
+- @react-navigation/native
+- react-native-screens react-native-safe-area-context
+- @react-navigation/native-stack
