@@ -31,7 +31,7 @@ This button opens a screen where the astronomical image of the day, made availab
 ### Imagens Rover em Marte
 This button opens a screen where images provided by NASA, through the API, of the missions on Mars will be shown. The Martian day (sol), the rover and the camera used must be informed. A list will show all images related to the search. It is also possible to open the image to have detailed information about the image and the Rover.
 
-![App-theUniverse-roversMars](https://user-images.githubusercontent.com/99768939/233468621-76b058c0-f1d4-4bd3-8b47-c796fba5be31.png)
+![App-theUniverse-roversMars](https://user-images.githubusercontent.com/99768939/233800877-c5e1f9d6-118c-45a1-bf11-40eda6d6ce12.png)
 
 
 
@@ -59,6 +59,14 @@ This button opens a screen where the polychromatic image of the Earth taken by t
 - EPIC
 - Mars Rover Photos
 
+
+### Example of sharing each service:
+
+- https://api.nasa.gov/EPIC/archive/natural/2023/04/21/png/epic_1b_20230421002712.png?api_key=euvql4khtokVFQr78Cnf6bInZyEMfR1igp4aIDex
+- Imagem astronômica do dia: NGC 1333: Stellar Nursery in Perseus 
+https://apod.nasa.gov/apod/image/2304/NGC1333HST33rd_800.png
+- Foto rover Curiosity em Marte. 
+http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/00050/opgs/edr/fcam/FRA_401936576EDR_F0042956FHAZ00305M_.JPG
 
 ### installations (using expo):
 
