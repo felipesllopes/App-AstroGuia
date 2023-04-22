@@ -60,10 +60,25 @@ This button opens a screen where the polychromatic image of the Earth taken by t
 - Mars Rover Photos
 
 
-### 📚 External libraries used
+### installations (using expo):
 
-[ReactNavigation](https://reactnavigation.org/docs/getting-started/)
-
-- @react-navigation/native
-- react-native-screens react-native-safe-area-context
-- @react-navigation/native-stack
+ - To create the project:
+ 
+ npx create-expo-app theUniverse
+ 
+ - To add axios:
+ 
+ npm install axios
+ 
+ - For navigation between screens:
+ 
+ npm install @react-navigation/native
+ 
+ npx expo install react-native-screens react-native-safe-area-context
+ 
+ npm install @react-navigation/native-stack
+ 
+ 
+ ### Documentation for navigation:
+ 
+ [ReactNavigation](https://reactnavigation.org/docs/getting-started/)
