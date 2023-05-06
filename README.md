@@ -80,6 +80,8 @@ http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/00050/op
  
  - For navigation between screens:
  
+ npx expo install @react-native-picker/picker
+ 
  npm install @react-navigation/native
  
  npx expo install react-native-screens react-native-safe-area-context
