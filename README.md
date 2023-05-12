@@ -68,18 +68,11 @@ https://apod.nasa.gov/apod/image/2304/NGC1333HST33rd_800.png
 - Foto rover Curiosity em Marte. 
 http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/00050/opgs/edr/fcam/FRA_401936576EDR_F0042956FHAZ00305M_.JPG
 
-### installations (using expo):
 
- - To create the project:
- 
- npx create-expo-app theUniverse
- 
- - To add axios:
- 
+### installations (using expo):
+  
  npm install axios
- 
- - For navigation between screens:
- 
+  
  npx expo install @react-native-picker/picker
  
  npm install @react-navigation/native
@@ -94,6 +87,23 @@ http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/00050/op
  [ReactNavigation](https://reactnavigation.org/docs/getting-started/)
 
 
-### App video:
+### To download the project to your computer:
 
-https://user-images.githubusercontent.com/99768939/236703429-c217a4bf-f2a9-418f-bf72-4447e0574b9b.mp4
+#### To clone the repository:
+- git clone https://github.com/felipesllopes/App-theUniverse.git
+
+#### Access the repository folder:
+- cd App-theUniverse
+
+#### Install dependencies:
+- yarn add expo
+
+#### Run the command:
+- npx expo start
+
+![cmd](https://github.com/felipesllopes/App-theUniverse/assets/99768939/06a6cf89-62b7-494f-acd4-291c47990efd)
+
+
+To physically execute the project on your cell phone, just install the Expo.go app from the play store and scan the QR Code.
+
+To run in Android Studio, just access by IP or by pressing the "a" key.
