@@ -1,6 +1,7 @@
 import { useNavigation } from "@react-navigation/native";
 import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { BackHandler } from "react-native";
 
 export default function Home() {
 
@@ -30,6 +31,10 @@ export default function Home() {
                     <Text style={styles.textButton}>Foto policromática da Terra</Text>
                 </TouchableOpacity>
 
+                <TouchableOpacity style={styles.backButton} onPress={() => BackHandler.exitApp()}>
+                    <Text style={styles.textButton}>Sair</Text>
+                </TouchableOpacity>
+
             </ImageBackground>
         </SafeAreaView>
     )
@@ -40,17 +45,17 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     imageBackground: {
-        height: '100%'
+        height: '100%',
+        width: '100%',
+        alignItems: 'center',
     },
     imageLogo: {
         height: 80,
         width: 80,
-        alignSelf: 'center',
         marginTop: 10,
     },
     appTitle: {
         fontSize: 36,
-        textAlign: 'center',
         fontWeight: 'bold',
         color: 'white',
         marginTop: 40,
@@ -63,17 +68,26 @@ const styles = StyleSheet.create({
     menuButton: {
         backgroundColor: 'black',
         margin: 10,
-        width: '66%',
-        height: '5.2%',
-        alignSelf: 'center',
-        borderWidth: 0.5,
+        width: '70%',
+        height: '6%',
+        borderWidth: 1,
         borderColor: 'white',
         borderRadius: 15,
+        justifyContent: 'center',
     },
     textButton: {
         fontSize: 19,
         color: 'white',
         textAlign: 'center',
         marginVertical: 4,
-    }
+    },
+    backButton: {
+        backgroundColor: 'black',
+        width: '20%',
+        height: 40,
+        borderColor: 'white',
+        borderWidth: 1,
+        borderRadius: 10,
+        marginTop: 70,
+    },
 })
