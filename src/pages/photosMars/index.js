@@ -1,49 +1,37 @@
 import { Picker } from "@react-native-picker/picker";
 import { useNavigation } from "@react-navigation/native";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FlatList, ImageBackground, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import api from "../../services/api";
 import { key } from "../../services/key";
 import ListPhotosMars from "./listPhotosMars";
+import roverV from "./rover";
 
 export default function PhotosMars() {
 
-    const [roverPhotos, setRoverPhotos] = useState([]); // recebe a API
-    const [sol, setSol] = useState();  // recebe o dia marcianico através do input
-    const [rover, setRover] = useState("Curiosity"); // recebe o rover através do picker 1
-    const [cam, setCam] = useState([]); // receb array adc as cameras conforme rover slcd e listará no picker 2
-    const [camera, setCamera] = useState("FHAZ");  // recebe a camera através do picker 2
-
-    // valores que serão enviados para a API após o botão de busca for clicado
-    const [searchSol, setSearchSol] = useState(null);
-    const [searchRover, setSearchRover] = useState(null);
-    const [searchCamera, setSearchCamera] = useState(null);
-
     const navigation = useNavigation();
 
-    useEffect(() => {
-        if (searchSol != "" && searchSol != undefined) { // só irá executar a função async se o state tiver algum valor. Se um state tiver valor, então todos têm
+    const [roverPhotos, setRoverPhotos] = useState([]);
+    const [sol, setSol] = useState();
+    const [rover, setRover] = useState(0);
+    const [camera, setCamera] = useState(0);
+    const [result, setResult] = useState("");
 
-            (async () => {
-                const response = await api.get(`/mars-photos/api/v1/rovers/${searchRover}/photos?sol=${searchSol}&camera=${searchCamera}&api_key=${key}`);
-                setRoverPhotos(await response.data);
-            })();
-        }
+    async function search() {
 
-        if (rover == "Curiosity") {
-            setCam(["FHAZ", "RHAZ", "MAST", "CHEMCAM", "MAHLI", "MARDI", "NAVCAM"]);
-        }
-        if (rover == "Opportunity" || rover == "Spirit") {
-            setCam(["FHAZ", "RHAZ", "NAVCAM", "PANCAM", "MINITES"]);
-        }
+        const response = await api.get(`/mars-photos/api/v1/rovers/${roverV[rover].rover}/photos?sol=${sol}&camera=${roverV[rover].camera[camera]}&api_key=${key}`)
+            .then(async (current) => {
+                setRoverPhotos(await current.data);
 
-    }, [searchRover, searchCamera, searchSol])
+                if (current.data.photos.length == 0) {
+                    setResult("Nenhum resultado encontrado")
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
 
-    function search() {
-        setSearchSol(sol);
-        setSearchRover(rover);
-        setSearchCamera(camera);
         Keyboard.dismiss();
     }
 
@@ -76,9 +64,9 @@ export default function PhotosMars() {
                                 selectedValue={rover}
                                 onValueChange={(item, index) => { setRover(item) }}
                             >
-                                <Picker.Item key={1} value="Curiosity" label="Curiosity" />
-                                <Picker.Item key={2} value="Opportunity" label="Opportunity" />
-                                <Picker.Item key={3} value="Spirit" label="Spirit" />
+                                {roverV.map((v, k) => {
+                                    return <Picker.Item key={k} value={k} label={v.rover} />
+                                })}
                             </Picker>
                         </View>
 
@@ -89,8 +77,8 @@ export default function PhotosMars() {
                                 selectedValue={camera}
                                 onValueChange={(item, index) => { setCamera(item) }}
                             >
-                                {cam.map((v, k) => {
-                                    return <Picker.Item key={k} value={v} label={v} />
+                                {roverV[rover].camera.map((v, k) => {
+                                    return <Picker.Item key={k} value={k} label={v} />
                                 })}
                             </Picker>
                         </View>
@@ -99,18 +87,20 @@ export default function PhotosMars() {
                             <Text style={styles.searchText}>Buscar</Text>
                         </TouchableOpacity>
 
-                        {roverPhotos.photos == undefined ?
-                            <View></View>
-                            :
-                            <View style={styles.viewResult}>
-                                <Text style={styles.result}>Resultados: {roverPhotos.photos.length}</Text>
-                                <FlatList
-                                    style={styles.listRover}
-                                    data={roverPhotos.photos}
-                                    keyExtractor={(item) => String(item.id)}
-                                    renderItem={({ item }) => <ListPhotosMars data={item} />}
-                                    horizontal={true}
-                                />
+                        {roverPhotos.photos &&
+                            <View>
+                                {roverPhotos.photos.length == 0 ? <Text style={styles.notResult}>{result}</Text> :
+                                    <View style={styles.viewResult}>
+                                        <Text style={styles.result}>Resultados: {roverPhotos.photos.length}</Text>
+                                        <FlatList
+                                            style={styles.listRover}
+                                            data={roverPhotos.photos}
+                                            keyExtractor={(item) => String(item.id)}
+                                            renderItem={({ item }) => <ListPhotosMars data={item} />}
+                                            horizontal={true}
+                                        />
+                                    </View>
+                                }
                             </View>
                         }
 
@@ -184,6 +174,12 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#CD853F',
     },
+    notResult: {
+        textAlign: 'center',
+        fontSize: 20,
+        marginVertical: 107,
+        fontWeight: 'bold'
+    },
     viewResult: {
         backgroundColor: 'black',
     },
@@ -216,7 +212,6 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         paddingVertical: 5,
         paddingHorizontal: 10,
-        marginBottom: 40
     },
     textButton: {
         color: '#CD853F',

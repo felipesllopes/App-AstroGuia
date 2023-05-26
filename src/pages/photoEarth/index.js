@@ -16,14 +16,19 @@ export default function PhotoEarth() {
 
     useEffect(() => {
         (async () => {
-            const response = await api.get(`/EPIC/api/natural?api_key=${key}`);
-            setEpic(await response.data);
+            const response = await api.get(`/EPIC/api/natural?api_key=${key}`)
+                .then(async (current) => {
+                    setEpic(await current.data);
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         })()
     }, [])
 
     async function share() {
         await Share.share({
-            message: `https://api.nasa.gov/EPIC/archive/natural/${epic[select].date.substring(0, 4)}/${epic[select].date.substring(5, 7)}/${epic[select].date.substring(8, 10)}/png/${epic[select].image}.png?api_key=${key}`
+            message: `Foto da Terra: \nhttps://api.nasa.gov/EPIC/archive/natural/${epic[select].date.substring(0, 4)}/${epic[select].date.substring(5, 7)}/${epic[select].date.substring(8, 10)}/png/${epic[select].image}.png?api_key=${key}`
         })
     }
 
@@ -126,8 +131,8 @@ const styles = StyleSheet.create({
     },
     button: {
         backgroundColor: 'blue',
-        padding: 3,
-        paddingHorizontal: 9,
+        paddingVertical: 5,
+        paddingHorizontal: 10,
         borderRadius: 6,
         borderWidth: 1,
         borderColor: 'white'

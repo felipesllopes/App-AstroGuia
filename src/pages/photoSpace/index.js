@@ -21,7 +21,12 @@ export default function PhotoSpace() {
     useEffect(() => {
         (async () => {
             const response = await api.get(`/planetary/apod?api_key=${key}`)
-            setApod(response.data);
+                .then(async (current) => {
+                    setApod(await current.data);
+                })
+                .catch((err) => {
+                    console.log(err)
+                })
         })()
     }, [])
 
@@ -43,7 +48,7 @@ export default function PhotoSpace() {
                             <Text style={styles.textData}>{data}</Text>
                             <Image style={styles.imageUrl} source={{ uri: apod.url }} />
                             <Text style={styles.imageTitle}>{apod.title}</Text>
-                            <Text style={styles.creditText}>Crédito da imagem: NASA</Text>
+                            <Text style={styles.creditText}>Crédito da imagem: {apod.copyright}</Text>
 
                             <TouchableOpacity style={styles.button} onPress={share}>
                                 <Text style={styles.textButton}>Compartilhar</Text>
