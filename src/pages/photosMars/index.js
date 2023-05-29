@@ -44,7 +44,7 @@ export default function PhotosMars() {
                 </ImageBackground>
 
                 <View style={styles.box}>
-                    <Text style={styles.topicText}>Sol marciano (0 a 1000): </Text>
+                    <Text style={styles.topicText}>Sol marciano (0 a 1004): </Text>
                     <TextInput
                         style={styles.solTextInput}
                         value={sol}
@@ -54,7 +54,7 @@ export default function PhotosMars() {
                     />
                 </View>
 
-                {sol == undefined || sol == "" || sol > 1000 ? <View></View> :
+                {sol == undefined || sol == "" || sol > 1004 ? <View></View> :
 
                     <View>
                         <View style={styles.box}>
