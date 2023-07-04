@@ -107,11 +107,11 @@ export default function PhotosMars() {
                     </View>
                 }
 
-                <View style={styles.viewButton}>
+                {/* <View style={styles.viewButton}>
                     <TouchableOpacity style={styles.button} onPress={navigation.goBack}>
                         <Text style={styles.textButton}>Voltar</Text>
                     </TouchableOpacity>
-                </View>
+                </View> */}
 
             </ScrollView>
         </SafeAreaView>

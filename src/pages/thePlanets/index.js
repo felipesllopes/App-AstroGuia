@@ -39,23 +39,23 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 24,
         textAlign: 'center',
-        color: 'white',
+        color: '#FFF',
         marginVertical: 25,
     },
     backButton: {
-        backgroundColor: 'blue',
-        borderWidth: 1,
-        borderColor: 'white',
+        backgroundColor: '#000080',
+        borderWidth: 0.6,
+        borderColor: '#FFF',
         borderRadius: 5,
         alignSelf: 'center',
         marginVertical: 18,
-        marginBottom: 30
+        marginBottom: 60
     },
     backText: {
         fontSize: 22,
         paddingHorizontal: 10,
         paddingVertical: 2,
-        color: 'white',
+        color: '#FFF',
         textAlign: 'center',
     },
 })

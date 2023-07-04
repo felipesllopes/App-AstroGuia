@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center',
         color: 'white',
-        backgroundColor: 'blue',
+        backgroundColor: '#000080',
         paddingVertical: 15,
         borderBottomLeftRadius: 40,
         borderTopRightRadius: 40,
@@ -130,11 +130,11 @@ const styles = StyleSheet.create({
         marginBottom: 50
     },
     button: {
-        backgroundColor: 'blue',
+        backgroundColor: '#000080',
         paddingVertical: 5,
         paddingHorizontal: 10,
         borderRadius: 6,
-        borderWidth: 1,
+        borderWidth: 0.6,
         borderColor: 'white'
     },
     textButton: {

@@ -14,7 +14,7 @@ export default function DetailsPlanets({ data }) {
 
             <TouchableOpacity activeOpacity={0.6} style={styles.button} onPress={handleNavigate}>
                 <Text style={styles.textName}>{data.nome}</Text>
-                <Image style={styles.image} source={data.imagem} />
+                <Image style={styles.image} source={data.imagem} resizeMode="contain" />
             </TouchableOpacity>
 
         </View>
@@ -23,7 +23,7 @@ export default function DetailsPlanets({ data }) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'black',
+        backgroundColor: 'rgba(0,0,0,0.6)',
         margin: 13,
         borderWidth: 0.3,
         borderColor: 'white',

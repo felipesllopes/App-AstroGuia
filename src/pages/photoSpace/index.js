@@ -50,13 +50,16 @@ export default function PhotoSpace() {
                             <Text style={styles.imageTitle}>{apod.title}</Text>
                             <Text style={styles.creditText}>Crédito da imagem: {apod.copyright}</Text>
 
-                            <TouchableOpacity style={styles.button} onPress={share}>
-                                <Text style={styles.textButton}>Compartilhar</Text>
-                            </TouchableOpacity>
+                            <View style={styles.viewButtons}>
+                                <TouchableOpacity style={styles.button} onPress={share}>
+                                    <Text style={styles.textButton}>Compartilhar</Text>
+                                </TouchableOpacity>
 
-                            <TouchableOpacity style={[styles.button, { marginBottom: 40 }]} onPress={navigation.goBack}>
-                                <Text style={styles.textButton}>Voltar</Text>
-                            </TouchableOpacity>
+                                <TouchableOpacity style={styles.button} onPress={navigation.goBack}>
+                                    <Text style={styles.textButton}>Voltar</Text>
+                                </TouchableOpacity>
+                            </View>
+
                         </View>
                     </ScrollView>
                 }
@@ -76,20 +79,21 @@ const styles = StyleSheet.create({
     },
     loading: {
         fontSize: 17,
-        color: 'white',
+        color: '#FFF',
         textAlign: 'center',
         textAlignVertical: 'center',
         flex: 1,
     },
     textTitle: {
-        color: 'white',
+        color: '#FFF',
         textAlign: 'center',
         fontSize: 25,
-        marginTop: 20,
-        marginBottom: 12,
+        marginTop: 27,
+        marginBottom: 17,
+        fontWeight: 'bold'
     },
     textData: {
-        color: 'white',
+        color: '#FFF',
         textAlign: 'center',
         fontSize: 16,
         paddingVertical: 6,
@@ -102,30 +106,34 @@ const styles = StyleSheet.create({
         marginVertical: 4,
     },
     imageTitle: {
-        color: 'white',
+        color: '#FFF',
         textAlign: 'center',
         paddingBottom: 16,
         fontSize: 20,
     },
     creditText: {
-        color: 'white',
+        color: '#FFF',
         marginTop: 2,
         textAlign: 'center',
         marginBottom: 10,
     },
+    viewButtons: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        marginTop: 30,
+    },
     button: {
-        backgroundColor: 'blue',
-        borderWidth: 1,
-        borderColor: 'white',
+        backgroundColor: '#000080',
+        borderWidth: 0.6,
+        borderColor: '#FFF',
         borderRadius: 5,
         alignSelf: 'center',
         flexDirection: 'row',
-        marginTop: 18,
         paddingVertical: 5,
         paddingHorizontal: 10,
     },
     textButton: {
-        color: 'white',
+        color: '#FFF',
         textAlign: 'center',
         fontSize: 18,
     },

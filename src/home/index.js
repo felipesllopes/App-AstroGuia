@@ -1,7 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
-import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { BackHandler, Image, ImageBackground, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { BackHandler } from "react-native";
 
 export default function Home() {
 
@@ -57,35 +56,35 @@ const styles = StyleSheet.create({
     appTitle: {
         fontSize: 36,
         fontWeight: 'bold',
-        color: 'white',
+        color: '#FFF',
         marginTop: 40,
     },
     description: {
-        color: 'white',
+        color: '#FFF',
         textAlign: 'center',
         marginVertical: 40,
     },
     menuButton: {
-        backgroundColor: 'black',
+        backgroundColor: 'rgba(0,0,0,0.5)',
         margin: 10,
         width: '70%',
         height: '6%',
         borderWidth: 1,
-        borderColor: 'white',
+        borderColor: '#FFF',
         borderRadius: 15,
         justifyContent: 'center',
     },
     textButton: {
         fontSize: 19,
-        color: 'white',
+        color: '#FFF',
         textAlign: 'center',
         marginVertical: 4,
     },
     backButton: {
-        backgroundColor: 'black',
+        backgroundColor: '#000',
         width: '20%',
         height: 40,
-        borderColor: 'white',
+        borderColor: '#FFF',
         borderWidth: 1,
         borderRadius: 10,
         marginTop: 70,

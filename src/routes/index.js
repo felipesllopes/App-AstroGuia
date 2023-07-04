@@ -5,7 +5,6 @@ import PhotoSpace from "../pages/photoSpace"
 import PhotosMars from "../pages/photosMars"
 import DetailsRover from "../pages/photosMars/detailsRover"
 import ThePlanets from "../pages/thePlanets"
-import DetailsPlanets from "../pages/thePlanets/detailsPlanets"
 import Planet from "../pages/thePlanets/planet"
 
 export default function Routes() {
@@ -16,34 +15,51 @@ export default function Routes() {
         <Stack.Navigator>
 
             <Stack.Screen name="Home" component={Home}
-                options={{ headerShown: false }}
+                options={{ headerShown: false, navigationBarHidden: true }}
             />
 
             <Stack.Screen name="ThePlanets" component={ThePlanets}
-                options={{ headerShown: false }}
-            />
-
-            <Stack.Screen name="DetailsPlanets" component={DetailsPlanets}
+                options={{ headerShown: false, navigationBarHidden: true }}
             />
 
             <Stack.Screen name="Planet" component={Planet}
-                options={{ headerShown: false }}
+                options={{
+                    title: 'Voltar',
+                    headerStyle: {
+                        backgroundColor: 'black',
+                    },
+                    headerTintColor: 'white',
+                    navigationBarHidden: true
+                }}
             />
 
             <Stack.Screen name="PhotoSpace" component={PhotoSpace}
-                options={{ headerShown: false }}
+                options={{
+                    headerShown: false,
+                    navigationBarHidden: true
+                }}
             />
 
             <Stack.Screen name="PhotosMars" component={PhotosMars}
-                options={{ headerShown: false }}
+                options={{
+                    navigationBarHidden: true, title: 'Voltar',
+                    headerStyle: {
+                        backgroundColor: '#DDD'
+                    }
+                }}
             />
 
             <Stack.Screen name="PhotoEarth" component={PhotoEarth}
-                options={{ headerShown: false }}
+                options={{ headerShown: false, navigationBarHidden: true }}
             />
 
             <Stack.Screen name="DetailsRover" component={DetailsRover}
-                options={{ headerShown: false }}
+                options={{
+                    title: 'Detalhes Rover', navigationBarHidden: true,
+                    headerStyle: {
+                        backgroundColor: '#DDD'
+                    }
+                }}
             />
 
         </Stack.Navigator>

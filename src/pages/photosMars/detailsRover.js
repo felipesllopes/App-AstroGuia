@@ -17,7 +17,7 @@ export default function DetailsRover() {
         <SafeAreaView style={styles.container}>
             <ScrollView>
 
-                <Text style={styles.title}>Detalhes Rover</Text>
+                {/* <Text style={styles.title}>Detalhes Rover</Text> */}
                 <View style={styles.box}>
                     <Image style={styles.image} source={{ uri: route.params?.data.img_src }} />
                     <Text style={styles.text}>Rover: {route.params?.data.rover.name}</Text>
@@ -38,9 +38,9 @@ export default function DetailsRover() {
                         <Text style={styles.textButton}>Compartilhar</Text>
                     </TouchableOpacity>
 
-                    <TouchableOpacity style={styles.button} onPress={navigation.goBack}>
+                    {/* <TouchableOpacity style={styles.button} onPress={navigation.goBack}>
                         <Text style={styles.textButton}>Voltar</Text>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
 
             </ScrollView>
@@ -62,11 +62,12 @@ const styles = StyleSheet.create({
     },
     box: {
         borderWidth: 4,
-        borderColor: 'black',
+        borderColor: '#000',
         borderRadius: 14,
         alignItems: 'center',
         marginHorizontal: 10,
-        backgroundColor: '#DDD'
+        backgroundColor: '#DDD',
+        marginTop: 30,
     },
     image: {
         width: '100%',

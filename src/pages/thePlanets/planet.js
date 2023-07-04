@@ -1,10 +1,9 @@
-import { useNavigation, useRoute } from "@react-navigation/native";
-import { Image, ImageBackground, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useRoute } from "@react-navigation/native";
+import { Image, ImageBackground, ScrollView, StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Planet() {
 
-    const navigation = useNavigation();
     const route = useRoute();
 
     return (
@@ -13,7 +12,7 @@ export default function Planet() {
                 <ScrollView>
                     <View style={styles.cardContainer}>
                         <Text style={styles.planetName}>{route.params?.data.nome}</Text>
-                        <Image style={styles.planetImage} source={route.params?.data.imagem} />
+                        <Image style={styles.planetImage} source={route.params?.data.imagem} resizeMode="contain" />
                     </View>
 
                     <Text style={styles.generalData}>Dados Gerais:</Text>
@@ -27,10 +26,6 @@ export default function Planet() {
                     <Text style={styles.topicText}>Período de translação: {route.params?.data.periodo_translacao}</Text>
                     <Text style={styles.topicText}>Temperatura média: {route.params?.data.temperatura_media}</Text>
                     <Text style={styles.topicText}>Composição atmosférica: {route.params?.data.composicao_atmosferica}</Text>
-
-                    <TouchableOpacity style={styles.backButton} onPress={navigation.goBack}>
-                        <Text style={styles.backText}>Voltar</Text>
-                    </TouchableOpacity>
 
                 </ScrollView>
             </ImageBackground>
@@ -68,23 +63,7 @@ const styles = StyleSheet.create({
         fontSize: 19,
         color: 'white',
         margin: 10,
-        backgroundColor: '#141414',
+        backgroundColor: 'rgba(14,14,14, 0.6)',
         borderRadius: 5,
-    },
-    backButton: {
-        backgroundColor: 'blue',
-        borderWidth: 1,
-        borderColor: 'white',
-        borderRadius: 5,
-        alignSelf: 'center',
-        marginVertical: 20,
-        marginBottom: 20,
-    },
-    backText: {
-        fontSize: 22,
-        paddingHorizontal: 10,
-        paddingVertical: 2,
-        color: 'white',
-        textAlign: 'center',
     },
 })
