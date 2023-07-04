@@ -1,6 +1,6 @@
 import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
-import { FlatList, ImageBackground, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, FlatList, ImageBackground, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import api from "../../services/api";
 import { key } from "../../services/key";
 import ListPhotosMars from "./listPhotosMars";
@@ -9,13 +9,14 @@ import roverV from "./rover";
 export default function PhotosMars() {
 
     const [roverPhotos, setRoverPhotos] = useState([]);
-    const [sol, setSol] = useState();
+    const [sol, setSol] = useState('0');
     const [rover, setRover] = useState(0);
     const [camera, setCamera] = useState(0);
     const [result, setResult] = useState("");
+    const [loading, setLoading] = useState(false);
 
     async function search() {
-
+        setLoading(true)
         await api.get(`/mars-photos/api/v1/rovers/${roverV[rover].rover}/photos?sol=${sol}&camera=${roverV[rover].camera[camera]}&api_key=${key}`)
             .then(async (current) => {
                 setRoverPhotos(await current.data);
@@ -26,8 +27,9 @@ export default function PhotosMars() {
             })
             .catch((err) => {
                 alert('Ocorreu um erro inesperado.')
+                setLoading(false);
             })
-
+        setLoading(false);
         Keyboard.dismiss();
     }
 
@@ -80,7 +82,10 @@ export default function PhotosMars() {
                     </View>
 
                     <TouchableOpacity onPress={search} style={styles.searchButton}>
-                        <Text style={styles.searchText}>Buscar</Text>
+                        {loading ? <ActivityIndicator size={27} color={'#000'} />
+                            :
+                            <Text style={styles.searchText}>Buscar</Text>
+                        }
                     </TouchableOpacity>
 
                     {roverPhotos.photos &&

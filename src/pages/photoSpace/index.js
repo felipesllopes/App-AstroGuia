@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#888',
         marginVertical: 4,
+        alignSelf: 'center',
     },
     imageTitle: {
         color: '#FFF',
