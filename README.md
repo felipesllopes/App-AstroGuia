@@ -3,8 +3,7 @@
 ### About:
 This application has the functionality to show some information about the planets of the Solar System and some information extracted from a NASA API.
 
-![App-theUniverse-image](https://github.com/felipesllopes/App-theUniverse/assets/99768939/5f26f1ff-fca0-4ac6-a7f9-82ab5a037654)
-
+![App-theUniverse-home](https://github.com/felipesllopes/App-theUniverse/assets/99768939/51e7d32f-a5ad-47eb-be71-cd98310905f6)
 
 
 ### Home
