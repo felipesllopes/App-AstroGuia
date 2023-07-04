@@ -9,6 +9,7 @@ This application has the functionality to show some information about the planet
 ### Home
 This is the home screen of the application
 
+
 ![img1](https://github.com/felipesllopes/App-theUniverse/assets/99768939/5d5c4930-4db4-462c-9d19-9f54dcdd882f)
 
 
@@ -23,12 +24,16 @@ The first button presents the planets of the Solar System, where each one will c
 ### Foto Astronômica do dia
 This button opens a screen where the astronomical image of the day, made available by NASA, through the API, will be shown. The "Compartilhar" button gives the option to share the URL of the image.
 
+
+https://github.com/felipesllopes/App-theUniverse/assets/99768939/74540ca0-da5d-4111-a80b-ea8a8fc9abb0
+
 ![img5](https://github.com/felipesllopes/App-theUniverse/assets/99768939/549a58b6-da28-4205-8a06-f55640bf6e52)
 ![img6](https://github.com/felipesllopes/App-theUniverse/assets/99768939/f2b1257d-b21f-4a0d-82e5-6bbdf8d9cf7b)
 
 
 ### Imagens Rover em Marte
 This button opens a screen where images provided by NASA, through the API, of the missions on Mars will be shown. The Martian day (sol), the rover and the camera used must be informed. A list will show all images related to the search. It is also possible to open the image to have detailed information about the image and the Rover.
+
 
 ![img7](https://github.com/felipesllopes/App-theUniverse/assets/99768939/142f22fa-c789-43fc-9202-b66690ee3f3d)
 ![img8](https://github.com/felipesllopes/App-theUniverse/assets/99768939/72913b1d-b150-446c-9b09-0cf9efef5dd6)
@@ -40,6 +45,9 @@ This button opens a screen where images provided by NASA, through the API, of th
 
 ### Foto policromática da Terra
 This button opens a screen where the polychromatic image of the Earth taken by the NOAA DSCOVR satellite will be shown. Contains a picker where all the shooting dates will be shown. Each date corresponds to a different image.
+
+
+https://github.com/felipesllopes/App-theUniverse/assets/99768939/38d0d59a-e492-45df-8789-3b84e8cfa06d
 
 ![img12](https://github.com/felipesllopes/App-theUniverse/assets/99768939/a7cd65b8-4a58-4181-afa0-2f7dcce44843)
 ![img13](https://github.com/felipesllopes/App-theUniverse/assets/99768939/5cfbb5ee-f31c-48c5-a0f8-4f76afe42a31)
