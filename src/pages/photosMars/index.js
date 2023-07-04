@@ -81,7 +81,7 @@ export default function PhotosMars() {
                         </View>
                     </View>
 
-                    <TouchableOpacity onPress={search} style={styles.searchButton}>
+                    <TouchableOpacity activeOpacity={0.6} onPress={search} style={styles.searchButton}>
                         {loading ? <ActivityIndicator size={27} color={'#000'} />
                             :
                             <Text style={styles.searchText}>Buscar</Text>

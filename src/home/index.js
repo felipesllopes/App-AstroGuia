@@ -13,19 +13,19 @@ export default function Home() {
                 <Image source={require("../img/telescopio01.png")} style={styles.imageLogo} />
                 <Text style={styles.description}>App com serviços da NASA</Text>
 
-                <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('ThePlanets')}>
+                <TouchableOpacity activeOpacity={0.6} style={styles.menuButton} onPress={() => navigation.navigate('ThePlanets')}>
                     <Text style={styles.textButton}>Planetas do Sistema Solar</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('PhotoSpace')}>
+                <TouchableOpacity activeOpacity={0.6} style={styles.menuButton} onPress={() => navigation.navigate('PhotoSpace')}>
                     <Text style={styles.textButton}>Foto Astronômica do dia</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('PhotosMars')}>
+                <TouchableOpacity activeOpacity={0.6} style={styles.menuButton} onPress={() => navigation.navigate('PhotosMars')}>
                     <Text style={styles.textButton}>Imagens Rovers em Marte</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate('PhotoEarth')}>
+                <TouchableOpacity activeOpacity={0.6} style={styles.menuButton} onPress={() => navigation.navigate('PhotoEarth')}>
                     <Text style={styles.textButton}>Foto policromática da Terra</Text>
                 </TouchableOpacity>
 
