@@ -1,10 +1,8 @@
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import { Image, ScrollView, Share, StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function DetailsRover() {
 
-    const navigation = useNavigation();
     const route = useRoute();
 
     async function share() {
@@ -14,37 +12,27 @@ export default function DetailsRover() {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
-            <ScrollView>
+        <ScrollView style={styles.container}>
 
-                {/* <Text style={styles.title}>Detalhes Rover</Text> */}
-                <View style={styles.box}>
-                    <Image style={styles.image} source={{ uri: route.params?.data.img_src }} />
-                    <Text style={styles.text}>Rover: {route.params?.data.rover.name}</Text>
-                    <Text style={styles.text}>Câmera: {route.params?.data.camera.full_name} ({route.params?.data.camera.name})</Text>
-                    <Text style={styles.text}>Id: {route.params?.data.id}</Text>
-                    <Text style={styles.text}>Dia marciano: {route.params?.data.sol}</Text>
-                    <Text style={styles.text}>Data terráquea: {route.params?.data.earth_date}</Text>
-                    <Text style={styles.text}>Data de lançamento: {route.params?.data.rover.launch_date}</Text>
-                    <Text style={styles.text}>Data de pouso: {route.params?.data.rover.landing_date}</Text>
-                    {route.params?.data.rover.status == "active" ?
-                        <Text style={styles.text}>Status da missão: ativa</Text> :
-                        <Text style={styles.text}>Status da missão: completa</Text>
-                    }
-                </View>
+            <View style={styles.box}>
+                <Image style={styles.image} source={{ uri: route.params?.data.img_src }} />
+                <Text style={styles.text}>Rover: {route.params?.data.rover.name}</Text>
+                <Text style={styles.text}>Câmera: {route.params?.data.camera.full_name} ({route.params?.data.camera.name})</Text>
+                <Text style={styles.text}>Id: {route.params?.data.id}</Text>
+                <Text style={styles.text}>Dia marciano: {route.params?.data.sol}</Text>
+                <Text style={styles.text}>Data terráquea: {route.params?.data.earth_date}</Text>
+                <Text style={styles.text}>Data de lançamento: {route.params?.data.rover.launch_date}</Text>
+                <Text style={styles.text}>Data de pouso: {route.params?.data.rover.landing_date}</Text>
+                <Text style={styles.text}>Status da missão: {route.params?.data.rover.status}</Text>
+            </View>
 
-                <View style={styles.viewButton}>
-                    <TouchableOpacity style={styles.button} onPress={share}>
-                        <Text style={styles.textButton}>Compartilhar</Text>
-                    </TouchableOpacity>
+            <View style={styles.viewButton}>
+                <TouchableOpacity style={styles.button} onPress={share}>
+                    <Text style={styles.textButton}>Compartilhar</Text>
+                </TouchableOpacity>
+            </View>
 
-                    {/* <TouchableOpacity style={styles.button} onPress={navigation.goBack}>
-                        <Text style={styles.textButton}>Voltar</Text>
-                    </TouchableOpacity> */}
-                </View>
-
-            </ScrollView>
-        </SafeAreaView>
+        </ScrollView>
     )
 }
 
@@ -52,13 +40,6 @@ const styles = StyleSheet.create({
     container: {
         backgroundColor: '#CD853F',
         flex: 1,
-    },
-    title: {
-        fontSize: 22,
-        fontWeight: 'bold',
-        textAlign: 'center',
-        marginBottom: 10,
-        marginTop: 10,
     },
     box: {
         borderWidth: 4,
@@ -85,6 +66,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         marginTop: 20,
+        marginBottom: '5%'
     },
     button: {
         backgroundColor: '#FFF',
@@ -93,7 +75,6 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         paddingVertical: 5,
         paddingHorizontal: 10,
-        marginBottom: 30,
     },
     textButton: {
         color: '#CD853F',

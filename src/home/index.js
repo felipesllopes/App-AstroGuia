@@ -1,13 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
-import { BackHandler, Image, ImageBackground, StyleSheet, Text, TouchableOpacity } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function Home() {
 
     const navigation = useNavigation();
 
     return (
-        <SafeAreaView style={styles.container}>
+        <View style={styles.container}>
             <ImageBackground style={styles.imageBackground} source={require('../img/blueSpace.jpg')}>
 
                 <Text style={styles.appTitle}>TheUniverse</Text>
@@ -30,12 +29,8 @@ export default function Home() {
                     <Text style={styles.textButton}>Foto policromática da Terra</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.backButton} onPress={() => BackHandler.exitApp()}>
-                    <Text style={styles.textButton}>Sair</Text>
-                </TouchableOpacity>
-
             </ImageBackground>
-        </SafeAreaView>
+        </View>
     )
 }
 
@@ -48,16 +43,17 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
     },
-    imageLogo: {
-        height: 80,
-        width: 80,
-        marginTop: 10,
-    },
     appTitle: {
         fontSize: 36,
         fontWeight: 'bold',
         color: '#FFF',
-        marginTop: 40,
+        marginTop: 50,
+        marginBottom: 20,
+    },
+    imageLogo: {
+        height: 80,
+        width: 80,
+        marginTop: 10,
     },
     description: {
         color: '#FFF',
@@ -80,13 +76,5 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginVertical: 4,
     },
-    backButton: {
-        backgroundColor: '#000',
-        width: '20%',
-        height: 40,
-        borderColor: '#FFF',
-        borderWidth: 1,
-        borderRadius: 10,
-        marginTop: 70,
-    },
+
 })
