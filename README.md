@@ -3,42 +3,47 @@
 ### About:
 This application has the functionality to show some information about the planets of the Solar System and some information extracted from a NASA API.
 
-![App-theUniverse-image](https://github.com/felipesllopes/App-theUniverse/assets/99768939/5f26f1ff-fca0-4ac6-a7f9-82ab5a037654)
-
+![App-theUniverse-home](https://github.com/felipesllopes/App-theUniverse/assets/99768939/51e7d32f-a5ad-47eb-be71-cd98310905f6)
 
 
 ### Home
 This is the home screen of the application
 
-![home](https://github.com/felipesllopes/App-theUniverse/assets/99768939/3a5f2277-b16f-4ee8-ac08-e541a0b286ab)
-
+![img1](https://github.com/felipesllopes/App-theUniverse/assets/99768939/5d5c4930-4db4-462c-9d19-9f54dcdd882f)
 
 
 ### Planetas do Sistema Solar
 The first button presents the planets of the Solar System, where each one will contain its information and characteristics. The FlatList component was used to list the Planets, also a file containing the information of each one. By clicking on the chosen planet, another screen will open where it will contain the information.
 
-![planets](https://github.com/felipesllopes/App-theUniverse/assets/99768939/1fd96697-b54a-4993-b21e-e59a81dd46b4)
-
+![img2](https://github.com/felipesllopes/App-theUniverse/assets/99768939/1734daf2-a065-4135-aac7-ea201cefcc35)
+![img3](https://github.com/felipesllopes/App-theUniverse/assets/99768939/2ab00b26-28f6-4169-ba49-6dc7245ea878)
+![img4](https://github.com/felipesllopes/App-theUniverse/assets/99768939/921b9659-2e77-4323-a47a-94ee89da5969)
 
 
 ### Foto Astronômica do dia
 This button opens a screen where the astronomical image of the day, made available by NASA, through the API, will be shown. The "Compartilhar" button gives the option to share the URL of the image.
 
-![astronomyc-photo](https://github.com/felipesllopes/App-theUniverse/assets/99768939/f716d8e5-6021-4b79-919a-b5c1f52f92eb)
-
+![img5](https://github.com/felipesllopes/App-theUniverse/assets/99768939/549a58b6-da28-4205-8a06-f55640bf6e52)
+![img6](https://github.com/felipesllopes/App-theUniverse/assets/99768939/f2b1257d-b21f-4a0d-82e5-6bbdf8d9cf7b)
 
 
 ### Imagens Rover em Marte
 This button opens a screen where images provided by NASA, through the API, of the missions on Mars will be shown. The Martian day (sol), the rover and the camera used must be informed. A list will show all images related to the search. It is also possible to open the image to have detailed information about the image and the Rover.
 
-![rovers-Marte](https://github.com/felipesllopes/App-theUniverse/assets/99768939/e8ff1e52-e134-4c0d-8587-24bd30e2be63)
+![img7](https://github.com/felipesllopes/App-theUniverse/assets/99768939/142f22fa-c789-43fc-9202-b66690ee3f3d)
+![img8](https://github.com/felipesllopes/App-theUniverse/assets/99768939/72913b1d-b150-446c-9b09-0cf9efef5dd6)
+![img9](https://github.com/felipesllopes/App-theUniverse/assets/99768939/1542ff1a-c0ed-49c7-a31b-4eb7cbf6193c)
+![img10](https://github.com/felipesllopes/App-theUniverse/assets/99768939/a1f68bce-7750-460d-ad76-b5a766c6aa4c)
+![img11](https://github.com/felipesllopes/App-theUniverse/assets/99768939/0ff4ad7b-3c36-4f32-ba5a-047e4a72e064)
 
 
 
 ### Foto policromática da Terra
 This button opens a screen where the polychromatic image of the Earth taken by the NOAA DSCOVR satellite will be shown. Contains a picker where all the shooting dates will be shown. Each date corresponds to a different image.
 
-![earth-photo](https://github.com/felipesllopes/App-theUniverse/assets/99768939/5c67cec1-6440-47ef-aa6d-9ea4a4f380ec)
+![img12](https://github.com/felipesllopes/App-theUniverse/assets/99768939/a7cd65b8-4a58-4181-afa0-2f7dcce44843)
+![img13](https://github.com/felipesllopes/App-theUniverse/assets/99768939/5cfbb5ee-f31c-48c5-a0f8-4f76afe42a31)
+![img14](https://github.com/felipesllopes/App-theUniverse/assets/99768939/2664498b-9c21-430d-a805-a6aa9deeca89)
 
 
 
