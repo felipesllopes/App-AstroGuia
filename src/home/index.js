@@ -9,9 +9,7 @@ export default function Home() {
         <View style={styles.container}>
             <ImageBackground style={styles.imageBackground} source={require('../img/blueSpace.jpg')}>
 
-                <Text style={styles.appTitle}>TheUniverse</Text>
-                <Image source={require("../img/telescopio01.png")} style={styles.imageLogo} />
-                <Text style={styles.description}>App com serviços da NASA</Text>
+                <Image source={require("../img/logo.png")} style={styles.imageLogo} resizeMode="contain" />
 
                 <TouchableOpacity activeOpacity={0.6} style={styles.menuButton} onPress={() => navigation.navigate('ThePlanets')}>
                     <Text style={styles.textButton}>Planetas do Sistema Solar</Text>
@@ -43,22 +41,11 @@ const styles = StyleSheet.create({
         width: '100%',
         alignItems: 'center',
     },
-    appTitle: {
-        fontSize: 36,
-        fontWeight: 'bold',
-        color: '#FFF',
-        marginTop: 50,
-        marginBottom: 20,
-    },
     imageLogo: {
-        height: 80,
-        width: 80,
-        marginTop: 10,
-    },
-    description: {
-        color: '#FFF',
-        textAlign: 'center',
-        marginVertical: 40,
+        height: 186,
+        width: 306,
+        marginTop: 40,
+        marginBottom: 70,
     },
     menuButton: {
         backgroundColor: 'rgba(0,0,0,0.5)',
