@@ -3,15 +3,15 @@
 ### About:
 This application has the functionality to show some information about the planets of the Solar System and some information extracted from a NASA API.
 
-![App-theUniverse-home](https://github.com/felipesllopes/App-theUniverse/assets/99768939/51e7d32f-a5ad-47eb-be71-cd98310905f6)
+### SplashScreen
+
+![img0](https://github.com/felipesllopes/App-theUniverse/assets/99768939/689f57be-5e94-4697-9697-067a1f093e37)
 
 
 ### Home
 This is the home screen of the application
 
-
-![img1](https://github.com/felipesllopes/App-theUniverse/assets/99768939/5d5c4930-4db4-462c-9d19-9f54dcdd882f)
-
+![img1](https://github.com/felipesllopes/App-theUniverse/assets/99768939/2472f004-c253-4946-8d72-9ba6ed3b41e6)
 
 ### Planetas do Sistema Solar
 The first button presents the planets of the Solar System, where each one will contain its information and characteristics. The FlatList component was used to list the Planets, also a file containing the information of each one. By clicking on the chosen planet, another screen will open where it will contain the information.
