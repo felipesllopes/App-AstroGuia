@@ -1,4 +1,4 @@
-# App-theUniverse
+# App-AstroGuia
 
 ### About:
 This application has the functionality to show some information about the planets of the Solar System and some information extracted from a NASA API.
