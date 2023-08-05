@@ -1,14 +1,13 @@
-import { FlatList, ImageBackground, StyleSheet } from "react-native";
+import { styled } from "styled-components/native";
 import DetailsPlanets from "./detailsPlanets";
 import planetas from "./planetas";
 
 export default function ThePlanets() {
 
     return (
-        <ImageBackground source={require("../../img/wallpaper2.jpg")} style={styles.container}>
+        <ImageBackground source={require("../../img/wallpaper2.jpg")}>
 
             <FlatList
-                style={{ marginTop: 25 }}
                 data={planetas}
                 key={item => String(item.id)}
                 renderItem={({ item }) => <DetailsPlanets data={item} />}
@@ -18,8 +17,10 @@ export default function ThePlanets() {
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-})
+const ImageBackground = styled.ImageBackground`
+flex: 1;
+`;
+
+const FlatList = styled.FlatList`
+margin-top: 25px;
+`;

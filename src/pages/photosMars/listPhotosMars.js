@@ -1,6 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { ActivityIndicator, Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import { styled } from "styled-components/native";
 
 export default function ListPhotosMars({ data }) {
 
@@ -16,23 +16,29 @@ export default function ListPhotosMars({ data }) {
     }
 
     return (
-        <View style={styles.container}>
+        <Container>
             <TouchableOpacity activeOpacity={0.8} onPress={handleNavigate}>
-                {loading && <ActivityIndicator size={30} color={'#000'} style={{ margin: 86.5 }} />}
+                {loading && <ActivityIndicator size={30} color={'#000'} />}
                 <View style={{ display: loading ? 'none' : 'flex' }}>
-                    <Image style={styles.image} source={{ uri: data.img_src }} onLoad={loadImage} />
+                    <Photo source={{ uri: data.img_src }} onLoad={loadImage} />
                 </View>
             </TouchableOpacity>
-        </View>
+        </Container>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        marginHorizontal: 1,
-    },
-    image: {
-        width: 203,
-        height: 203,
-    },
-})
+const Container = styled.View`
+margin: 0 1px;
+`;
+
+const Photo = styled.Image`
+width: 150px;
+height: 150px;
+`;
+
+const ActivityIndicator = styled.ActivityIndicator`
+margin: 60px;
+`;
+
+const View = styled.View``;
+const TouchableOpacity = styled.TouchableOpacity``;

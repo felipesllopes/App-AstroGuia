@@ -52,7 +52,7 @@ export default function Routes() {
 
             <Stack.Screen name="DetailsRover" component={DetailsRover}
                 options={{
-                    title: 'Detalhes do Rover',
+                    title: 'Detalhes da imagem',
                 }}
             />
 

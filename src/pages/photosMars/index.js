@@ -1,6 +1,7 @@
 import { Picker } from "@react-native-picker/picker";
 import { useState } from "react";
-import { ActivityIndicator, FlatList, ImageBackground, Keyboard, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Keyboard } from "react-native";
+import { styled } from "styled-components/native";
 import api from "../../services/api";
 import { key } from "../../services/key";
 import ListPhotosMars from "./listPhotosMars";
@@ -33,183 +34,171 @@ export default function PhotosMars() {
         Keyboard.dismiss();
     }
 
+    function renderList({ item }) {
+        return (<ListPhotosMars data={item} />)
+    }
+
     return (
-        <ScrollView style={styles.container}>
+        <Container>
+            <ScrollView>
 
-            <ImageBackground source={require("../../img/marsHeader.jpg")} style={styles.header} />
+                <ImageHeader source={require("../../img/marsHeader.jpg")} />
 
-            <View style={styles.box}>
-                <Text style={styles.topicText}>Sol marciano (0 a 1004): </Text>
-                <TextInput
-                    style={styles.solTextInput}
-                    value={sol}
-                    onChangeText={(text) => { setSol(text) }}
-                    keyboardType="numeric"
-                    maxLength={4}
-                />
-            </View>
+                <Form>
+                    <FormText>Sol marciano (0 a 1004): </FormText>
+                    <SolText
+                        value={sol}
+                        onChangeText={setSol}
+                        keyboardType="numeric"
+                        maxLength={4}
+                    />
+                </Form>
 
-            {sol == undefined || sol == "" || sol > 1004 ? <View></View>
-                :
-                <View>
-                    <View style={styles.box}>
-                        <Text style={styles.topicText}>Rover: </Text>
-                        <View style={styles.viewPicker}>
-                            <Picker
-                                selectedValue={rover}
-                                onValueChange={(item, index) => { setRover(item) }}
-                            >
-                                {roverV.map((v, k) => {
-                                    return <Picker.Item key={k} value={k} label={v.rover} />
-                                })}
-                            </Picker>
-                        </View>
-                    </View>
+                {sol == undefined || sol == "" || sol > 1004 ? <View></View>
+                    :
+                    <View>
+                        <Form>
+                            <FormText>Rover: </FormText>
+                            <ViewPicker>
+                                <Picker
+                                    selectedValue={rover}
+                                    onValueChange={(item, index) => { setRover(item) }}
+                                >
+                                    {roverV.map((v, k) => {
+                                        return <Picker.Item key={k} value={k} label={v.rover} />
+                                    })}
+                                </Picker>
+                            </ViewPicker>
+                        </Form>
 
-                    <View style={styles.box}>
-                        <Text style={styles.topicText}>Câmera: </Text>
-                        <View style={styles.viewPicker}>
-                            <Picker
-                                style={styles.pickerRover}
-                                selectedValue={camera}
-                                onValueChange={(item, index) => { setCamera(item) }}
-                            >
-                                {roverV[rover].camera.map((v, k) => {
-                                    return <Picker.Item key={k} value={k} label={v} />
-                                })}
-                            </Picker>
-                        </View>
-                    </View>
+                        <Form>
+                            <FormText>Câmera: </FormText>
+                            <ViewPicker>
+                                <Picker
+                                    selectedValue={camera}
+                                    onValueChange={(item, index) => { setCamera(item) }}
+                                >
+                                    {roverV[rover].camera.map((v, k) => {
+                                        return <Picker.Item key={k} value={k} label={v} />
+                                    })}
+                                </Picker>
+                            </ViewPicker>
+                        </Form>
 
-                    <TouchableOpacity activeOpacity={0.6} onPress={search} style={styles.searchButton}>
-                        {loading ? <ActivityIndicator size={27} color={'#000'} />
-                            :
-                            <Text style={styles.searchText}>Buscar</Text>
-                        }
-                    </TouchableOpacity>
-
-                    {roverPhotos.photos &&
-                        <View>
-                            {roverPhotos.photos.length == 0
-                                ?
-                                <Text style={styles.notResult}>{result}</Text>
+                        <ButtonSearch activeOpacity={0.6} onPress={search}>
+                            {loading ? <ActivityIndicator size={27} color={'#000'} />
                                 :
-                                <View style={styles.viewResult}>
-                                    <Text style={styles.result}>Resultados: {roverPhotos.photos.length}</Text>
-                                    <FlatList
-                                        style={styles.listRover}
-                                        data={roverPhotos.photos}
-                                        keyExtractor={(item) => String(item.id)}
-                                        renderItem={({ item }) => <ListPhotosMars data={item} />}
-                                        horizontal={true}
-                                    />
-                                </View>
+                                <TextButtonSearch>Buscar</TextButtonSearch>
                             }
-                        </View>
-                    }
+                        </ButtonSearch>
 
-                </View>
-            }
+                        {roverPhotos.photos &&
+                            <View>
+                                {roverPhotos.photos.length == 0
+                                    ?
+                                    <NotResult>{result}</NotResult>
+                                    :
+                                    <ViewResult>
+                                        <Result>Resultados: {roverPhotos.photos.length}</Result>
+                                        <ListRover
+                                            data={roverPhotos.photos}
+                                            renderItem={renderList}
+                                            horizontal={true}
+                                        />
+                                    </ViewResult>
+                                }
+                            </View>
+                        }
 
-        </ScrollView>
+                    </View>
+                }
+
+            </ScrollView>
+        </Container>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#CD853F'
-    },
-    header: {
-        height: 200,
-    },
-    box: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        margin: 6,
-        justifyContent: 'flex-end',
-        marginRight: 20
-    },
-    topicText: {
-        fontSize: 19,
-        fontWeight: 'bold',
-    },
-    solTextInput: {
-        fontSize: 18,
-        backgroundColor: 'white',
-        width: '15%',
-        textAlign: 'center',
-        borderWidth: 2,
-        borderRadius: 3,
-        paddingVertical: 2
-    },
-    viewPicker: {
-        width: 200,
-        borderWidth: 2,
-        borderRadius: 6,
-        backgroundColor: 'white',
-        height: 45,
-        justifyContent: 'center'
-    },
-    searchButton: {
-        backgroundColor: '#FFF',
-        width: 100,
-        alignSelf: 'center',
-        borderColor: '#555',
-        borderWidth: 2,
-        borderRadius: 18,
-        marginVertical: 15,
-        paddingVertical: 4,
-    },
-    searchText: {
-        fontSize: 18,
-        textAlign: 'center',
-        fontWeight: 'bold',
-        color: '#000',
-    },
-    notResult: {
-        textAlign: 'center',
-        fontSize: 20,
-        marginVertical: 50,
-        fontStyle: 'italic',
-    },
-    viewResult: {
-        backgroundColor: 'black',
-    },
-    result: {
-        fontSize: 17,
-        marginLeft: 3,
-        color: 'white',
-        marginTop: 3,
-    },
-    listRover: {
-        backgroundColor: '#EEE',
-        marginVertical: 5,
-        paddingVertical: 2,
-    },
-    earthDate: {
-        fontSize: 17,
-        textAlign: 'center',
-        marginVertical: 7,
-        color: 'white',
-    },
-    viewButton: {
-        alignSelf: 'center',
-        alignContent: 'flex-end',
-        marginTop: 50,
-    },
-    button: {
-        backgroundColor: '#DDD',
-        borderWidth: 2,
-        borderColor: '#555',
-        borderRadius: 5,
-        paddingVertical: 5,
-        paddingHorizontal: 10,
-    },
-    textButton: {
-        color: '#CD853F',
-        textAlign: 'center',
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-})
+const Container = styled.SafeAreaView`
+flex: 1;
+background-color: #CD853F;
+`
+
+const ImageHeader = styled.Image`
+height: 200px;
+width: 100%;
+`
+
+const Form = styled.View`
+flex-direction: row;
+align-items: center;
+margin: 6px 20px 6px 6px;
+justify-content: flex-end;
+`
+
+const FormText = styled.Text`
+font-size: 19px;
+font-weight: bold;
+`
+
+const SolText = styled.TextInput`
+font-size: 18px;
+background-color: #FFF;
+width: 15%;
+text-align: center;
+border-width: 2px;
+border-radius: 3px;
+padding: 2px 0;
+`
+
+const ViewPicker = styled.View`
+width: 200px;
+height: 45px;
+border-width: 2px;
+border-radius: 6px;
+background-color: #FFF;
+justify-content: center;
+`
+
+const ButtonSearch = styled.TouchableOpacity`
+background-color: #FFF;
+width: 100px;
+align-self: center;
+border-color: #555;
+border-width: 2px;
+border-radius: 18px;
+margin: 15px 0;
+padding: 4px 0;
+`
+
+const TextButtonSearch = styled.Text`
+font-size: 18px;
+text-align: center;
+font-weight: bold;
+`
+
+const NotResult = styled.Text`
+font-size: 20px;
+text-align: center;
+margin: 50px 0;
+font-style: italic;
+`
+
+const ViewResult = styled.View`
+background-color: #000;
+`
+
+const Result = styled.Text`
+font-size: 17px;
+margin: 3px 0 0 3px;
+color: #FFF;
+`
+
+const ListRover = styled.FlatList`
+background-color: #FFF;
+margin: 5px 0;
+padding: 2px 0;
+`
+
+const View = styled.View``;
+const ScrollView = styled.ScrollView``;
+const ActivityIndicator = styled.ActivityIndicator``;

@@ -1,12 +1,12 @@
-import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
-import { ActivityIndicator, Alert, Image, ImageBackground, ScrollView, Share, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ActivityIndicator, Alert, ScrollView, Share, View } from "react-native";
+import { styled } from "styled-components/native";
 import api from "../../services/api";
 import { key } from "../../services/key";
+import Ionicons from "@expo/vector-icons/Ionicons"
 
 export default function PhotoSpace() {
 
-    const navigation = useNavigation();
     const [apod, setApod] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -42,90 +42,108 @@ export default function PhotoSpace() {
     }
 
     return (
-        <ImageBackground source={require("../../img/wallpaper1.jpg")} style={styles.container}>
+        <Container>
 
-            {apod.url == undefined ?
+            <ImageBackground source={require("../../img/wallpaper1.jpg")}>
 
-                <Text style={styles.loading}>Carregando...</Text> :
+                {apod.url == undefined ?
 
-                <ScrollView>
-                    <Text style={styles.textData}>{data}</Text>
-                    {loading && <ActivityIndicator size={50} color={'red'} style={{ marginVertical: 175 }} />}
+                    <Loading>Carregando...</Loading> :
 
-                    <View style={{ display: loading ? 'none' : 'flex' }}>
-                        <Image
-                            style={styles.imageUrl}
-                            source={{ uri: apod.url }}
-                            resizeMode="stretch"
-                            onLoad={loadImage}
-                        />
-                    </View>
+                    <ScrollView>
+                        <Data>{data}</Data>
+                        {loading && <ActivityIndicator size={50} color={'red'} style={{ marginVertical: 175 }} />}
 
-                    <Text style={styles.imageTitle}>{apod.title}</Text>
-                    <Text style={styles.creditText}>Crédito da imagem: {apod.copyright}</Text>
+                        <View style={{ display: loading ? 'none' : 'flex' }}>
+                            <Photo
+                                source={{ uri: apod.url }}
+                                resizeMode="contain"
+                                onLoad={loadImage}
+                            />
+                        </View>
 
-                    <TouchableOpacity style={styles.button} onPress={share}>
-                        <Text style={styles.textButton}>Compartilhar</Text>
-                    </TouchableOpacity>
-                </ScrollView>
-            }
+                        <Title>{apod.title}</Title>
+                        <Credit>Crédito da imagem: {apod.copyright}</Credit>
 
-        </ImageBackground>
+                        <ViewButtons>
+                            <Button onPress={share}>
+                                <TextButton>Salvar <Ionicons name="download-outline" size={20} /></TextButton>
+                            </Button>
+
+                            <Button onPress={share}>
+                                <TextButton>Compartilhar <Ionicons name="share-social" size={20} /></TextButton>
+                            </Button>
+                        </ViewButtons>
+                    </ScrollView>
+                }
+
+            </ImageBackground>
+        </Container>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    loading: {
-        fontSize: 17,
-        color: '#FFF',
-        textAlign: 'center',
-        textAlignVertical: 'center',
-        flex: 1,
-    },
-    textData: {
-        color: '#FFF',
-        textAlign: 'center',
-        fontSize: 16,
-        paddingVertical: 6,
-        marginTop: 20,
-    },
-    imageUrl: {
-        width: 405,
-        height: 400,
-        borderWidth: 1,
-        borderColor: '#888',
-        marginVertical: 4,
-        alignSelf: 'center',
-    },
-    imageTitle: {
-        color: '#FFF',
-        textAlign: 'center',
-        paddingBottom: 16,
-        fontSize: 20,
-    },
-    creditText: {
-        color: '#FFF',
-        marginTop: 2,
-        textAlign: 'center',
-        marginBottom: 10,
-    },
-    button: {
-        backgroundColor: '#000080',
-        borderWidth: 1,
-        borderColor: '#FFF',
-        borderRadius: 5,
-        alignSelf: 'center',
-        flexDirection: 'row',
-        paddingVertical: 7,
-        paddingHorizontal: 10,
-        marginBottom: '5%',
-    },
-    textButton: {
-        color: '#FFF',
-        textAlign: 'center',
-        fontSize: 18,
-    },
-})
+const Container = styled.SafeAreaView`
+flex: 1;
+`;
+
+const ImageBackground = styled.ImageBackground`
+flex: 1;
+`;
+
+const Loading = styled.Text`
+font-size: 17px;
+color: #FFF;
+text-align: center;
+flex: 1;
+margin-top: 50%;
+`;
+
+const Data = styled.Text`
+color: #FFF;
+text-align: center;
+font-size: 16px;
+padding: 6px 0;
+margin-top: 20px;
+`;
+
+const Photo = styled.Image`
+width: 100%;
+height: 400px;
+margin: 4px 0;
+align-self: center;
+`;
+
+const Title = styled.Text`
+font-size: 20px;
+color: #FFF;
+text-align: center;
+padding-bottom: 16px;
+`;
+
+const Credit = styled.Text`
+color: #FFF;
+margin-top: 2px;
+text-align: center;
+margin-bottom: 20px;
+`;
+
+const ViewButtons = styled.View`
+flex-direction: row;
+justify-content: space-around;
+`;
+
+const Button = styled.TouchableOpacity`
+background-color: #000080;
+border-width: 1px;
+border-color: #FFF;
+border-radius: 5px;
+align-self: center;
+padding: 7px 10px;
+margin-bottom: 5%;
+`;
+
+const TextButton = styled.Text`
+color: #FFF;
+text-align: center;
+font-size: 18px;
+`;

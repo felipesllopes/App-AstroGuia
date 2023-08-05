@@ -1,6 +1,6 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
-import { Image, ImageBackground, ScrollView, StyleSheet, Text, View } from "react-native";
+import { styled } from "styled-components/native";
 
 export default function Planet() {
 
@@ -14,55 +14,64 @@ export default function Planet() {
     }, [navigation])
 
     return (
-        <ImageBackground style={styles.flex} source={require("../../img/wallpaper2.jpg")}>
-            <ScrollView>
-                <View style={styles.cardContainer}>
-                    <Image style={styles.planetImage} source={route.params?.data.imagem} resizeMode="contain" />
-                </View>
+        <Container>
+            <ImageBackground source={require("../../img/wallpaper2.jpg")}>
+                <ScrollView>
+                    <ImageView>
+                        <ImagePlanet source={route.params?.data.imagem} resizeMode="contain" />
+                    </ImageView>
 
-                <Text style={styles.generalData}>Dados Gerais:</Text>
+                    <TitleData>Dados Gerais:</TitleData>
 
-                <Text style={styles.topicText}>Diâmetro equatorial: {route.params?.data.diametro_equatorial}</Text>
-                <Text style={styles.topicText}>Área da superfície: {route.params?.data.area_superficie}</Text>
-                <Text style={styles.topicText}>Massa: {route.params?.data.massa}</Text>
-                <Text style={styles.topicText}>Distância do Sol: {route.params?.data.distancia_sol}</Text>
-                <Text style={styles.topicText}>Satélites naturais: {route.params?.data.satelites_naturais}</Text>
-                <Text style={styles.topicText}>Período de rotação: {route.params?.data.periodo_rotacao}</Text>
-                <Text style={styles.topicText}>Período de translação: {route.params?.data.periodo_translacao}</Text>
-                <Text style={styles.topicText}>Temperatura média: {route.params?.data.temperatura_media}</Text>
-                <Text style={[styles.topicText, { marginBottom: '5%' }]}>Composição atmosférica: {route.params?.data.composicao_atmosferica}</Text>
+                    <Text>Diâmetro equatorial: {route.params?.data.diametro_equatorial}</Text>
+                    <Text>Área da superfície: {route.params?.data.area_superficie}</Text>
+                    <Text>Massa: {route.params?.data.massa}</Text>
+                    <Text>Distância do Sol: {route.params?.data.distancia_sol}</Text>
+                    <Text>Satélites naturais: {route.params?.data.satelites_naturais}</Text>
+                    <Text>Período de rotação: {route.params?.data.periodo_rotacao}</Text>
+                    <Text>Período de translação: {route.params?.data.periodo_translacao}</Text>
+                    <Text>Temperatura média: {route.params?.data.temperatura_media}</Text>
+                    <Text>Composição atmosférica: {route.params?.data.composicao_atmosferica}</Text>
 
-            </ScrollView>
-        </ImageBackground>
+                </ScrollView>
+            </ImageBackground>
+        </Container>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    cardContainer: {
-        alignItems: 'center',
-        borderWidth: 2,
-        borderColor: 'white',
-        margin: 10,
-        borderRadius: 10,
-        justifyContent: 'center'
-    },
-    planetImage: {
-        marginVertical: 5,
-    },
-    generalData: {
-        fontSize: 26,
-        color: 'white',
-        textAlign: 'center',
-        marginBottom: 5,
-    },
-    topicText: {
-        fontSize: 19,
-        color: 'white',
-        margin: 10,
-        backgroundColor: 'rgba(0,0,0, 0.5)',
-        borderRadius: 5,
-    },
-})
+const Container = styled.SafeAreaView`
+flex: 1;
+`;
+
+const ImageBackground = styled.ImageBackground`
+flex: 1;
+`;
+
+const ScrollView = styled.ScrollView``;
+
+const ImageView = styled.View`
+align-items: center;
+border-width: 1px;
+border-color: #FFF;
+margin: 10px;
+border-radius: 10px;
+justify-content: center;
+padding: 10px;
+`;
+
+const ImagePlanet = styled.Image``;
+
+const TitleData = styled.Text`
+font-size: 25px;
+color: #FFF;
+text-align: center;
+margin-bottom: 5px;
+`;
+
+const Text = styled.Text`
+font-size: 17px;
+color: #FFF;
+margin: 10px;
+background-color: rgba(0,0,0,0.5);
+border-radius: 5px;
+`;

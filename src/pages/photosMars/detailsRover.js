@@ -1,5 +1,6 @@
 import { useRoute } from "@react-navigation/native";
-import { Image, ScrollView, Share, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Share } from "react-native";
+import { styled } from "styled-components/native";
 
 export default function DetailsRover() {
 
@@ -12,74 +13,80 @@ export default function DetailsRover() {
     }
 
     return (
-        <ScrollView style={styles.container}>
+        <Container>
+            <ScrollView>
 
-            <View style={styles.box}>
-                <Image style={styles.image} source={{ uri: route.params?.data.img_src }} />
-                <Text style={styles.text}>Rover: {route.params?.data.rover.name}</Text>
-                <Text style={styles.text}>Câmera: {route.params?.data.camera.full_name} ({route.params?.data.camera.name})</Text>
-                <Text style={styles.text}>Id: {route.params?.data.id}</Text>
-                <Text style={styles.text}>Dia marciano: {route.params?.data.sol}</Text>
-                <Text style={styles.text}>Data terráquea: {route.params?.data.earth_date}</Text>
-                <Text style={styles.text}>Data de lançamento: {route.params?.data.rover.launch_date}</Text>
-                <Text style={styles.text}>Data de pouso: {route.params?.data.rover.landing_date}</Text>
-                <Text style={styles.text}>Status da missão: {route.params?.data.rover.status}</Text>
-            </View>
+                <ContainerInfo>
+                    <Photo source={{ uri: route.params?.data.img_src }} />
+                    <Text>Rover: {route.params?.data.rover.name}</Text>
+                    <Text>Câmera: {route.params?.data.camera.full_name} ({route.params?.data.camera.name})</Text>
+                    <Text>Id: {route.params?.data.id}</Text>
+                    <Text>Dia marciano: {route.params?.data.sol}</Text>
+                    <Text>Data terráquea: {route.params?.data.earth_date}</Text>
+                    <Text>Data de lançamento: {route.params?.data.rover.launch_date}</Text>
+                    <Text>Data de pouso: {route.params?.data.rover.landing_date}</Text>
+                    <Text>Status da missão: {route.params?.data.rover.status}</Text>
+                </ContainerInfo>
 
-            <View style={styles.viewButton}>
-                <TouchableOpacity style={styles.button} onPress={share}>
-                    <Text style={styles.textButton}>Compartilhar</Text>
-                </TouchableOpacity>
-            </View>
+                <BoxButton>
+                    <Button onPress={share}>
+                        <TextButton>Compartilhar</TextButton>
+                    </Button>
+                </BoxButton>
 
-        </ScrollView>
+            </ScrollView>
+        </Container>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        backgroundColor: '#CD853F',
-        flex: 1,
-    },
-    box: {
-        borderWidth: 4,
-        borderColor: '#000',
-        borderRadius: 14,
-        alignItems: 'center',
-        marginHorizontal: 10,
-        backgroundColor: '#DDD',
-        marginTop: 30,
-    },
-    image: {
-        width: '100%',
-        height: 370,
-        alignSelf: 'center',
-        borderTopLeftRadius: 10,
-        borderTopRightRadius: 10,
-    },
-    text: {
-        fontSize: 17,
-        marginHorizontal: 4,
-        textAlign: 'center',
-    },
-    viewButton: {
-        flexDirection: 'row',
-        justifyContent: 'space-around',
-        marginTop: 20,
-        marginBottom: '5%'
-    },
-    button: {
-        backgroundColor: '#FFF',
-        borderWidth: 2,
-        borderColor: '#555',
-        borderRadius: 5,
-        paddingVertical: 5,
-        paddingHorizontal: 10,
-    },
-    textButton: {
-        color: '#CD853F',
-        textAlign: 'center',
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-})
+const Container = styled.SafeAreaView`
+background-color: #CD853F;
+flex: 1;
+`;
+
+const ScrollView = styled.ScrollView``;
+
+const ContainerInfo = styled.View`
+border-width: 4px;
+border-color: #000;
+border-radius: 14px;
+align-items: center;
+margin: 30px 10px 0 10px;
+background-color: #FFF;
+`;
+
+const Photo = styled.Image`
+width: 100%;
+height: 370px;
+align-self: center;
+border-top-left-radius: 10px;
+border-top-right-radius: 10px;
+`;
+
+const Text = styled.Text`
+font-size: 17px;
+margin: 0 4px;
+text-align: center;
+`;
+
+const BoxButton = styled.View`
+flex-direction: row;
+justify-content: space-around;
+margin-top: 20px;
+margin-bottom: 5%;
+`;
+
+const Button = styled.TouchableOpacity`
+background-color: #FFF;
+border-width: 2px;
+border-color: #555;
+border-radius: 5px;
+padding: 5px 10px;
+`;
+
+const TextButton = styled.Text`
+color: #CD853F;
+text-align: center;
+font-size: 18px;
+font-weight: bold;
+`;

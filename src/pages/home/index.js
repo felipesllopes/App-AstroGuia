@@ -1,67 +1,68 @@
 import { useNavigation } from "@react-navigation/native";
-import { Image, ImageBackground, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { styled } from "styled-components/native";
 
 export default function Home() {
 
     const navigation = useNavigation();
 
     return (
-        <View style={styles.container}>
-            <ImageBackground style={styles.imageBackground} source={require('../../img/wallpaper1.jpg')}>
+        <Container>
+            <Wallpaper source={require('../../img/wallpaper1.jpg')}>
 
-                <Image source={require("../../img/logo.png")} style={styles.imageLogo} resizeMode="contain" />
+                <Logo source={require("../../img/logo.png")} resizeMode="contain" />
 
-                <TouchableOpacity activeOpacity={0.6} style={styles.menuButton} onPress={() => navigation.navigate('ThePlanets')}>
-                    <Text style={styles.textButton}>Planetas do Sistema Solar</Text>
-                </TouchableOpacity>
+                <Button activeOpacity={0.6} onPress={() => navigation.navigate('ThePlanets')}>
+                    <TextButton>Planetas do Sistema Solar</TextButton>
+                </Button>
 
-                <TouchableOpacity activeOpacity={0.6} style={styles.menuButton} onPress={() => navigation.navigate('PhotoSpace')}>
-                    <Text style={styles.textButton}>Foto Astronômica do dia</Text>
-                </TouchableOpacity>
+                <Button activeOpacity={0.6} onPress={() => navigation.navigate('PhotoSpace')}>
+                    <TextButton>Foto Astronômica do dia</TextButton>
+                </Button>
 
-                <TouchableOpacity activeOpacity={0.6} style={styles.menuButton} onPress={() => navigation.navigate('PhotosMars')}>
-                    <Text style={styles.textButton}>Imagens Rovers em Marte</Text>
-                </TouchableOpacity>
+                <Button activeOpacity={0.6} onPress={() => navigation.navigate('PhotosMars')}>
+                    <TextButton>Imagens Rovers em Marte</TextButton>
+                </Button>
 
-                <TouchableOpacity activeOpacity={0.6} style={styles.menuButton} onPress={() => navigation.navigate('PhotoEarth')}>
-                    <Text style={styles.textButton}>Foto policromática da Terra</Text>
-                </TouchableOpacity>
+                <Button activeOpacity={0.6} onPress={() => navigation.navigate('PhotoEarth')}>
+                    <TextButton>Foto policromática da Terra</TextButton>
+                </Button>
 
-            </ImageBackground>
-        </View>
+            </Wallpaper>
+        </Container>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    },
-    imageBackground: {
-        height: '100%',
-        width: '100%',
-        alignItems: 'center',
-    },
-    imageLogo: {
-        height: 87,
-        width: 290,
-        marginTop: 60,
-        marginBottom: 90,
-    },
-    menuButton: {
-        backgroundColor: 'rgba(0,0,0,0.5)',
-        margin: 10,
-        width: '70%',
-        height: '6%',
-        borderWidth: 1,
-        borderColor: '#FFF',
-        borderRadius: 15,
-        justifyContent: 'center',
-    },
-    textButton: {
-        fontSize: 19,
-        color: '#FFF',
-        textAlign: 'center',
-        marginVertical: 4,
-    },
+const Container = styled.SafeAreaView`
+flex: 1;
+`
 
-})
+const Wallpaper = styled.ImageBackground`
+height: 100%;
+width: 100%;
+align-items: center;
+`
+
+const Logo = styled.Image`
+height: 87px;
+width: 290px;
+margin-top: 60px;
+margin-bottom: 90px;
+`
+
+const Button = styled.TouchableOpacity`
+background-color: rgba(0,0,60,0.7);
+margin: 10px;
+width: 70%;
+height: 6%;
+border-width: 1px;
+border-color: #FFF;
+border-radius: 15px;
+justify-content: center;
+`
+
+const TextButton = styled.Text`
+font-size: 19px;
+color: #FFF;
+text-align: center;
+margin: 4px 0;
+`

@@ -1,7 +1,7 @@
 import { Picker } from "@react-native-picker/picker";
-import { useNavigation } from "@react-navigation/native";
 import { useEffect, useState } from "react";
-import { ActivityIndicator, Image, ScrollView, Share, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Share, View } from "react-native";
+import { styled } from "styled-components/native";
 import api from "../../services/api";
 import { key } from "../../services/key";
 
@@ -37,92 +37,98 @@ export default function PhotoEarth() {
     }
 
     return (
-        <View style={styles.container}>
+        <Container>
 
             {epic[select] == undefined ?
-                <Text style={styles.loading}>Carregando...</Text>
+                <Loading>Carregando...</Loading>
                 :
                 <ScrollView>
-                    <Text style={styles.description}>Estas imagens foram tiradas pela câmera EPIC da NASA a bordo do satélite NOAA DSCOVR</Text>
+                    <Description>Estas imagens foram tiradas pela câmera EPIC da NASA a bordo do satélite NOAA DSCOVR</Description>
 
-                    <View style={styles.viewPicker}>
+                    <PickerDate>
                         <Picker
                             selectedValue={select}
-                            onValueChange={(item, indexItem) => { setSelect(item) }}
+                            onValueChange={(item, index) => { setSelect(item) }}
                         >
                             {epicItem = epic.map((v, k) => {
                                 return <Picker.Item key={k} value={k} label={v.date} />
                             })}
                         </Picker>
-                    </View>
+                    </PickerDate>
 
-                    {loading && <ActivityIndicator size={50} color={'red'} style={{ marginVertical: 200 }} />}
+                    {loading && <ActivityLoading size={50} color={'#F00'}/>}
 
                     <View style={{ display: loading ? 'none' : 'flex' }}>
-                        < Image style={styles.image}
+                        < ImageEarth
                             source={{ uri: `https://api.nasa.gov/EPIC/archive/natural/${epic[select].date.substring(0, 4)}/${epic[select].date.substring(5, 7)}/${epic[select].date.substring(8, 10)}/png/${epic[select].image}.png?api_key=${key}` }}
                             onLoad={loadImage}
                         />
 
                         <View style={{ alignItems: 'center' }}>
-                            <TouchableOpacity style={styles.button} onPress={share}>
-                                <Text style={styles.textButton}>Compartilhar</Text>
-                            </TouchableOpacity>
+                            <Button onPress={share}>
+                                <TextButton>Compartilhar</TextButton>
+                            </Button>
                         </View>
                     </View>
 
                 </ScrollView>
             }
 
-        </View>
+        </Container>
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#000',
-    },
-    loading: {
-        fontSize: 17,
-        color: 'white',
-        textAlign: 'center',
-        textAlignVertical: 'center',
-        flex: 1,
-    },
-    description: {
-        fontSize: 17,
-        color: 'white',
-        textAlign: 'center',
-        marginBottom: 8,
-        marginHorizontal: 10,
-        marginTop: 15,
-    },
-    viewPicker: {
-        alignSelf: 'center',
-        backgroundColor: '#FFF',
-        marginTop: 20,
-        width: '60%',
-        height: 45,
-        justifyContent: 'center',
-        borderRadius: 8,
-    },
-    image: {
-        height: 450,
-        width: 450,
-        alignSelf: 'center',
-    },
-    button: {
-        backgroundColor: '#000080',
-        paddingVertical: 7,
-        paddingHorizontal: 10,
-        borderRadius: 6,
-        borderWidth: 1,
-        borderColor: 'white',
-        marginBottom: '5%'
-    },
-    textButton: {
-        fontSize: 18,
-        color: 'white',
-    },
-})
+const Container = styled.SafeAreaView`
+flex: 1;
+background-color: #000;
+`
+
+const Loading = styled.Text`
+flex: 1;
+font-size: 17px;
+color: #FFF;
+text-align: center;
+margin-top: 50%;
+`
+
+const Description = styled.Text`
+font-size: 17px;
+color: #FFF;
+text-align: center;
+margin-bottom: 8px;
+margin: 15px 10px 8px 10px;
+`
+
+const PickerDate = styled.View`
+align-self: center;
+background-color: #FFF;
+margin-top: 20px;
+width: 60%;
+height: 45px;
+justify-content: center;
+border-radius: 8px;
+`
+
+const ActivityLoading = styled.ActivityIndicator`
+margin: 200px 0;
+`
+
+const ImageEarth = styled.Image`
+height: 450px;
+width: 450px;
+align-self: center;
+`
+
+const Button = styled.TouchableOpacity`
+background-color: #000080;
+padding: 7px 10px;
+border-radius: 6px;
+border-width: 1px;
+border-color: #FFF;
+margin-bottom: 5%;
+`
+
+const TextButton = styled.Text`
+font-size: 18px;
+color: #FFF;
+`
