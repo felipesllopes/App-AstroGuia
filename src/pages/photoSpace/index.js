@@ -42,7 +42,7 @@ export default function PhotoSpace() {
     }
 
     return (
-        <ImageBackground source={require("../../img/blueSpace.jpg")} style={styles.container}>
+        <ImageBackground source={require("../../img/wallpaper1.jpg")} style={styles.container}>
 
             {apod.url == undefined ?
 

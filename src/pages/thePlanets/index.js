@@ -5,7 +5,7 @@ import planetas from "./planetas";
 export default function ThePlanets() {
 
     return (
-        <ImageBackground source={require("../../img/fundo2.jpg")} style={styles.container}>
+        <ImageBackground source={require("../../img/wallpaper2.jpg")} style={styles.container}>
 
             <FlatList
                 style={{ marginTop: 25 }}

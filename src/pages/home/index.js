@@ -7,9 +7,9 @@ export default function Home() {
 
     return (
         <View style={styles.container}>
-            <ImageBackground style={styles.imageBackground} source={require('../img/blueSpace.jpg')}>
+            <ImageBackground style={styles.imageBackground} source={require('../../img/wallpaper1.jpg')}>
 
-                <Image source={require("../img/logo.png")} style={styles.imageLogo} resizeMode="contain" />
+                <Image source={require("../../img/logo.png")} style={styles.imageLogo} resizeMode="contain" />
 
                 <TouchableOpacity activeOpacity={0.6} style={styles.menuButton} onPress={() => navigation.navigate('ThePlanets')}>
                     <Text style={styles.textButton}>Planetas do Sistema Solar</Text>
@@ -42,10 +42,10 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     imageLogo: {
-        height: 186,
-        width: 306,
-        marginTop: 40,
-        marginBottom: 70,
+        height: 87,
+        width: 290,
+        marginTop: 60,
+        marginBottom: 90,
     },
     menuButton: {
         backgroundColor: 'rgba(0,0,0,0.5)',

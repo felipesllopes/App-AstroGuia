@@ -14,7 +14,7 @@ export default function Planet() {
     }, [navigation])
 
     return (
-        <ImageBackground style={styles.flex} source={require("../../img/fundo2.jpg")}>
+        <ImageBackground style={styles.flex} source={require("../../img/wallpaper2.jpg")}>
             <ScrollView>
                 <View style={styles.cardContainer}>
                     <Image style={styles.planetImage} source={route.params?.data.imagem} resizeMode="contain" />
@@ -47,7 +47,6 @@ const styles = StyleSheet.create({
         borderColor: 'white',
         margin: 10,
         borderRadius: 10,
-        marginTop: 20,
         justifyContent: 'center'
     },
     planetImage: {
