@@ -19,7 +19,7 @@ export default function Home() {
                     <TextButton>Foto Astronômica do dia</TextButton>
                 </Button>
 
-                <Button activeOpacity={0.6} onPress={() => navigation.navigate('PhotosMars')}>
+                <Button activeOpacity={0.6} onPress={() => navigation.navigate('HomeRover')}>
                     <TextButton>Imagens Rovers em Marte</TextButton>
                 </Button>
 

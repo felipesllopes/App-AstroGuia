@@ -3,6 +3,7 @@ import Home from "../pages/home"
 import PhotoEarth from "../pages/photoEarth"
 import PhotoSpace from "../pages/photoSpace"
 import PhotosMars from "../pages/photosMars"
+import HomeRover from "../pages/photosMars/HomeRover"
 import DetailsRover from "../pages/photosMars/detailsRover"
 import ThePlanets from "../pages/thePlanets"
 import DetailsPlanets from "../pages/thePlanets/detailsPlanets"
@@ -39,6 +40,8 @@ export default function Routes() {
                     title: 'Foto Astronômica do dia',
                 }}
             />
+
+            <Stack.Screen name="HomeRover" component={HomeRover} options={{ title: 'Rover' }} />
 
             <Stack.Screen name="PhotosMars" component={PhotosMars}
                 options={{

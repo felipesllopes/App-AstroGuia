@@ -1,22 +1,15 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { useEffect, useState } from "react";
-import { ActivityIndicator, Alert, ScrollView, Share, View } from "react-native";
+import { Alert, Share } from "react-native";
 import { styled } from "styled-components/native";
 import api from "../../services/api";
 import { key } from "../../services/key";
-import Ionicons from "@expo/vector-icons/Ionicons"
 
 export default function PhotoSpace() {
 
     const [apod, setApod] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const date = new Date();
-    let dia = date.getDate();
-    let mes = date.getMonth();
-    let ano = date.getFullYear();
-
-    let mees = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"]
-    let data = `${dia} de ${mees[mes]} de ${ano}`
 
     useEffect(() => {
         (async () => {
@@ -37,6 +30,10 @@ export default function PhotoSpace() {
             .catch(() => { Alert('Não foi possível realizar o compartilhamento') })
     }
 
+    async function download(file) {
+        console.log(file)
+    }
+
     function loadImage() {
         setLoading(false);
     }
@@ -51,7 +48,9 @@ export default function PhotoSpace() {
                     <Loading>Carregando...</Loading> :
 
                     <ScrollView>
-                        <Data>{data}</Data>
+
+                        <Title>{apod.title}</Title>
+
                         {loading && <ActivityIndicator size={50} color={'red'} style={{ marginVertical: 175 }} />}
 
                         <View style={{ display: loading ? 'none' : 'flex' }}>
@@ -62,11 +61,10 @@ export default function PhotoSpace() {
                             />
                         </View>
 
-                        <Title>{apod.title}</Title>
-                        <Credit>Crédito da imagem: {apod.copyright}</Credit>
+                        <Credit style={{ display: apod.copyright ? 'flex' : 'none' }}>Crédito: {apod.copyright}</Credit>
 
                         <ViewButtons>
-                            <Button onPress={share}>
+                            <Button onPress={() => download(apod.copyright)}>
                                 <TextButton>Salvar <Ionicons name="download-outline" size={20} /></TextButton>
                             </Button>
 
@@ -98,26 +96,23 @@ flex: 1;
 margin-top: 50%;
 `;
 
-const Data = styled.Text`
+const ScrollView = styled.ScrollView``;
+
+const Title = styled.Text`
+font-size: 20px;
 color: #FFF;
 text-align: center;
-font-size: 16px;
-padding: 6px 0;
-margin-top: 20px;
+padding: 20px 0 10px 0;
 `;
+
+const ActivityIndicator = styled.ActivityIndicator``;
+const View = styled.View``;
 
 const Photo = styled.Image`
 width: 100%;
 height: 400px;
 margin: 4px 0;
 align-self: center;
-`;
-
-const Title = styled.Text`
-font-size: 20px;
-color: #FFF;
-text-align: center;
-padding-bottom: 16px;
 `;
 
 const Credit = styled.Text`

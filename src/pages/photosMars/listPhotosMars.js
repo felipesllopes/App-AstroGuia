@@ -1,11 +1,14 @@
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
+import { Dimensions } from "react-native";
 import { styled } from "styled-components/native";
 
 export default function ListPhotosMars({ data }) {
 
     const navigation = useNavigation();
     const [loading, setLoading] = useState(true);
+    const screenWidth = Dimensions.get('window').width;
+    const itemWidth = screenWidth / 3;
 
     function handleNavigate() {
         navigation.navigate("DetailsRover", { data: data })
@@ -16,7 +19,7 @@ export default function ListPhotosMars({ data }) {
     }
 
     return (
-        <Container>
+        <Container style={{ width: itemWidth, height: itemWidth }}>
             <TouchableOpacity activeOpacity={0.8} onPress={handleNavigate}>
                 {loading && <ActivityIndicator size={30} color={'#000'} />}
                 <View style={{ display: loading ? 'none' : 'flex' }}>
@@ -28,12 +31,12 @@ export default function ListPhotosMars({ data }) {
 }
 
 const Container = styled.View`
-margin: 0 1px;
+margin: 0.2px;
 `;
 
 const Photo = styled.Image`
-width: 150px;
-height: 150px;
+width: 100%;
+height: 100%;
 `;
 
 const ActivityIndicator = styled.ActivityIndicator`
