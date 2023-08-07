@@ -31,7 +31,7 @@ export default function ListPhotosMars({ data }) {
 }
 
 const Container = styled.View`
-margin: 0.2px;
+margin: 1px 0.2px;
 `;
 
 const Photo = styled.Image`

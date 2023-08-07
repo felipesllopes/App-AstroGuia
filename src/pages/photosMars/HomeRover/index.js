@@ -1,12 +1,12 @@
-import { styled } from "styled-components/native";
 import { useNavigation } from "@react-navigation/native";
+import { styled } from "styled-components/native";
 
 export default function HomeRover() {
 
     const navigation = useNavigation();
 
     function handleNavigation(rover) {
-        navigation.navigate('PhotosMars', { rover: rover })
+        navigation.navigate('BottonRoute', { screen: 'PhotosMars', params: { rover: rover } })
     }
 
     return (

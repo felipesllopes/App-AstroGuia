@@ -2,14 +2,14 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack"
 import Home from "../pages/home"
 import PhotoEarth from "../pages/photoEarth"
 import PhotoSpace from "../pages/photoSpace"
-import PhotosMars from "../pages/photosMars"
 import HomeRover from "../pages/photosMars/HomeRover"
 import DetailsRover from "../pages/photosMars/detailsRover"
 import ThePlanets from "../pages/thePlanets"
 import DetailsPlanets from "../pages/thePlanets/detailsPlanets"
 import Planet from "../pages/thePlanets/planet"
+import BottonRoute from "./bottonRoute"
 
-export default function Routes() {
+export default function StackRoute({ route }) {
 
     const Stack = createNativeStackNavigator();
 
@@ -20,6 +20,7 @@ export default function Routes() {
                     backgroundColor: '#000',
                 },
                 headerTintColor: '#FFF',
+                animation: 'slide_from_right',
             }}
         >
 
@@ -43,12 +44,6 @@ export default function Routes() {
 
             <Stack.Screen name="HomeRover" component={HomeRover} options={{ title: 'Rover' }} />
 
-            <Stack.Screen name="PhotosMars" component={PhotosMars}
-                options={{
-                    title: 'Imagens Rovers em Marte',
-                }}
-            />
-
             <Stack.Screen name="PhotoEarth" component={PhotoEarth}
                 options={{ title: 'Foto Policromática da Terra' }}
             />
@@ -58,6 +53,8 @@ export default function Routes() {
                     title: 'Detalhes da imagem',
                 }}
             />
+
+            <Stack.Screen name="BottonRoute" component={BottonRoute} />
 
         </Stack.Navigator>
     )

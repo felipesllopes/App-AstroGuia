@@ -2,9 +2,9 @@ import { Picker } from "@react-native-picker/picker";
 import { useLayoutEffect, useState } from "react";
 import { Keyboard } from "react-native";
 import { styled } from "styled-components/native";
-import api from "../../services/api";
-import { key } from "../../services/key";
-import ListPhotosMars from "./listPhotosMars";
+import ListPhotosMars from "../../../../Components/ListPhotosMars";
+import api from "../../../../services/api";
+import { key } from "../../../../services/key";
 
 export default function PhotosMars({ route, navigation }) {
 
@@ -24,7 +24,7 @@ export default function PhotosMars({ route, navigation }) {
 
     useLayoutEffect(() => {
         navigation.setOptions({
-            title: roverr,
+            tabTitle: roverr
         })
     }, [])
 
@@ -185,8 +185,9 @@ background-color: #000;
 `
 
 const ListRover = styled.FlatList`
-background-color: #FFF;
+/* background-color: #FFF; */
 height: 95%;
+margin: 1px;
 `
 
 const View = styled.View`
