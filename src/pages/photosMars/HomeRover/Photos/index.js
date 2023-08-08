@@ -1,5 +1,5 @@
 import { Picker } from "@react-native-picker/picker";
-import { useLayoutEffect, useState } from "react";
+import { useState } from "react";
 import { Keyboard } from "react-native";
 import { styled } from "styled-components/native";
 import ListPhotosMars from "../../../../Components/ListPhotosMars";
@@ -21,12 +21,6 @@ export default function PhotosMars({ route, navigation }) {
     } else {
         cam = ["FHAZ", "RHAZ", "NAVCAM", "PANCAM", "MINITES"];
     }
-
-    useLayoutEffect(() => {
-        navigation.setOptions({
-            tabTitle: roverr
-        })
-    }, [])
 
     async function search() {
 

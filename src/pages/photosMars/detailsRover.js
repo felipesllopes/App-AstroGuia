@@ -19,13 +19,9 @@ export default function DetailsRover() {
                 <ContainerInfo>
                     <Photo source={{ uri: route.params?.data.img_src }} />
                     <Text>Rover: {route.params?.data.rover.name}</Text>
-                    <Text>Câmera: {route.params?.data.camera.full_name} ({route.params?.data.camera.name})</Text>
-                    <Text>Id: {route.params?.data.id}</Text>
+                    <Text>Câmera: {route.params?.data.camera.full_name}</Text>
                     <Text>Dia marciano: {route.params?.data.sol}</Text>
                     <Text>Data terráquea: {route.params?.data.earth_date}</Text>
-                    <Text>Data de lançamento: {route.params?.data.rover.launch_date}</Text>
-                    <Text>Data de pouso: {route.params?.data.rover.landing_date}</Text>
-                    <Text>Status da missão: {route.params?.data.rover.status}</Text>
                 </ContainerInfo>
 
                 <BoxButton>
@@ -53,6 +49,7 @@ border-radius: 14px;
 align-items: center;
 margin: 30px 10px 0 10px;
 background-color: #FFF;
+padding-bottom: 5px;
 `;
 
 const Photo = styled.Image`

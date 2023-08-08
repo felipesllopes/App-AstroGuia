@@ -1,12 +1,16 @@
 import { useNavigation } from "@react-navigation/native";
 import { styled } from "styled-components/native";
+import { useMyContext } from "../../../Context/Context";
 
 export default function HomeRover() {
 
     const navigation = useNavigation();
 
+    const { updateSharedValue } = useMyContext();
+
     function handleNavigation(rover) {
         navigation.navigate('BottonRoute', { screen: 'PhotosMars', params: { rover: rover } })
+        updateSharedValue(rover);
     }
 
     return (

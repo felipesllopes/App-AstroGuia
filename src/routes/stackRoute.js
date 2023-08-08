@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack"
+import { useMyContext } from "../Context/Context"
 import Home from "../pages/home"
 import PhotoEarth from "../pages/photoEarth"
 import PhotoSpace from "../pages/photoSpace"
@@ -9,9 +10,10 @@ import DetailsPlanets from "../pages/thePlanets/detailsPlanets"
 import Planet from "../pages/thePlanets/planet"
 import BottonRoute from "./bottonRoute"
 
-export default function StackRoute({ route }) {
+export default function StackRoute() {
 
     const Stack = createNativeStackNavigator();
+    const { sharedValue } = useMyContext();
 
     return (
         <Stack.Navigator
@@ -54,7 +56,7 @@ export default function StackRoute({ route }) {
                 }}
             />
 
-            <Stack.Screen name="BottonRoute" component={BottonRoute} />
+            <Stack.Screen name="BottonRoute" component={BottonRoute} options={{ title: sharedValue }} />
 
         </Stack.Navigator>
     )

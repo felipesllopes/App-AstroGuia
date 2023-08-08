@@ -1,18 +1,15 @@
 import { NavigationContainer } from '@react-navigation/native';
-import { StatusBar, StyleSheet } from 'react-native';
+import { StatusBar } from 'react-native';
+import { MyProvider } from './src/Context/Context';
 import Routes from './src/routes/stackRoute';
 
 export default function App() {
   return (
-    <NavigationContainer style={styles.container}>
-      <Routes />
-      <StatusBar backgroundColor={'#444'} />
-    </NavigationContainer>
+    <MyProvider>
+      <NavigationContainer>
+        <Routes />
+        <StatusBar backgroundColor={'#444'} />
+      </NavigationContainer>
+    </MyProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  }
-})

@@ -4,7 +4,7 @@ import About from '../pages/photosMars/HomeRover/About';
 import Favorites from '../pages/photosMars/HomeRover/Favorites';
 import PhotosMars from '../pages/photosMars/HomeRover/Photos';
 
-export default function BottonRoute({ route }) {
+export default function BottonRoute() {
 
     const Botton = createBottomTabNavigator();
 
