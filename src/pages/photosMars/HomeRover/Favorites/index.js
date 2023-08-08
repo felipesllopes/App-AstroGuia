@@ -1,17 +1,14 @@
-import { styled } from "styled-components/native";
+import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
 
 export default function Favorites() {
     return (
         <Container>
-            <Title>Favoritos</Title>
+            <Wallpaper source={require('../../../../img/martian.png')}>
+                <Screen>
+
+                </Screen>
+
+            </Wallpaper>
         </Container>
     )
 }
-
-const Container = styled.SafeAreaView`
-flex: 1;
-`;
-
-const Title = styled.Text`
-font-size: 18px;
-`;

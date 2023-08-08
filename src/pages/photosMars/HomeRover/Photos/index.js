@@ -3,10 +3,11 @@ import { useState } from "react";
 import { Keyboard } from "react-native";
 import { styled } from "styled-components/native";
 import ListPhotosMars from "../../../../Components/ListPhotosMars";
+import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
 import api from "../../../../services/api";
 import { key } from "../../../../services/key";
 
-export default function PhotosMars({ route, navigation }) {
+export default function PhotosMars({ route }) {
 
     const roverr = route.params?.rover;
     const [roverPhotos, setRoverPhotos] = useState([]);
@@ -50,71 +51,72 @@ export default function PhotosMars({ route, navigation }) {
 
     return (
         <Container>
+            <Wallpaper source={require('../../../../img/martian.png')}>
+                <Screen>
 
-            <ContainerForm>
-                <Form style={{ justifyContent: 'space-between' }}>
-                    <Form>
-                        <FormText>Câmera: </FormText>
-                        <ViewPicker>
-                            <Pickerr
-                                dropdownIconColor={'#FFF'}
-                                selectedValue={camera}
-                                onValueChange={(item, index) => { setCamera(item) }}
-                            >
-                                {cam.map((v, k) => {
-                                    return <Picker.Item key={k} value={k} label={v} />
-                                })}
-                            </Pickerr>
-                        </ViewPicker>
-                    </Form>
+                    <ContainerForm>
+                        <Form style={{ justifyContent: 'space-between' }}>
+                            <Form>
+                                <FormText>Câmera: </FormText>
+                                <ViewPicker>
+                                    <Pickerr
+                                        dropdownIconColor={'#FFF'}
+                                        selectedValue={camera}
+                                        onValueChange={(item, index) => { setCamera(item) }}
+                                    >
+                                        {cam.map((v, k) => {
+                                            return <Picker.Item key={k} value={k} label={v} />
+                                        })}
+                                    </Pickerr>
+                                </ViewPicker>
+                            </Form>
 
-                    <Result>Resultados: {roverPhotos.photos && roverPhotos.photos.length}</Result>
-                </Form>
+                            <Result>Resultados: {roverPhotos.photos && roverPhotos.photos.length}</Result>
+                        </Form>
 
-                <Form style={{ justifyContent: 'space-between' }}>
-                    <Form>
-                        <FormText>Sol: </FormText>
-                        <SolText
-                            value={sol}
-                            onChangeText={setSol}
-                            keyboardType="numeric"
-                            maxLength={4}
+                        <Form style={{ justifyContent: 'space-between' }}>
+                            <Form>
+                                <FormText>Sol: </FormText>
+                                <SolText
+                                    value={sol}
+                                    onChangeText={setSol}
+                                    keyboardType="numeric"
+                                    maxLength={4}
+                                />
+                            </Form>
+
+                            <ButtonSearch activeOpacity={0.6} onPress={search}>
+                                {loading ? <ActivityIndicator size={24} color={'#000'} />
+                                    :
+                                    <TextButtonSearch>Pesquisar</TextButtonSearch>
+                                }
+                            </ButtonSearch>
+                        </Form>
+                    </ContainerForm>
+
+                    {roverPhotos.photos && roverPhotos.photos.length == 0
+                        ?
+                        <NotResult>{result}</NotResult>
+                        :
+                        <ListRover
+                            numColumns={3}
+                            data={roverPhotos.photos}
+                            renderItem={renderList}
+                            showsVerticalScrollIndicator={false}
                         />
-                    </Form>
+                    }
 
-                    <ButtonSearch activeOpacity={0.6} onPress={search}>
-                        {loading ? <ActivityIndicator size={27} color={'#000'} />
-                            :
-                            <TextButtonSearch>Pesquisar</TextButtonSearch>
-                        }
-                    </ButtonSearch>
-                </Form>
-            </ContainerForm>
-
-            {roverPhotos.photos && roverPhotos.photos.length == 0
-                ?
-                <NotResult>{result}</NotResult>
-                :
-                <ListRover
-                    numColumns={3}
-                    data={roverPhotos.photos}
-                    renderItem={renderList}
-                    showsVerticalScrollIndicator={false}
-                />
-            }
-
+                </Screen>
+            </Wallpaper>
         </Container>
     )
 }
 
-const Container = styled.SafeAreaView`
-flex: 1;
-`
-
 const ContainerForm = styled.View`
-background-color: black;
+background-color: #000;
 justify-content: space-around;
 padding-bottom: 3px;
+width: 100%;
 `;
 
 const Form = styled.View`
@@ -161,11 +163,13 @@ border-color: #FFF;
 
 const ButtonSearch = styled.TouchableOpacity`
 background-color: #FFF;
-align-self: center;
 border-color: #555;
-border-width: 2px;
+border-width: 1px;
 border-radius: 10px;
 padding: 2px 10px;
+margin-right: 1px;
+width: 120px;
+height: 31px;
 `
 
 const ActivityIndicator = styled.ActivityIndicator``;

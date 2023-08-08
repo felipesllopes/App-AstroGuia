@@ -9,7 +9,14 @@ export default function BottonRoute() {
     const Botton = createBottomTabNavigator();
 
     return (
-        <Botton.Navigator>
+        <Botton.Navigator
+            screenOptions={{
+                tabBarStyle: { borderTopWidth: 0 },
+                tabBarActiveTintColor: '#000',
+                tabBarInactiveTintColor: '#DEB887',
+                tabBarLabelStyle: { fontSize: 11, fontWeight: "bold" }
+            }}
+        >
 
             <Botton.Screen
                 name='PhotosMars'
@@ -18,7 +25,7 @@ export default function BottonRoute() {
                     headerShown: false,
                     title: 'Fotos',
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name='camera' color={color} size={size} />
+                        <Ionicons name='camera' color={color} size={30} />
                     )
                 }}
             />
@@ -30,7 +37,7 @@ export default function BottonRoute() {
                     headerShown: false,
                     title: 'Sobre',
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name='information-circle' color={color} size={size} />
+                        <Ionicons name='information-circle' color={color} size={30} />
                     )
                 }}
             />
@@ -42,7 +49,7 @@ export default function BottonRoute() {
                     headerShown: false,
                     title: 'Favoritos',
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name='star' color={color} size={size} />
+                        <Ionicons name='star' color={color} size={30} />
                     )
                 }}
             />

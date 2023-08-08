@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { View } from "react-native";
 import { styled } from "styled-components/native";
+import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
 import { useMyContext } from "../../../../Context/Context";
 import api from "../../../../services/api";
 import { key } from "../../../../services/key";
-import { View } from "react-native";
 
 export default function About() {
 
@@ -24,45 +25,42 @@ export default function About() {
 
     return (
         <Container>
+            <Wallpaper source={require('../../../../img/martian.png')}>
+                <Screen>
+                    <Image source={sharedValue == 'Curiosity' ?
+                        require('../../../../img/curiosity.png') : require('../../../../img/spirit.png')} resizeMode="contain"
+                    />
 
-            <Container2>
-                <Image source={sharedValue == 'Curiosity' ?
-                    require('../../../../img/curiosity.png') : require('../../../../img/spirit.png')} resizeMode="contain"
-                />
+                    <Informations>Informações:</Informations>
 
-                {itens &&
-                    <View>
-                        <Date>Data de lançamento: {itens && itens.launch_date}</Date>
-                        <Date>Data de pouso: {itens && itens.landing_date}</Date>
-                        <Date>Última imagem: {itens && itens.max_date}</Date>
-                        <Date>Total de fotos: {itens && itens.total_photos}</Date>
-                        <Date>Sóis marciano: {itens && itens.max_sol}</Date>
-                    </View>
-                }
-            </Container2>
+                    {itens &&
+                        <View>
+                            <Date>Data de lançamento: {itens && itens.launch_date}</Date>
+                            <Date>Data de pouso: {itens && itens.landing_date}</Date>
+                            <Date>Última imagem: {itens && itens.max_date}</Date>
+                            <Date>Total de fotos: {itens && itens.total_photos}</Date>
+                            <Date>Sóis marciano: {itens && itens.max_sol}</Date>
+                        </View>
+                    }
+                </Screen>
+            </Wallpaper>
         </Container>
+
     )
 }
-
-const Container = styled.SafeAreaView`
-flex: 1;
-align-items: center;
-justify-content: center;
-`;
-
-const Container2 = styled.View`
-background-color: #FFF;
-border-radius: 20px;
-padding: 0 5px 15px 5px;
-border-width: 2px;
-`;
 
 const Image = styled.Image`
 width: 350px;
 height: 350px;
 `;
 
-const Date = styled.Text`
+const Informations = styled.Text`
 font-size: 20px;
+font-weight: bold;
+margin-bottom: 15px;
+`;
+
+const Date = styled.Text`
+font-size: 18px;
 text-align: center;
 `;

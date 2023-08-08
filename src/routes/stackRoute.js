@@ -4,11 +4,11 @@ import Home from "../pages/home"
 import PhotoEarth from "../pages/photoEarth"
 import PhotoSpace from "../pages/photoSpace"
 import HomeRover from "../pages/photosMars/HomeRover"
+import DetailsPhoto from "../pages/photosMars/HomeRover/Photos/DetailsPhoto"
 import ThePlanets from "../pages/thePlanets"
 import DetailsPlanets from "../pages/thePlanets/detailsPlanets"
 import Planet from "../pages/thePlanets/planet"
-import BottonRoute from "./bottonRoute";
-import DetailsPhoto from "../pages/photosMars/DetailsPhoto"
+import BottonRoute from "./bottonRoute"
 
 export default function StackRoute() {
 
@@ -56,7 +56,14 @@ export default function StackRoute() {
                 }}
             />
 
-            <Stack.Screen name="BottonRoute" component={BottonRoute} options={{ title: sharedValue }} />
+            <Stack.Screen
+                name="BottonRoute"
+                component={BottonRoute}
+                options={{
+                    title: sharedValue,
+                    headerTitleAlign: 'center',
+                }}
+            />
 
         </Stack.Navigator>
     )
