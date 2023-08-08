@@ -4,6 +4,7 @@ import { ScrollView, Share, View } from "react-native";
 import { styled } from "styled-components/native";
 import api from "../../services/api";
 import { key } from "../../services/key";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function PhotoEarth() {
 
@@ -47,6 +48,7 @@ export default function PhotoEarth() {
 
                     <PickerDate>
                         <Picker
+                            dropdownIconColor={'#000'}
                             selectedValue={select}
                             onValueChange={(item, index) => { setSelect(item) }}
                         >
@@ -56,7 +58,7 @@ export default function PhotoEarth() {
                         </Picker>
                     </PickerDate>
 
-                    {loading && <ActivityLoading size={50} color={'#F00'}/>}
+                    {loading && <ActivityLoading size={50} color={'#F00'} />}
 
                     <View style={{ display: loading ? 'none' : 'flex' }}>
                         < ImageEarth
@@ -64,11 +66,20 @@ export default function PhotoEarth() {
                             onLoad={loadImage}
                         />
 
-                        <View style={{ alignItems: 'center' }}>
-                            <Button onPress={share}>
-                                <TextButton>Compartilhar</TextButton>
-                            </Button>
-                        </View>
+                        <ViewButtons>
+                            <Ionicons
+                                name="download-outline"
+                                size={33}
+                                color={'#FFF'}
+                            />
+
+                            <Ionicons
+                                name="share-social"
+                                size={33}
+                                color={'#FFF'}
+                                onPress={share}
+                            />
+                        </ViewButtons>
                     </View>
 
                 </ScrollView>
@@ -119,16 +130,7 @@ width: 450px;
 align-self: center;
 `
 
-const Button = styled.TouchableOpacity`
-background-color: #000080;
-padding: 7px 10px;
-border-radius: 6px;
-border-width: 1px;
-border-color: #FFF;
-margin-bottom: 5%;
-`
-
-const TextButton = styled.Text`
-font-size: 18px;
-color: #FFF;
-`
+const ViewButtons = styled.View`
+flex-direction: row;
+justify-content: space-around;
+`;

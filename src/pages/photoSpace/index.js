@@ -30,8 +30,7 @@ export default function PhotoSpace() {
             .catch(() => { Alert('Não foi possível realizar o compartilhamento') })
     }
 
-    async function download(file) {
-        console.log(file)
+    async function download() {
     }
 
     function loadImage() {
@@ -64,13 +63,19 @@ export default function PhotoSpace() {
                         <Credit style={{ display: apod.copyright ? 'flex' : 'none' }}>Crédito: {apod.copyright}</Credit>
 
                         <ViewButtons>
-                            <Button onPress={() => download(apod.copyright)}>
-                                <TextButton>Salvar <Ionicons name="download-outline" size={20} /></TextButton>
-                            </Button>
+                            <Ionicons
+                                name="download-outline"
+                                size={33}
+                                color={'#FFF'}
+                                onPress={download}
+                            />
 
-                            <Button onPress={share}>
-                                <TextButton>Compartilhar <Ionicons name="share-social" size={20} /></TextButton>
-                            </Button>
+                            <Ionicons
+                                name="share-social"
+                                size={33}
+                                color={'#FFF'}
+                                onPress={share}
+                            />
                         </ViewButtons>
                     </ScrollView>
                 }
@@ -125,20 +130,4 @@ margin-bottom: 20px;
 const ViewButtons = styled.View`
 flex-direction: row;
 justify-content: space-around;
-`;
-
-const Button = styled.TouchableOpacity`
-background-color: #000080;
-border-width: 1px;
-border-color: #FFF;
-border-radius: 5px;
-align-self: center;
-padding: 7px 10px;
-margin-bottom: 5%;
-`;
-
-const TextButton = styled.Text`
-color: #FFF;
-text-align: center;
-font-size: 18px;
 `;
