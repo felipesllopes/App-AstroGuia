@@ -1,12 +1,19 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { useRoute } from "@react-navigation/native";
+import { useState } from "react";
 import { Share } from "react-native";
 import { styled } from "styled-components/native";
 
-export default function DetailsRover() {
+export default function DetailsPhoto() {
 
     const route = useRoute();
+    const [favorite, serFavorite] = useState(false);
 
-    async function share() {
+    async function handleFavorite() {
+        serFavorite(current => (current === true ? false : true))
+    }
+
+    async function handleShare() {
         await Share.share({
             message: `Foto rover ${route.params?.data.rover.name} em Marte. \n${route.params?.data.img_src}`
         })
@@ -21,14 +28,14 @@ export default function DetailsRover() {
                     <Text>Rover: {route.params?.data.rover.name}</Text>
                     <Text>Câmera: {route.params?.data.camera.full_name}</Text>
                     <Text>Dia marciano: {route.params?.data.sol}</Text>
-                    <Text>Data terráquea: {route.params?.data.earth_date}</Text>
-                </ContainerInfo>
+                    <Text>Data: {route.params?.data.earth_date}</Text>
 
-                <BoxButton>
-                    <Button onPress={share}>
-                        <TextButton>Compartilhar</TextButton>
-                    </Button>
-                </BoxButton>
+                    <BoxButton>
+                        <Ionicons name={favorite ? "star" : "star-outline"} size={30} onPress={handleFavorite} />
+
+                        <Ionicons name="share-social" size={30} onPress={handleShare} />
+                    </BoxButton>
+                </ContainerInfo>
 
             </ScrollView>
         </Container>
@@ -36,17 +43,15 @@ export default function DetailsRover() {
 }
 
 const Container = styled.SafeAreaView`
-background-color: #CD853F;
 flex: 1;
 `;
 
 const ScrollView = styled.ScrollView``;
 
 const ContainerInfo = styled.View`
-border-width: 4px;
+border-width: 2px;
 border-color: #000;
 border-radius: 14px;
-align-items: center;
 margin: 30px 10px 0 10px;
 background-color: #FFF;
 padding-bottom: 5px;
@@ -58,32 +63,16 @@ height: 370px;
 align-self: center;
 border-top-left-radius: 10px;
 border-top-right-radius: 10px;
+margin-bottom: 10px;
 `;
 
 const Text = styled.Text`
-font-size: 17px;
-margin: 0 4px;
+font-size: 19px;
 text-align: center;
 `;
 
 const BoxButton = styled.View`
 flex-direction: row;
-justify-content: space-around;
-margin-top: 20px;
-margin-bottom: 5%;
-`;
-
-const Button = styled.TouchableOpacity`
-background-color: #FFF;
-border-width: 2px;
-border-color: #555;
-border-radius: 5px;
-padding: 5px 10px;
-`;
-
-const TextButton = styled.Text`
-color: #CD853F;
-text-align: center;
-font-size: 18px;
-font-weight: bold;
+justify-content: space-between;
+margin: 12px 20px;
 `;

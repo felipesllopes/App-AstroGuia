@@ -4,11 +4,11 @@ import Home from "../pages/home"
 import PhotoEarth from "../pages/photoEarth"
 import PhotoSpace from "../pages/photoSpace"
 import HomeRover from "../pages/photosMars/HomeRover"
-import DetailsRover from "../pages/photosMars/detailsRover"
 import ThePlanets from "../pages/thePlanets"
 import DetailsPlanets from "../pages/thePlanets/detailsPlanets"
 import Planet from "../pages/thePlanets/planet"
-import BottonRoute from "./bottonRoute"
+import BottonRoute from "./bottonRoute";
+import DetailsPhoto from "../pages/photosMars/DetailsPhoto"
 
 export default function StackRoute() {
 
@@ -50,7 +50,7 @@ export default function StackRoute() {
                 options={{ title: 'Foto Policromática da Terra' }}
             />
 
-            <Stack.Screen name="DetailsRover" component={DetailsRover}
+            <Stack.Screen name="DetailsPhoto" component={DetailsPhoto}
                 options={{
                     title: 'Detalhes da imagem',
                 }}

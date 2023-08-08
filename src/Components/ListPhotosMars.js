@@ -11,7 +11,7 @@ export default function ListPhotosMars({ data }) {
     const itemWidth = screenWidth / 3;
 
     function handleNavigate() {
-        navigation.navigate("DetailsRover", { data: data })
+        navigation.navigate("DetailsPhoto", { data: data })
     }
 
     function loadImage() {

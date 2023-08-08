@@ -23,6 +23,7 @@ export default function PhotosMars({ route, navigation }) {
     }
 
     async function search() {
+        Keyboard.dismiss();
 
         if (sol == '' || sol < 0) {
             return
@@ -41,7 +42,6 @@ export default function PhotosMars({ route, navigation }) {
                 setLoading(false);
             })
         setLoading(false);
-        Keyboard.dismiss();
     }
 
     function renderList({ item }) {
@@ -52,55 +52,55 @@ export default function PhotosMars({ route, navigation }) {
         <Container>
 
             <ContainerForm>
-                <Form>
-                    <FormText>Sol: </FormText>
-                    <SolText
-                        value={sol}
-                        onChangeText={setSol}
-                        keyboardType="numeric"
-                        maxLength={4}
-                    />
+                <Form style={{ justifyContent: 'space-between' }}>
+                    <Form>
+                        <FormText>Câmera: </FormText>
+                        <ViewPicker>
+                            <Pickerr
+                                dropdownIconColor={'#FFF'}
+                                selectedValue={camera}
+                                onValueChange={(item, index) => { setCamera(item) }}
+                            >
+                                {cam.map((v, k) => {
+                                    return <Picker.Item key={k} value={k} label={v} />
+                                })}
+                            </Pickerr>
+                        </ViewPicker>
+                    </Form>
+
+                    <Result>Resultados: {roverPhotos.photos && roverPhotos.photos.length}</Result>
                 </Form>
 
-                <Form>
-                    <FormText>Câmera: </FormText>
-                    <ViewPicker>
-                        <Picker
-                            selectedValue={camera}
-                            onValueChange={(item, index) => { setCamera(item) }}
-                        >
-                            {cam.map((v, k) => {
-                                return <Picker.Item key={k} value={k} label={v} />
-                            })}
-                        </Picker>
-                    </ViewPicker>
+                <Form style={{ justifyContent: 'space-between' }}>
+                    <Form>
+                        <FormText>Sol: </FormText>
+                        <SolText
+                            value={sol}
+                            onChangeText={setSol}
+                            keyboardType="numeric"
+                            maxLength={4}
+                        />
+                    </Form>
+
+                    <ButtonSearch activeOpacity={0.6} onPress={search}>
+                        {loading ? <ActivityIndicator size={27} color={'#000'} />
+                            :
+                            <TextButtonSearch>Pesquisar</TextButtonSearch>
+                        }
+                    </ButtonSearch>
                 </Form>
             </ContainerForm>
 
-            <ButtonSearch activeOpacity={0.6} onPress={search}>
-                {loading ? <ActivityIndicator size={27} color={'#000'} />
-                    :
-                    <TextButtonSearch>Pesquisar</TextButtonSearch>
-                }
-            </ButtonSearch>
-
-            {roverPhotos.photos &&
-                <View>
-                    {roverPhotos.photos.length == 0
-                        ?
-                        <NotResult>{result}</NotResult>
-                        :
-                        <ViewResult>
-                            <Result>Resultados: {roverPhotos.photos.length}</Result>
-                            <ListRover
-                                numColumns={3}
-                                data={roverPhotos.photos}
-                                renderItem={renderList}
-                                showsVerticalScrollIndicator={false}
-                            />
-                        </ViewResult>
-                    }
-                </View>
+            {roverPhotos.photos && roverPhotos.photos.length == 0
+                ?
+                <NotResult>{result}</NotResult>
+                :
+                <ListRover
+                    numColumns={3}
+                    data={roverPhotos.photos}
+                    renderItem={renderList}
+                    showsVerticalScrollIndicator={false}
+                />
             }
 
         </Container>
@@ -109,12 +109,10 @@ export default function PhotosMars({ route, navigation }) {
 
 const Container = styled.SafeAreaView`
 flex: 1;
-background-color: #CD853F;
 `
 
 const ContainerForm = styled.View`
 background-color: black;
-flex-direction: row;
 justify-content: space-around;
 padding-bottom: 3px;
 `;
@@ -122,7 +120,7 @@ padding-bottom: 3px;
 const Form = styled.View`
 flex-direction: row;
 align-items: center;
-margin: 3px 30px;
+margin: 2px;
 `
 
 const FormText = styled.Text`
@@ -130,21 +128,35 @@ font-size: 17px;
 color: #FFF;
 `
 
-const SolText = styled.TextInput`
-font-size: 17px;
-background-color: #FFF;
-width: 35%;
-height: 30px;
-text-align: center;
-border-radius: 10px;
-`
-
 const ViewPicker = styled.View`
 width: 175px;
 height: 30px;
 border-radius: 10px;
-background-color: #FFF;
 justify-content: center;
+border-color: #FFF;
+border-width: 1px;
+`
+
+const Pickerr = styled(Picker)`
+color: #FFF;
+`;
+
+const Result = styled.Text`
+font-size: 16px;
+color: #FFF;
+background-color: #000;
+margin: 0 2px;
+`
+
+const SolText = styled.TextInput`
+font-size: 17px;
+width: 80px;
+height: 30px;
+text-align: center;
+border-radius: 10px;
+color: #FFF;
+border-width: 1px;
+border-color: #FFF;
 `
 
 const ButtonSearch = styled.TouchableOpacity`
@@ -153,9 +165,10 @@ align-self: center;
 border-color: #555;
 border-width: 2px;
 border-radius: 10px;
-margin: 15px 0;
 padding: 2px 10px;
 `
+
+const ActivityIndicator = styled.ActivityIndicator``;
 
 const TextButtonSearch = styled.Text`
 font-size: 17px;
@@ -164,28 +177,14 @@ font-weight: bold;
 `
 
 const NotResult = styled.Text`
-font-size: 20px;
+font-size: 19px;
 text-align: center;
-margin: 50px 0;
+margin: 50% 0;
 font-style: italic;
 `
 
-const ViewResult = styled.View``;
-
-const Result = styled.Text`
-font-size: 17px;
-color: #FFF;
-background-color: #000;
-`
-
 const ListRover = styled.FlatList`
-/* background-color: #FFF; */
 height: 95%;
 margin: 1px;
 `
 
-const View = styled.View`
-flex: 1;
-`;
-
-const ActivityIndicator = styled.ActivityIndicator``;

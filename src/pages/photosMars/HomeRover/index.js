@@ -81,6 +81,7 @@ flex-direction: row;
 const Box = styled.View`
 width: 40%;
 align-items: center;
+margin-left: 10px;
 `;
 
 const Name = styled.Text`
