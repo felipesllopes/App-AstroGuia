@@ -33,7 +33,7 @@ export default function DetailsPhoto() {
                         <Text>Data: {route.params?.data.earth_date}</Text>
 
                         <BoxButton>
-                            <Ionicons name={favorite ? "star" : "star-outline"} size={30} onPress={handleFavorite} />
+                            <Ionicons name={favorite ? "bookmark" : "bookmark-outline"} size={30} onPress={handleFavorite} />
 
                             <Ionicons name="share-social" size={30} onPress={handleShare} />
                         </BoxButton>

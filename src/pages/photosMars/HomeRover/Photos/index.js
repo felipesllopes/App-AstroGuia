@@ -6,6 +6,8 @@ import ListPhotosMars from "../../../../Components/ListPhotosMars";
 import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
 import api from "../../../../services/api";
 import { key } from "../../../../services/key";
+import Ionicons from "@expo/vector-icons/Ionicons"
+import { useRef } from "react";
 
 export default function PhotosMars({ route }) {
 
@@ -15,6 +17,7 @@ export default function PhotosMars({ route }) {
     const [camera, setCamera] = useState(0);
     const [result, setResult] = useState("");
     const [loading, setLoading] = useState(false);
+    const pickerRef = useRef(null);
     let cam = [];
 
     if (roverr == 'Curiosity') {
@@ -49,6 +52,12 @@ export default function PhotosMars({ route }) {
         return (<ListPhotosMars data={item} />)
     }
 
+    function handlePicker() {
+        if (pickerRef.current) {
+            pickerRef.current.focus();
+        }
+    }
+
     return (
         <Container>
             <Wallpaper source={require('../../../../img/martian.png')}>
@@ -57,11 +66,14 @@ export default function PhotosMars({ route }) {
                     <ContainerForm>
                         <Form style={{ justifyContent: 'space-between' }}>
                             <Form>
-                                <FormText>Câmera: </FormText>
+                                <Ionicons name="camera" size={30} color={'#FFF'} onPress={handlePicker} />
+                                <FormText>: </FormText>
                                 <ViewPicker>
                                     <Pickerr
-                                        dropdownIconColor={'#FFF'}
+                                        ref={pickerRef}
+                                        dropdownIconColor={'none'}
                                         selectedValue={camera}
+                                        enabled={false}
                                         onValueChange={(item, index) => { setCamera(item) }}
                                     >
                                         {cam.map((v, k) => {
@@ -71,12 +83,8 @@ export default function PhotosMars({ route }) {
                                 </ViewPicker>
                             </Form>
 
-                            <Result>Resultados: {roverPhotos.photos && roverPhotos.photos.length}</Result>
-                        </Form>
-
-                        <Form style={{ justifyContent: 'space-between' }}>
                             <Form>
-                                <FormText>Sol: </FormText>
+                                <FormText>Sol:  </FormText>
                                 <SolText
                                     value={sol}
                                     onChangeText={setSol}
@@ -84,6 +92,11 @@ export default function PhotosMars({ route }) {
                                     maxLength={4}
                                 />
                             </Form>
+                        </Form>
+
+                        <Form style={{ justifyContent: 'space-between' }}>
+
+                            <Result>Resultados: {roverPhotos.photos && roverPhotos.photos.length}</Result>
 
                             <ButtonSearch activeOpacity={0.6} onPress={search}>
                                 {loading ? <ActivityIndicator size={24} color={'#000'} />
@@ -133,10 +146,7 @@ color: #FFF;
 const ViewPicker = styled.View`
 width: 175px;
 height: 30px;
-border-radius: 10px;
 justify-content: center;
-border-color: #FFF;
-border-width: 1px;
 `
 
 const Pickerr = styled(Picker)`
@@ -159,6 +169,7 @@ border-radius: 10px;
 color: #FFF;
 border-width: 1px;
 border-color: #FFF;
+background-color: #333;
 `
 
 const ButtonSearch = styled.TouchableOpacity`

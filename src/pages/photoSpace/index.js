@@ -1,7 +1,7 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useEffect, useState } from "react";
-import { Alert, Share } from "react-native";
 import { styled } from "styled-components/native";
+import { downloadFromUrl, sharedFromUrl } from "../../Components/HandleDownloadImg";
 import api from "../../services/api";
 import { key } from "../../services/key";
 
@@ -9,7 +9,6 @@ export default function PhotoSpace() {
 
     const [apod, setApod] = useState([]);
     const [loading, setLoading] = useState(true);
-
 
     useEffect(() => {
         (async () => {
@@ -23,14 +22,13 @@ export default function PhotoSpace() {
         })()
     }, [])
 
-    async function share() {
-        await Share.share({
-            message: `Imagem astronômica do dia: ${apod.title} \n${apod.url}`
-        })
-            .catch(() => { Alert('Não foi possível realizar o compartilhamento') })
+
+    async function handleDownload() {
+        downloadFromUrl(apod.url)
     }
 
-    async function download() {
+    async function handleShare() {
+        sharedFromUrl(apod.url);
     }
 
     function loadImage() {
@@ -62,19 +60,19 @@ export default function PhotoSpace() {
 
                         <Credit style={{ display: apod.copyright ? 'flex' : 'none' }}>Crédito: {apod.copyright}</Credit>
 
-                        <ViewButtons>
+                        <ViewButtons style={{ display: loading ? 'none' : 'flex' }}>
                             <Ionicons
                                 name="download-outline"
                                 size={33}
                                 color={'#FFF'}
-                                onPress={download}
+                                onPress={handleDownload}
                             />
 
                             <Ionicons
                                 name="share-social"
                                 size={33}
                                 color={'#FFF'}
-                                onPress={share}
+                                onPress={handleShare}
                             />
                         </ViewButtons>
                     </ScrollView>

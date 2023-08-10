@@ -1,16 +1,20 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { Picker } from "@react-native-picker/picker";
 import { useEffect, useState } from "react";
-import { ScrollView, Share, View } from "react-native";
+import { ScrollView, View } from "react-native";
 import { styled } from "styled-components/native";
+import { downloadFromUrl, sharedFromUrl } from "../../Components/HandleDownloadImg";
 import api from "../../services/api";
 import { key } from "../../services/key";
-import Ionicons from "@expo/vector-icons/Ionicons";
 
 export default function PhotoEarth() {
 
     const [epic, setEpic] = useState([]);
     const [select, setSelect] = useState(0);
     const [loading, setLoading] = useState(true);
+    let year = epic[select] && epic[select].date.substring(0, 4);
+    let month = epic[select] && epic[select].date.substring(5, 7);
+    let day = epic[select] && epic[select].date.substring(8, 10);
     let epicItem = 0;
 
     useEffect(() => {
@@ -19,7 +23,7 @@ export default function PhotoEarth() {
                 .then(async (current) => {
                     setEpic(await current.data);
                 })
-                .catch((err) => {
+                .catch(() => {
                     alert("Ocorreu um erro inesperado.")
                 })
         })()
@@ -27,10 +31,11 @@ export default function PhotoEarth() {
     }, [select])
 
     async function share() {
-        await Share.share({
-            message: `Foto da Terra: \nhttps://api.nasa.gov/EPIC/archive/natural/${epic[select].date.substring(0, 4)}/${epic[select].date.substring(5, 7)}/${epic[select].date.substring(8, 10)}/png/${epic[select].image}.png?api_key=${key}`
-        })
-            .catch(() => { alert("Ocorreu um erro inesperado.") })
+        await sharedFromUrl(`https://api.nasa.gov/EPIC/archive/natural/${year}/${month}/${day}/png/${epic[select].image}.png?api_key=${key}`)
+    }
+
+    async function download() {
+        await downloadFromUrl(`https://api.nasa.gov/EPIC/archive/natural/${year}/${month}/${day}/png/${epic[select].image}.png?api_key=${key}`)
     }
 
     function loadImage() {
@@ -62,7 +67,7 @@ export default function PhotoEarth() {
 
                     <View style={{ display: loading ? 'none' : 'flex' }}>
                         < ImageEarth
-                            source={{ uri: `https://api.nasa.gov/EPIC/archive/natural/${epic[select].date.substring(0, 4)}/${epic[select].date.substring(5, 7)}/${epic[select].date.substring(8, 10)}/png/${epic[select].image}.png?api_key=${key}` }}
+                            source={{ uri: `https://api.nasa.gov/EPIC/archive/natural/${year}/${month}/${day}/png/${epic[select].image}.png?api_key=${key}` }}
                             onLoad={loadImage}
                         />
 
@@ -71,6 +76,7 @@ export default function PhotoEarth() {
                                 name="download-outline"
                                 size={33}
                                 color={'#FFF'}
+                                onPress={download}
                             />
 
                             <Ionicons
@@ -103,7 +109,7 @@ margin-top: 50%;
 `
 
 const Description = styled.Text`
-font-size: 17px;
+font-size: 16px;
 color: #FFF;
 text-align: center;
 margin-bottom: 8px;

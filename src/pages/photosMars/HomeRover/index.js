@@ -17,8 +17,6 @@ export default function HomeRover() {
         <Container>
             <ImageBackground source={require('../../../img/mars.jpg')}>
 
-                <Title>Escolha o Rover:</Title>
-
                 <ContainerRover>
                     <Box>
                         <Name>Curiosity</Name>
@@ -62,35 +60,28 @@ const ImageBackground = styled.ImageBackground`
 flex: 1;
 `;
 
-const Title = styled.Text`
-font-size: 22px;
-color: #FFF;
-font-weight: bold;
-text-align: center;
-margin: 10px;
-`;
-
 const ContainerRover = styled.View`
 background-color: rgba(190,190,190,0.5);
 margin: 5px;
 border-width: 2px;
 border-radius: 10px;
 flex-direction: row;
+flex: 1;
 `;
 
 const Box = styled.View`
-width: 40%;
+width: 50%;
 align-items: center;
-margin-left: 10px;
+margin-left: 20px;
 `;
 
 const Name = styled.Text`
-font-size: 18px;
+font-size: 20px;
 font-weight: bold;
 `;
 
 const Button = styled.TouchableOpacity`
- background-color: #CD853F;
+background-color: #CD853F;
 width: 70px; 
 position: absolute;
 border-radius: 10px;
@@ -106,6 +97,6 @@ text-align: center;
 `;
 
 const Photo = styled.Image`
-height: 120px;
-width: 120px;
+height: 85%;
+width: 100%;
 `;

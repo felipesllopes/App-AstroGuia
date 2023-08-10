@@ -1,7 +1,7 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import About from '../pages/photosMars/HomeRover/About';
-import Favorites from '../pages/photosMars/HomeRover/Favorites';
+import Saved from '../pages/photosMars/HomeRover/Saved';
 import PhotosMars from '../pages/photosMars/HomeRover/Photos';
 
 export default function BottonRoute() {
@@ -13,7 +13,7 @@ export default function BottonRoute() {
             screenOptions={{
                 tabBarStyle: { borderTopWidth: 0 },
                 tabBarActiveTintColor: '#000',
-                tabBarInactiveTintColor: '#DEB887',
+                tabBarInactiveTintColor: '#999',
                 tabBarLabelStyle: { fontSize: 11, fontWeight: "bold" }
             }}
         >
@@ -43,13 +43,13 @@ export default function BottonRoute() {
             />
 
             <Botton.Screen
-                name='Favorites'
-                component={Favorites}
+                name='Saved'
+                component={Saved}
                 options={{
                     headerShown: false,
-                    title: 'Favoritos',
+                    title: 'Salvas',
                     tabBarIcon: ({ color, size }) => (
-                        <Ionicons name='star' color={color} size={30} />
+                        <Ionicons name='bookmark' color={color} size={30} />
                     )
                 }}
             />

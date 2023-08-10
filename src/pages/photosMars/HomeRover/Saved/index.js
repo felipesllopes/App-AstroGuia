@@ -1,6 +1,6 @@
 import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
 
-export default function Favorites() {
+export default function Saved() {
     return (
         <Container>
             <Wallpaper source={require('../../../../img/martian.png')}>
