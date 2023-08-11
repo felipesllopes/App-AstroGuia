@@ -1,17 +1,34 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useRoute } from "@react-navigation/native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Share } from "react-native";
 import { styled } from "styled-components/native";
-import { Container, Wallpaper, Screen } from "../../../../Components/styledBackgroundMars";
+import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
+import { addItem, isFavorite, rmvItem } from "../../../../Storage/asyncStorage";
 
 export default function DetailsPhoto() {
 
     const route = useRoute();
-    const [favorite, serFavorite] = useState(false);
+    const [favorite, setFavorite] = useState();
+    const data = route.params?.data;
+
+    useEffect(() => {
+        (async () => {
+            setFavorite(await isFavorite(data))
+        })()
+        console.log(favorite);
+    }, [])
 
     async function handleFavorite() {
-        serFavorite(current => (current === true ? false : true))
+
+        if (favorite) {
+            setFavorite(false)
+            await rmvItem(data.id);
+        } else {
+            setFavorite(true);
+            await addItem(data);
+        }
+
     }
 
     async function handleShare() {
@@ -27,15 +44,23 @@ export default function DetailsPhoto() {
 
                     <ContainerInfo>
                         <Photo source={{ uri: route.params?.data.img_src }} />
-                        <Text>Rover: {route.params?.data.rover.name}</Text>
-                        <Text>Câmera: {route.params?.data.camera.full_name}</Text>
-                        <Text>Dia marciano: {route.params?.data.sol}</Text>
-                        <Text>Data: {route.params?.data.earth_date}</Text>
+                        <Text>Rover: {data.rover.name}</Text>
+                        <Text>Câmera: {data.camera.full_name}</Text>
+                        <Text>Dia marciano: {data.sol}</Text>
+                        <Text>Data: {data.earth_date}</Text>
 
                         <BoxButton>
-                            <Ionicons name={favorite ? "bookmark" : "bookmark-outline"} size={30} onPress={handleFavorite} />
+                            <Ionicons
+                                name={favorite ? "bookmark" : "bookmark-outline"}
+                                size={30}
+                                onPress={handleFavorite}
+                            />
 
-                            <Ionicons name="share-social" size={30} onPress={handleShare} />
+                            <Ionicons
+                                name="share-social"
+                                size={30}
+                                onPress={handleShare}
+                            />
                         </BoxButton>
                     </ContainerInfo>
 

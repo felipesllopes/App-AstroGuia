@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { View } from "react-native";
 import { styled } from "styled-components/native";
 import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
 import { useMyContext } from "../../../../Context/Context";
@@ -33,7 +32,7 @@ export default function About() {
 
                     <Informations>Informações:</Informations>
 
-                    {itens &&
+                    {itens ?
                         <View>
                             <Date>Data de lançamento: {itens && itens.launch_date}</Date>
                             <Date>Data de pouso: {itens && itens.landing_date}</Date>
@@ -41,6 +40,8 @@ export default function About() {
                             <Date>Total de fotos: {itens && itens.total_photos}</Date>
                             <Date>Sóis marciano: {itens && itens.max_sol}</Date>
                         </View>
+                        :
+                        <ActivityIndicator size={30} color={'#FFF'} />
                     }
                 </Screen>
             </Wallpaper>
@@ -55,12 +56,18 @@ height: 350px;
 `;
 
 const Informations = styled.Text`
-font-size: 20px;
+font-size: 22px;
 font-weight: bold;
 margin-bottom: 15px;
 `;
 
+const View = styled.View``;
+
+const ActivityIndicator = styled.ActivityIndicator`
+margin-top: 50px;
+`;
+
 const Date = styled.Text`
-font-size: 18px;
+font-size: 19px;
 text-align: center;
 `;
