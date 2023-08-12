@@ -80,6 +80,15 @@ https://github.com/felipesllopes/App-AstroGuia/assets/99768939/47730a2c-0789-4e0
 ![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
 
 
+### Saved media:
+
+![img1](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/3203e5b8-18db-48df-8096-0f72d0d37ec7)
+![img2](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/66efa2a1-7bfa-42d2-885b-0e3c251ee8f7)
+![img3](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/4811e3fe-3b89-4438-9242-8d87da24ac83)
+![img4](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/6a7a6fd5-796a-4af7-bd1d-47b807239c3e)
+
+
+
 ### API used
 [NASA Open APIs](https://api.nasa.gov/)
  
