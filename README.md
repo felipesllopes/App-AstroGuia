@@ -5,54 +5,60 @@ This application has the functionality to show some information about the planet
 
 ### SplashScreen
 
-![img0](https://github.com/felipesllopes/App-theUniverse/assets/99768939/689f57be-5e94-4697-9697-067a1f093e37)
+![img1](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/02311d84-33ef-4617-9c43-c9874eee02f9)
 
 
 ### Home
 This is the home screen of the application
 
-![img1](https://github.com/felipesllopes/App-theUniverse/assets/99768939/2472f004-c253-4946-8d72-9ba6ed3b41e6)
+![img2](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/96a64c48-fd8a-4b91-9013-dba58c132f62)
 
 ### Planetas do Sistema Solar
 The first button presents the planets of the Solar System, where each one will contain its information and characteristics. The FlatList component was used to list the Planets, also a file containing the information of each one. By clicking on the chosen planet, another screen will open where it will contain the information.
 
-![img2](https://github.com/felipesllopes/App-theUniverse/assets/99768939/1734daf2-a065-4135-aac7-ea201cefcc35)
-![img3](https://github.com/felipesllopes/App-theUniverse/assets/99768939/2ab00b26-28f6-4169-ba49-6dc7245ea878)
-![img4](https://github.com/felipesllopes/App-theUniverse/assets/99768939/921b9659-2e77-4323-a47a-94ee89da5969)
+![img3](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/bf25400c-27fd-42ca-8727-6f7996e7f679)
+![img4](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/ae9e4b54-258d-4e9e-b019-a74f9a21b9c3)
+![img5](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/cbd21a03-adfe-4fdb-9756-f8ebb2a5f285)
+![img6](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/3d096bc8-ae3f-4f8a-b8f7-79dc6c85ff2d)
+![img7](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/cafb805f-07e2-464c-bed9-bc05743d61d8)
 
 
 ### Foto Astronômica do dia
-This button opens a screen where the astronomical image of the day, made available by NASA, through the API, will be shown. The "Compartilhar" button gives the option to share the URL of the image.
 
-
-https://github.com/felipesllopes/App-theUniverse/assets/99768939/74540ca0-da5d-4111-a80b-ea8a8fc9abb0
-
-![img5](https://github.com/felipesllopes/App-theUniverse/assets/99768939/549a58b6-da28-4205-8a06-f55640bf6e52)
-![img6](https://github.com/felipesllopes/App-theUniverse/assets/99768939/f2b1257d-b21f-4a0d-82e5-6bbdf8d9cf7b)
+![img8](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/b4362ded-c3e8-49bd-b861-d41b7b3e706e)
+![img9](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/ce1c17aa-a81b-49ea-b805-e799d2a23e41)
+![img10](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/db7a2139-da81-4538-9835-649344f4183f)
 
 
 ### Imagens Rover em Marte
 This button opens a screen where images provided by NASA, through the API, of the missions on Mars will be shown. The Martian day (sol), the rover and the camera used must be informed. A list will show all images related to the search. It is also possible to open the image to have detailed information about the image and the Rover.
 
+![img11](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/9d65ad6f-d124-4c80-b208-634cf67f6d07)
 
-![img7](https://github.com/felipesllopes/App-theUniverse/assets/99768939/142f22fa-c789-43fc-9202-b66690ee3f3d)
-![img8](https://github.com/felipesllopes/App-theUniverse/assets/99768939/72913b1d-b150-446c-9b09-0cf9efef5dd6)
-![img9](https://github.com/felipesllopes/App-theUniverse/assets/99768939/1542ff1a-c0ed-49c7-a31b-4eb7cbf6193c)
-![img10](https://github.com/felipesllopes/App-theUniverse/assets/99768939/a1f68bce-7750-460d-ad76-b5a766c6aa4c)
-![img11](https://github.com/felipesllopes/App-theUniverse/assets/99768939/0ff4ad7b-3c36-4f32-ba5a-047e4a72e064)
+- Curiosity:
+
+![img12](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/5073dc07-f163-4c03-babe-a39c8f54adc4)
+![img13](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/fe0e76ad-f5ad-4dfb-b8f1-695ef2f92ccf)
+![img14](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/e453ea22-d32c-44ff-811e-5a66cdf545a3)
+![img15](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/cf7a1dd8-48e1-4619-b982-77a0e5ac5a25)
+![img16](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/48bea74a-6f16-4dfa-98a3-7f4bdc774b84)
+
+- Opportunity:
+
+![img18](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/38f7b70d-0da8-4085-bc6a-ae2c6a824a2b)
+![img19](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/3e8204f4-40bb-43c7-a748-e24dbf13e8c2)
+![img20](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/06850171-7a77-4bd2-a01b-4ac8c09c7bf1)
+![img21](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/68b9c3d0-de73-4484-a7f6-562b1f4da252)
 
 
 
 ### Foto policromática da Terra
 This button opens a screen where the polychromatic image of the Earth taken by the NOAA DSCOVR satellite will be shown. Contains a picker where all the shooting dates will be shown. Each date corresponds to a different image.
 
-
-https://github.com/felipesllopes/App-theUniverse/assets/99768939/38d0d59a-e492-45df-8789-3b84e8cfa06d
-
-![img12](https://github.com/felipesllopes/App-theUniverse/assets/99768939/a7cd65b8-4a58-4181-afa0-2f7dcce44843)
-![img13](https://github.com/felipesllopes/App-theUniverse/assets/99768939/5cfbb5ee-f31c-48c5-a0f8-4f76afe42a31)
-![img14](https://github.com/felipesllopes/App-theUniverse/assets/99768939/2664498b-9c21-430d-a805-a6aa9deeca89)
-
+![img26](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/746fbdca-5e90-4b18-8bc5-a0a06a5544f9)
+![img27](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/d813e577-a7e5-4470-8c09-f740afcfb91a)
+![img28](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/ed873333-d0ba-47ae-a4b9-664ab704cff8)
+![img29](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/a75636b4-aa0e-4d00-b8b7-5ec96dbaf231)
 
 
 ### Technologies used:
@@ -71,28 +77,6 @@ https://github.com/felipesllopes/App-theUniverse/assets/99768939/38d0d59a-e492-4
 - APOD
 - EPIC
 - Mars Rover Photos
-
-
-### Example of sharing each service:
-
-- https://api.nasa.gov/EPIC/archive/natural/2023/04/21/png/epic_1b_20230421002712.png?api_key=euvql4khtokVFQr78Cnf6bInZyEMfR1igp4aIDex
-- Imagem astronômica do dia: NGC 1333: Stellar Nursery in Perseus 
-https://apod.nasa.gov/apod/image/2304/NGC1333HST33rd_800.png
-- Foto rover Curiosity em Marte. 
-http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/00050/opgs/edr/fcam/FRA_401936576EDR_F0042956FHAZ00305M_.JPG
-
-
-### installations (using expo):
-  
- npm install axios
-  
- npx expo install @react-native-picker/picker
- 
- npm install @react-navigation/native
- 
- npx expo install react-native-screens react-native-safe-area-context
- 
- npm install @react-navigation/native-stack
  
  
  ### Documentation for navigation:
@@ -100,23 +84,3 @@ http://mars.jpl.nasa.gov/msl-raw-images/proj/msl/redops/ods/surface/sol/00050/op
  [ReactNavigation](https://reactnavigation.org/docs/getting-started/)
 
 
-### To download the project to your computer:
-
-#### To clone the repository:
-- git clone https://github.com/felipesllopes/App-theUniverse.git
-
-#### Access the repository folder:
-- cd App-theUniverse
-
-#### Install dependencies:
-- yarn add expo
-
-#### Run the command:
-- npx expo start
-
-![cmd](https://github.com/felipesllopes/App-theUniverse/assets/99768939/06a6cf89-62b7-494f-acd4-291c47990efd)
-
-
-To physically execute the project on your cell phone, just install the Expo.go app from the play store and scan the QR Code.
-
-To run in Android Studio, just access by IP or by pressing the "a" key.
