@@ -1,20 +1,27 @@
 import { useIsFocused } from "@react-navigation/native";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { styled } from "styled-components/native";
 import ListPhotosMars from "../../../../Components/ListPhotosMars";
 import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
+import { useMyContext } from "../../../../Context/Context";
 import { getItem } from "../../../../Storage/asyncStorage";
 
 export default function Saved() {
 
-    const [list, setList] = useState();
     const focus = useIsFocused();
+    const { sharedValue } = useMyContext();
+    let data = [];
 
     useEffect(() => {
         (async () => {
-            setList(await getItem());
+            await getItem().then((item) => {
+                item.forEach(async e => {
+                    if (await e.rover.name === await sharedValue) {
+                        data.push(e)
+                    }
+                });
+            });
         })()
-        console.log(list);
     }, [focus])
 
     function returnList({ item }) {
@@ -27,7 +34,7 @@ export default function Saved() {
                 <Screen>
 
                     <FlatList
-                        data={list}
+                        data={data}
                         renderItem={returnList}
                         numColumns={3}
                         showsVerticalScrollIndicator={false}
@@ -39,6 +46,4 @@ export default function Saved() {
     )
 }
 
-const FlatList = styled.FlatList`
-
-`;
+const FlatList = styled.FlatList``;

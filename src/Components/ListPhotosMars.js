@@ -8,7 +8,7 @@ export default function ListPhotosMars({ data }) {
     const navigation = useNavigation();
     const [loading, setLoading] = useState(true);
     const screenWidth = Dimensions.get('window').width;
-    const itemWidth = screenWidth / 3;
+    const itemWidth = screenWidth / 3.1;
 
     function handleNavigate() {
         navigation.navigate("DetailsPhoto", { data: data })
@@ -31,7 +31,7 @@ export default function ListPhotosMars({ data }) {
 }
 
 const Container = styled.View`
-margin: 1px 0.2px;
+margin: 1.5px;
 `;
 
 const Photo = styled.Image`

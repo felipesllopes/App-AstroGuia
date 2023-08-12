@@ -1,8 +1,8 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useRoute } from "@react-navigation/native";
 import { useEffect, useState } from "react";
-import { Share } from "react-native";
 import { styled } from "styled-components/native";
+import { sharedFromUrl, downloadFromUrl } from "../../../../Components/HandleDownloadImg";
 import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
 import { addItem, isFavorite, rmvItem } from "../../../../Storage/asyncStorage";
 
@@ -16,7 +16,6 @@ export default function DetailsPhoto() {
         (async () => {
             setFavorite(await isFavorite(data))
         })()
-        console.log(favorite);
     }, [])
 
     async function handleFavorite() {
@@ -28,13 +27,16 @@ export default function DetailsPhoto() {
             setFavorite(true);
             await addItem(data);
         }
+    }
 
+    async function handleDownload() {
+        console.log("Clicou para download");
+        await downloadFromUrl(route.params?.data.img_src)
     }
 
     async function handleShare() {
-        await Share.share({
-            message: `Foto rover ${route.params?.data.rover.name} em Marte. \n${route.params?.data.img_src}`
-        })
+        console.log("Clicou para compartilhar")
+        await sharedFromUrl(route.params?.data.img_src);
     }
 
     return (
@@ -54,6 +56,12 @@ export default function DetailsPhoto() {
                                 name={favorite ? "bookmark" : "bookmark-outline"}
                                 size={30}
                                 onPress={handleFavorite}
+                            />
+
+                            <Ionicons
+                                name={"download"}
+                                size={30}
+                                onPress={handleDownload}
                             />
 
                             <Ionicons

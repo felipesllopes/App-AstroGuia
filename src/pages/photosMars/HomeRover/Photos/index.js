@@ -1,13 +1,12 @@
+import Ionicons from "@expo/vector-icons/Ionicons";
 import { Picker } from "@react-native-picker/picker";
-import { useState } from "react";
-import { Keyboard } from "react-native";
+import { useRef, useState } from "react";
+import { Keyboard, View } from "react-native";
 import { styled } from "styled-components/native";
 import ListPhotosMars from "../../../../Components/ListPhotosMars";
 import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
 import api from "../../../../services/api";
 import { key } from "../../../../services/key";
-import Ionicons from "@expo/vector-icons/Ionicons"
-import { useRef } from "react";
 
 export default function PhotosMars({ route }) {
 
@@ -198,8 +197,4 @@ margin: 50% 0;
 font-style: italic;
 `
 
-const ListRover = styled.FlatList`
-height: 95%;
-margin: 1px;
-`
-
+const ListRover = styled.FlatList``;

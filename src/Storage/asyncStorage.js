@@ -1,7 +1,6 @@
-const key = "@astroguia";
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+const key = "@astroguia";
 
 // show all rovers in the list
 export async function getItem() {

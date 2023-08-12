@@ -2,28 +2,27 @@ import * as FileSystem from 'expo-file-system';
 import * as MediaLibrary from "expo-media-library";
 import * as Notifications from 'expo-notifications';
 import { shareAsync } from 'expo-sharing';
-import { Alert } from 'react-native';
 
 export async function sharedFromUrl(url) {
 
     const filename = "fotoAstronomicaDoDia.jpg";
-    const result = await FileSystem.downloadAsync(
+    await FileSystem.downloadAsync(
         url,
         FileSystem.documentDirectory + filename
-    );
-    console.log(result)
-
-    // compartilhar imagem
-    await shareAsync(result.uri);
+    )
+        .then(async (result) => {
+            console.log(result)
+            await shareAsync(result.uri); // share image
+        })
+        .catch(() => {
+            console.log("Compartilhamento cancelado")
+        })
 }
-
 
 
 export async function downloadFromUrl(url) {
 
     const { status } = await MediaLibrary.requestPermissionsAsync();
-
-    Alert.alert('Notificação', 'Download iniciado...')
 
     if (status === 'granted') {
         console.log('Permissão de armazenamento interno concedida.');
@@ -42,10 +41,8 @@ export async function downloadFromUrl(url) {
         MediaLibrary.saveToLibraryAsync(uri);
         console.log('Imagem salva localmente:', uri);
 
-        // const notificationId = await showImageDownloadedNotification();
-        // console.log('Notificação enviada:', notificationId);
-
-        Alert.alert('Notificação', 'Download realizado com sucesso!')
+        const notificationId = await showImageDownloadedNotification();
+        console.log('Notificação enviada:', notificationId);
 
     } catch (error) {
         console.error('Erro ao baixar e salvar a imagem:', error);
@@ -55,18 +52,18 @@ export async function downloadFromUrl(url) {
 
 // Notificação demora a ser gerada
 
-// async function showImageDownloadedNotification() {
-//     const content = {
-//         title: 'Imagem Baixada!',
-//         body: 'A imagem foi baixada com sucesso.',
-//     };
+async function showImageDownloadedNotification() {
+    const content = {
+        title: 'Imagem Baixada!',
+        body: 'A imagem foi baixada com sucesso.',
+    };
 
-//     const trigger = null; // Notificação imediata
+    const trigger = null; // Notificação imediata
 
-//     const notificationId = await Notifications.scheduleNotificationAsync({
-//         content,
-//         trigger,
-//     });
+    const notificationId = await Notifications.scheduleNotificationAsync({
+        content,
+        trigger,
+    });
 
-//     return notificationId;
-// }
+    return notificationId;
+}
