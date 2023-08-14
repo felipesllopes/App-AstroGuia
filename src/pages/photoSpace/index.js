@@ -106,7 +106,7 @@ const View = styled.View``;
 
 const Photo = styled.Image`
 width: 100%;
-height: 400px;
+aspect-ratio: 1;
 margin: 4px 0;
 align-self: center;
 `;

@@ -20,11 +20,17 @@
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#000000"
-      }
+        "backgroundColor": "#05004A"
+      },
+      "package": "com.felipelopes.AstroGuia"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "629308e9-1654-439d-a382-573db61e2720"
+      }
     }
   }
 }

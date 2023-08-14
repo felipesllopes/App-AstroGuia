@@ -2,7 +2,9 @@ import * as FileSystem from 'expo-file-system';
 import * as MediaLibrary from "expo-media-library";
 import * as Notifications from 'expo-notifications';
 import { shareAsync } from 'expo-sharing';
+import { Alert } from 'react-native';
 
+// Acões estão demorando a serem realizadas.
 export async function sharedFromUrl(url) {
 
     const filename = "fotoAstronomicaDoDia.jpg";
@@ -22,12 +24,12 @@ export async function downloadFromUrl(url) {
         const { status } = await MediaLibrary.requestPermissionsAsync();
 
         if (status !== 'granted') {
-            alert("Permissão de armazenamento interno não concedida.");
+            Alert.alert("Permissão não concedida", "Permissão de armazenamento interno não concedida.");
             return;
         }
 
     } catch (error) {
-        alert("Ocorreu um erro ao solicitar permissões.");
+        Alert.alert("Erro", "Ocorreu um erro ao solicitar permissões.");
     }
 
     const filename = "minhaImagem.jpg"
@@ -42,12 +44,11 @@ export async function downloadFromUrl(url) {
         await showImageDownloadedNotification();
 
     } catch (error) {
-        alert("Erro ao baixar e salvar a imagem.");
+        Alert.alert("Erro","Erro ao baixar e salvar a imagem.");
     }
 
 }
 
-// Notificação demora a ser gerada
 async function showImageDownloadedNotification() {
     const content = {
         title: 'Download concluido.',
