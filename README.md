@@ -16,18 +16,22 @@ This is the home screen of the application
 ### Planetas do Sistema Solar
 The first button presents the planets of the Solar System, where each one will contain its information and characteristics. The FlatList component was used to list the Planets, also a file containing the information of each one. By clicking on the chosen planet, another screen will open where it will contain the information.
 
-![img3](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/bf25400c-27fd-42ca-8727-6f7996e7f679)
-![img4](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/ae9e4b54-258d-4e9e-b019-a74f9a21b9c3)
-![img5](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/cbd21a03-adfe-4fdb-9756-f8ebb2a5f285)
-![img6](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/3d096bc8-ae3f-4f8a-b8f7-79dc6c85ff2d)
-![img7](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/cafb805f-07e2-464c-bed9-bc05743d61d8)
+![img3](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/7eff7ef9-1980-438c-ba94-fefcfc09d536)
+![img6](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/049c93a1-4ea5-4075-a596-25fc92b58ead)
+![img7](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/1afcbddd-d4d9-4b27-aabe-0c2d0d9bec98)
+
+
+
+https://github.com/felipesllopes/App-AstroGuia/assets/99768939/14fbdba6-f52e-46b8-8506-365d2284f621
 
 
 ### Foto Astronômica do dia
 
-![img8](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/b4362ded-c3e8-49bd-b861-d41b7b3e706e)
-![img9](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/ce1c17aa-a81b-49ea-b805-e799d2a23e41)
-![img10](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/db7a2139-da81-4538-9835-649344f4183f)
+![img8](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/3fa41d8c-7eb7-4b82-a18e-8fc05685893f)
+
+
+
+https://github.com/felipesllopes/App-AstroGuia/assets/99768939/8300829a-e3c5-4881-a0d0-9d904f7c5859
 
 
 ### Imagens Rover em Marte
@@ -37,28 +41,35 @@ This button opens a screen where images provided by NASA, through the API, of th
 
 - Curiosity:
 
-![img12](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/5073dc07-f163-4c03-babe-a39c8f54adc4)
 ![img13](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/fe0e76ad-f5ad-4dfb-b8f1-695ef2f92ccf)
 ![img14](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/e453ea22-d32c-44ff-811e-5a66cdf545a3)
-![img15](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/cf7a1dd8-48e1-4619-b982-77a0e5ac5a25)
-![img16](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/48bea74a-6f16-4dfa-98a3-7f4bdc774b84)
+
+
+https://github.com/felipesllopes/App-AstroGuia/assets/99768939/de7ff28f-56e3-40f2-b3e9-dbc8a01b7d19
+
 
 - Opportunity:
 
-![img18](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/38f7b70d-0da8-4085-bc6a-ae2c6a824a2b)
 ![img19](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/3e8204f4-40bb-43c7-a748-e24dbf13e8c2)
 ![img20](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/06850171-7a77-4bd2-a01b-4ac8c09c7bf1)
-![img21](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/68b9c3d0-de73-4484-a7f6-562b1f4da252)
 
+
+https://github.com/felipesllopes/App-AstroGuia/assets/99768939/17de5cd7-1cc8-4f90-8a78-34025e9dec06
+
+
+- Spirit:
+
+
+https://github.com/felipesllopes/App-AstroGuia/assets/99768939/99fe07cc-28ba-42dc-9fa9-6de13e2213ad
 
 
 ### Foto policromática da Terra
 This button opens a screen where the polychromatic image of the Earth taken by the NOAA DSCOVR satellite will be shown. Contains a picker where all the shooting dates will be shown. Each date corresponds to a different image.
 
 ![img26](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/746fbdca-5e90-4b18-8bc5-a0a06a5544f9)
-![img27](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/d813e577-a7e5-4470-8c09-f740afcfb91a)
-![img28](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/ed873333-d0ba-47ae-a4b9-664ab704cff8)
-![img29](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/a75636b4-aa0e-4d00-b8b7-5ec96dbaf231)
+
+
+https://github.com/felipesllopes/App-AstroGuia/assets/99768939/47730a2c-0789-4e0e-bf8f-4ad005b7d695
 
 
 ### Technologies used:
@@ -67,6 +78,15 @@ This button opens a screen where the polychromatic image of the Earth taken by t
 ![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 ![React Native](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![Visual Studio Code](https://img.shields.io/badge/Visual_Studio_Code-0078D4?style=for-the-badge&logo=visual%20studio%20code&logoColor=white)
+
+
+### Saved media:
+
+![img1](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/3203e5b8-18db-48df-8096-0f72d0d37ec7)
+![img2](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/66efa2a1-7bfa-42d2-885b-0e3c251ee8f7)
+![img3](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/4811e3fe-3b89-4438-9242-8d87da24ac83)
+![img4](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/6a7a6fd5-796a-4af7-bd1d-47b807239c3e)
+
 
 
 ### API used
