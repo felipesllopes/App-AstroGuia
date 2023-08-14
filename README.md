@@ -99,8 +99,18 @@ https://github.com/felipesllopes/App-AstroGuia/assets/99768939/47730a2c-0789-4e0
 - Mars Rover Photos
  
  
- ### Documentation for navigation:
- 
- [ReactNavigation](https://reactnavigation.org/docs/getting-started/)
+### Used Libraries: 
 
+- [React-Navigation](https://reactnavigation.org/docs/getting-started/)
+- [Stack-Navigation](https://reactnavigation.org/docs/stack-navigator)
+- [Botton-Tab-Navigation](https://reactnavigation.org/docs/bottom-tab-navigator)
+- [Axios](https://www.npmjs.com/package/react-native-axios)
+- [Expo-FileSystem](https://docs.expo.dev/versions/latest/sdk/filesystem/?utm_source=google&utm_medium=cpc&utm_content=performancemax&gclid=Cj0KCQjwoeemBhCfARIsADR2QCvxB_4NAonrfJEzHvsjGu6eVTl9LXn0HF8Qybh7JLbgzVTm07ZMg9AaAge_EALw_wcB)
+- [Expo-MediaLibrary](https://docs.expo.dev/versions/latest/sdk/media-library/)
+- [Expo-Permissions](https://docs.expo.dev/guides/permissions/)
+- [Expo-Sharing](https://docs.expo.dev/versions/latest/sdk/sharing/?utm_source=google&utm_medium=cpc&utm_content=performancemax&gclid=Cj0KCQjwoeemBhCfARIsADR2QCtujRN01uEokruxJ66TUn7RvVlhGdDKRwp97ADmP3Te7B9jKd-u5DEaAhNyEALw_wcB)
+- [Styled-Components](https://styled-components.com/docs/basics)
+- [AsyncStorage](https://docs.expo.dev/versions/latest/sdk/async-storage/?utm_source=google&utm_medium=cpc&utm_content=performancemax&gclid=Cj0KCQjwoeemBhCfARIsADR2QCvEshr6Xc9EIJgHd8zg8AB1C2FQZJsiHy0J4LACgvYHaVEHyVG5guAaAlFWEALw_wcB)
 
+## Click here to download the project:
+[![APK-Download](https://img.shields.io/badge/APK_Download-07C160?style=for-the-badge&logo=download&logoColor=white)](https://drive.google.com/file/d/1kCIG0-Vyja5Drhaha4--ojj50mfc4rH2/view?usp=sharing)
