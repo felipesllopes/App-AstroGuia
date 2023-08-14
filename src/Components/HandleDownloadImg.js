@@ -11,24 +11,23 @@ export async function sharedFromUrl(url) {
         FileSystem.documentDirectory + filename
     )
         .then(async (result) => {
-            console.log(result)
             await shareAsync(result.uri); // share image
-        })
-        .catch(() => {
-            console.log("Compartilhamento cancelado")
         })
 }
 
 
 export async function downloadFromUrl(url) {
 
-    const { status } = await MediaLibrary.requestPermissionsAsync();
+    try {
+        const { status } = await MediaLibrary.requestPermissionsAsync();
 
-    if (status === 'granted') {
-        console.log('Permissão de armazenamento interno concedida.');
-    } else {
-        console.log('Permissão de armazenamento interno não concedida.');
-        return;
+        if (status !== 'granted') {
+            alert("Permissão de armazenamento interno não concedida.");
+            return;
+        }
+
+    } catch (error) {
+        alert("Ocorreu um erro ao solicitar permissões.");
     }
 
     const filename = "minhaImagem.jpg"
@@ -39,22 +38,19 @@ export async function downloadFromUrl(url) {
         const { uri } = await downloadObject.downloadAsync();
 
         MediaLibrary.saveToLibraryAsync(uri);
-        console.log('Imagem salva localmente:', uri);
 
-        const notificationId = await showImageDownloadedNotification();
-        console.log('Notificação enviada:', notificationId);
+        await showImageDownloadedNotification();
 
     } catch (error) {
-        console.error('Erro ao baixar e salvar a imagem:', error);
+        alert("Erro ao baixar e salvar a imagem.");
     }
 
 }
 
 // Notificação demora a ser gerada
-
 async function showImageDownloadedNotification() {
     const content = {
-        title: 'Imagem Baixada!',
+        title: 'Download concluido.',
         body: 'A imagem foi baixada com sucesso.',
     };
 

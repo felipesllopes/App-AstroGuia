@@ -2,6 +2,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components/native";
 import { downloadFromUrl, sharedFromUrl } from "../../Components/HandleDownloadImg";
+import LogoLoading from "../../Components/LogoLoading";
 import api from "../../services/api";
 import { key } from "../../services/key";
 
@@ -40,11 +41,11 @@ export default function PhotoSpace() {
 
             <ImageBackground source={require("../../img/wallpaper1.jpg")}>
 
-                {apod.url == undefined ?
+                {apod.url == undefined
 
-                    <Loading>Carregando...</Loading> :
+                    ? <LogoLoading /> :
 
-                    <ScrollView>
+                    < ScrollView >
 
                         <Title>{apod.title}</Title>
 
@@ -79,7 +80,7 @@ export default function PhotoSpace() {
                 }
 
             </ImageBackground>
-        </Container>
+        </Container >
     )
 }
 
@@ -89,14 +90,6 @@ flex: 1;
 
 const ImageBackground = styled.ImageBackground`
 flex: 1;
-`;
-
-const Loading = styled.Text`
-font-size: 17px;
-color: #FFF;
-text-align: center;
-flex: 1;
-margin-top: 50%;
 `;
 
 const ScrollView = styled.ScrollView``;
