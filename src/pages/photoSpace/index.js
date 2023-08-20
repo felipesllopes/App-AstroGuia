@@ -1,6 +1,7 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components/native";
+import ButtonBack from "../../Components/ButtonBack";
 import { downloadFromUrl, sharedFromUrl } from "../../Components/HandleDownloadImg";
 import LogoLoading from "../../Components/LogoLoading";
 import api from "../../services/api";
@@ -46,6 +47,8 @@ export default function PhotoSpace() {
                     ? <LogoLoading /> :
 
                     < ScrollView >
+
+                        <ButtonBack pag={"Foto Astronômica do dia"} />
 
                         <Title>{apod.title}</Title>
 
@@ -121,4 +124,5 @@ margin-bottom: 20px;
 const ViewButtons = styled.View`
 flex-direction: row;
 justify-content: space-around;
+margin-bottom: 10%;
 `;

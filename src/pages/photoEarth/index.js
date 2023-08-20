@@ -7,6 +7,7 @@ import { downloadFromUrl, sharedFromUrl } from "../../Components/HandleDownloadI
 import api from "../../services/api";
 import { key } from "../../services/key";
 import LogoLoading from "../../Components/LogoLoading";
+import ButtonBack from "../../Components/ButtonBack";
 
 export default function PhotoEarth() {
 
@@ -45,54 +46,55 @@ export default function PhotoEarth() {
 
     return (
         <Container>
-            <Wallpaper source={require("../../img/wallpaper2.jpg")}>
-                {epic[select] == undefined
+            {epic[select] == undefined
 
-                    ? <LogoLoading /> :
+                ? <LogoLoading /> :
 
-                    <ScrollView>
-                        <Description>Estas imagens foram tiradas pela câmera EPIC da NASA a bordo do satélite NOAA DSCOVR</Description>
+                <ScrollView>
 
-                        <PickerDate>
-                            <Picker
-                                dropdownIconColor={'#000'}
-                                selectedValue={select}
-                                onValueChange={(item, index) => { setSelect(item) }}
-                            >
-                                {epicItem = epic.map((v, k) => {
-                                    return <Picker.Item key={k} value={k} label={v.date} />
-                                })}
-                            </Picker>
-                        </PickerDate>
+                    <ButtonBack pag={"Foto Policromática da Terra"} />
 
-                        {loading && <ActivityLoading size={50} color={'#F00'} />}
+                    <Description>Estas imagens foram tiradas pela câmera EPIC da NASA a bordo do satélite NOAA DSCOVR</Description>
 
-                        <View style={{ display: loading ? 'none' : 'flex' }}>
-                            < ImageEarth
-                                source={{ uri: `https://api.nasa.gov/EPIC/archive/natural/${year}/${month}/${day}/png/${epic[select].image}.png?api_key=${key}` }}
-                                onLoad={loadImage}
+                    <PickerDate>
+                        <Picker
+                            dropdownIconColor={'#000'}
+                            selectedValue={select}
+                            onValueChange={(item, index) => { setSelect(item) }}
+                        >
+                            {epicItem = epic.map((v, k) => {
+                                return <Picker.Item key={k} value={k} label={v.date} />
+                            })}
+                        </Picker>
+                    </PickerDate>
+
+                    {loading && <ActivityLoading size={50} color={'#F00'} />}
+
+                    <View style={{ display: loading ? 'none' : 'flex' }}>
+                        < ImageEarth
+                            source={{ uri: `https://api.nasa.gov/EPIC/archive/natural/${year}/${month}/${day}/png/${epic[select].image}.png?api_key=${key}` }}
+                            onLoad={loadImage}
+                        />
+
+                        <ViewButtons>
+                            <Ionicons
+                                name="download-outline"
+                                size={33}
+                                color={'#FFF'}
+                                onPress={download}
                             />
 
-                            <ViewButtons>
-                                <Ionicons
-                                    name="download-outline"
-                                    size={33}
-                                    color={'#FFF'}
-                                    onPress={download}
-                                />
+                            <Ionicons
+                                name="share-social"
+                                size={33}
+                                color={'#FFF'}
+                                onPress={share}
+                            />
+                        </ViewButtons>
+                    </View>
 
-                                <Ionicons
-                                    name="share-social"
-                                    size={33}
-                                    color={'#FFF'}
-                                    onPress={share}
-                                />
-                            </ViewButtons>
-                        </View>
-
-                    </ScrollView>
-                }
-            </Wallpaper>
+                </ScrollView>
+            }
         </Container>
     )
 }
@@ -100,11 +102,6 @@ export default function PhotoEarth() {
 const Container = styled.SafeAreaView`
 flex: 1;
 background-color: #000;
-`;
-
-const Wallpaper = styled.ImageBackground`
-flex: 1;
-width: 100%;
 `;
 
 const Description = styled.Text`
@@ -138,4 +135,5 @@ align-self: center;
 const ViewButtons = styled.View`
 flex-direction: row;
 justify-content: space-around;
+margin-bottom: 10%;
 `;

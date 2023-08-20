@@ -1,5 +1,6 @@
 import { useNavigation } from "@react-navigation/native";
 import { styled } from "styled-components/native";
+import ButtonBack from "../../../Components/ButtonBack";
 import { useMyContext } from "../../../Context/Context";
 
 export default function HomeRover() {
@@ -16,6 +17,8 @@ export default function HomeRover() {
     return (
         <Container>
             <ImageBackground source={require('../../../img/mars.jpg')}>
+
+                <ButtonBack pag={"Imagens Rovers em Marte"} />
 
                 <ContainerRover>
                     <Box>
@@ -98,5 +101,5 @@ text-align: center;
 
 const Photo = styled.Image`
 height: 85%;
-width: 100%;
+width: 80%;
 `;

@@ -1,11 +1,14 @@
 import { styled } from "styled-components/native";
-import DetailsPlanets from "./detailsPlanets";
-import planetas from "./planetas";
+import ButtonBack from "../../Components/ButtonBack";
+import DetailsPlanets from "../../Components/detailsPlanets";
+import planetas from "../../Components/planetas";
 
 export default function ThePlanets() {
 
     return (
         <ImageBackground source={require("../../img/wallpaper2.jpg")}>
+
+            <ButtonBack pag={"Planetas do Sistema Solar"} />
 
             <FlatList
                 data={planetas}

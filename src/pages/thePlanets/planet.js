@@ -1,22 +1,17 @@
 import { useNavigation, useRoute } from "@react-navigation/native";
-import { useLayoutEffect } from "react";
 import { styled } from "styled-components/native";
+import ButtonBack from "../../Components/ButtonBack";
 
 export default function Planet() {
 
     const route = useRoute();
     const navigation = useNavigation();
 
-    useLayoutEffect(() => {
-        navigation.setOptions({
-            title: route.params?.data.nome
-        })
-    }, [navigation])
-
     return (
         <Container>
             <ImageBackground source={require("../../img/wallpaper2.jpg")}>
                 <ScrollView>
+                    <ButtonBack pag={route.params?.data.nome} />
                     <ImageView>
                         <ImagePlanet source={route.params?.data.imagem} resizeMode="contain" />
                     </ImageView>
@@ -65,13 +60,13 @@ const TitleData = styled.Text`
 font-size: 25px;
 color: #FFF;
 text-align: center;
-margin-bottom: 5px;
+margin-bottom: 15px;
 `;
 
 const Text = styled.Text`
-font-size: 17px;
+font-size: 17.5px;
 color: #FFF;
-margin: 10px;
+margin: 0 10px 10px;
 background-color: rgba(0,0,0,0.5);
 border-radius: 5px;
 `;

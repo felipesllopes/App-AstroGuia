@@ -1,14 +1,14 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { useMyContext } from "../Context/Context"
-import Home from "../pages/home"
-import PhotoEarth from "../pages/photoEarth"
-import PhotoSpace from "../pages/photoSpace"
-import HomeRover from "../pages/photosMars/HomeRover"
-import DetailsPhoto from "../pages/photosMars/HomeRover/Photos/DetailsPhoto"
-import ThePlanets from "../pages/thePlanets"
-import DetailsPlanets from "../pages/thePlanets/detailsPlanets"
-import Planet from "../pages/thePlanets/planet"
-import BottonRoute from "./bottonRoute"
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import DetailsPlanets from "../Components/detailsPlanets";
+import { useMyContext } from "../Context/Context";
+import Home from "../pages/home";
+import PhotoEarth from "../pages/photoEarth";
+import PhotoSpace from "../pages/photoSpace";
+import HomeRover from "../pages/photosMars/HomeRover";
+import DetailsPhoto from "../pages/photosMars/HomeRover/Photos/DetailsPhoto";
+import ThePlanets from "../pages/thePlanets";
+import Planet from "../pages/thePlanets/planet";
+import BottonRoute from "./bottonRoute";
 
 export default function StackRoute() {
 
@@ -19,9 +19,9 @@ export default function StackRoute() {
         <Stack.Navigator
             screenOptions={{
                 headerStyle: {
-                    backgroundColor: '#000',
+                    backgroundColor: 'transparent',
                 },
-                headerTintColor: '#FFF',
+                headerTintColor: '#000',
                 animation: 'slide_from_right',
             }}
         >
@@ -35,7 +35,7 @@ export default function StackRoute() {
             <Stack.Screen
                 name="ThePlanets"
                 component={ThePlanets}
-                options={{ title: 'Planetas do Sistema Solar' }}
+                options={{ headerShown: false }}
             />
 
             <Stack.Screen
@@ -46,24 +46,25 @@ export default function StackRoute() {
             <Stack.Screen
                 name="Planet"
                 component={Planet}
+                options={{ headerShown: false }}
             />
 
             <Stack.Screen
                 name="PhotoSpace"
                 component={PhotoSpace}
-                options={{ title: 'Foto Astronômica do dia' }}
+                options={{ headerShown: false }}
             />
 
             <Stack.Screen
                 name="HomeRover"
                 component={HomeRover}
-                options={{ title: 'Imagens Rovers em Marte' }}
+                options={{ headerShown: false }}
             />
 
             <Stack.Screen
                 name="PhotoEarth"
                 component={PhotoEarth}
-                options={{ title: 'Foto Policromática da Terra' }}
+                options={{ headerShown: false }}
             />
 
             <Stack.Screen
@@ -77,6 +78,7 @@ export default function StackRoute() {
                 component={BottonRoute}
                 options={{
                     title: sharedValue, headerTitleAlign: 'center',
+                    headerStyle: { backgroundColor: "#000" }, headerTintColor: '#FFF'
                 }}
             />
 

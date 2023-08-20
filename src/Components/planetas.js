@@ -2,7 +2,7 @@ const planetas = [
     {
         id: 1,
         nome: "Mercúrio",
-        imagem: require('../../img/planets/mercurio.png'),
+        imagem: require('../img/planets/mercurio.png'),
         diametro_equatorial: "4.879,4 km.",
         area_superficie: "74.800.000 km².",
         massa: "3,285 x 10^23 kg.",
@@ -16,7 +16,7 @@ const planetas = [
     {
         id: 2,
         nome: "Vênus",
-        imagem: require('../../img/planets/venus.png'),
+        imagem: require('../img/planets/venus.png'),
         diametro_equatorial: "12.103,6 km.",
         area_superficie: "460.200.000 km².",
         massa: "4,867 x 10^24 kg.",
@@ -30,7 +30,7 @@ const planetas = [
     {
         id: 3,
         nome: "Terra",
-        imagem: require('../../img/planets/terra.png'),
+        imagem: require('../img/planets/terra.png'),
         diametro_equatorial: "12.756,2 km.",
         area_superficie: "510.100.000 km².",
         massa: "5,972 x 10^24 kg.",
@@ -44,7 +44,7 @@ const planetas = [
     {
         id: 4,
         nome: "Marte",
-        imagem: require('../../img/planets/marte.png'),
+        imagem: require('../img/planets/marte.png'),
         diametro_equatorial: "6.794,4 km.",
         area_superficie: "144.800.000 km².",
         massa: "6,39 x 10^23 kg.",
@@ -58,7 +58,7 @@ const planetas = [
     {
         id: 5,
         nome: "Júpiter",
-        imagem: require('../../img/planets/jupiter.png'),
+        imagem: require('../img/planets/jupiter.png'),
         diametro_equatorial: "142.984 km.",
         area_superficie: "6,142 x 10^10 km².",
         massa: "1,898 x 10^27 kg.",
@@ -72,7 +72,7 @@ const planetas = [
     {
         id: 6,
         nome: "Saturno",
-        imagem: require('../../img/planets/saturno.png'),
+        imagem: require('../img/planets/saturno.png'),
         diametro_equatorial: "120.536 km.",
         area_superficie: "4,27 x 10^10 km².",
         massa: "5,683 x 10^26 kg.",
@@ -86,7 +86,7 @@ const planetas = [
     {
         id: 7,
         nome: "Urano",
-        imagem: require('../../img/planets/urano.png'),
+        imagem: require('../img/planets/urano.png'),
         diametro_equatorial: "51.118 km.",
         area_superficie: "8,083 x 10^9 km².",
         massa: "8,681 x 10^25 kg.",
@@ -100,7 +100,7 @@ const planetas = [
     {
         id: 8,
         nome: "Netuno",
-        imagem: require('../../img/planets/netuno.png'),
+        imagem: require('../img/planets/netuno.png'),
         diametro_equatorial: "49.538 km.",
         area_superficie: "7,618 x 10^9 km².",
         massa: "1,024 x 10^26 kg.",
