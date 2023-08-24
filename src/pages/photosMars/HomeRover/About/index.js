@@ -51,8 +51,8 @@ export default function About() {
 }
 
 const Image = styled.Image`
-width: 350px;
-height: 350px;
+width: 310px;
+height: 310px;
 `;
 
 const Informations = styled.Text`

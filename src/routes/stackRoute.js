@@ -70,7 +70,11 @@ export default function StackRoute() {
             <Stack.Screen
                 name="DetailsPhoto"
                 component={DetailsPhoto}
-                options={{ title: 'Detalhes da imagem' }}
+                options={{
+                    title: 'Detalhes da imagem',
+                    headerStyle: { backgroundColor: '#000' },
+                    headerTintColor: '#FFF'
+                }}
             />
 
             <Stack.Screen

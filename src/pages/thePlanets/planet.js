@@ -10,11 +10,10 @@ export default function Planet() {
     return (
         <Container>
             <ImageBackground source={require("../../img/wallpaper2.jpg")}>
+                <ButtonBack pag={route.params?.data.nome} />
                 <ScrollView>
-                    <ButtonBack pag={route.params?.data.nome} />
-                    <ImageView>
-                        <ImagePlanet source={route.params?.data.imagem} resizeMode="contain" />
-                    </ImageView>
+
+                    <ImagePlanet source={route.params?.data.imagem} resizeMode="contain" />
 
                     <TitleData>Dados Gerais:</TitleData>
 
@@ -44,17 +43,10 @@ flex: 1;
 
 const ScrollView = styled.ScrollView``;
 
-const ImageView = styled.View`
-align-items: center;
-border-width: 1px;
-border-color: #FFF;
-margin: 10px;
-border-radius: 10px;
-justify-content: center;
-padding: 10px;
+const ImagePlanet = styled.Image`
+align-self: center;
+margin: 20px 0;
 `;
-
-const ImagePlanet = styled.Image``;
 
 const TitleData = styled.Text`
 font-size: 25px;

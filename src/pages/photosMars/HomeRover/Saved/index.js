@@ -1,5 +1,5 @@
 import { useIsFocused } from "@react-navigation/native";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { styled } from "styled-components/native";
 import ListPhotosMars from "../../../../Components/ListPhotosMars";
 import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";

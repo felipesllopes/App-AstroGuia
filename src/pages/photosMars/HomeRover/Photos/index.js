@@ -12,7 +12,7 @@ export default function PhotosMars({ route }) {
 
     const roverr = route.params?.rover;
     const [roverPhotos, setRoverPhotos] = useState([]);
-    const [sol, setSol] = useState('0');
+    const [sol, setSol] = useState('');
     const [camera, setCamera] = useState(0);
     const [result, setResult] = useState("");
     const [loading, setLoading] = useState(false);
@@ -164,7 +164,7 @@ font-size: 17px;
 width: 80px;
 height: 30px;
 text-align: center;
-border-radius: 10px;
+border-radius: 5px;
 color: #FFF;
 border-width: 1px;
 border-color: #FFF;

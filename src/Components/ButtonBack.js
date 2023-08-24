@@ -18,7 +18,7 @@ export default function ButtonBack({ pag }) {
 const Container = styled.View`
 flex-direction: row;
 align-items: center;
-margin: 10px 0 5px 15px;
+margin: 10px 0 10px 15px;
 `;
 
 const Button = styled(Ionicons)`

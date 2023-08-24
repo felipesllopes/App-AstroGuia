@@ -2,7 +2,7 @@ import Ionicons from "@expo/vector-icons/Ionicons";
 import { useRoute } from "@react-navigation/native";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components/native";
-import { sharedFromUrl, downloadFromUrl } from "../../../../Components/HandleDownloadImg";
+import { downloadFromUrl, sharedFromUrl } from "../../../../Components/HandleDownloadImg";
 import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
 import { addItem, isFavorite, rmvItem } from "../../../../Storage/asyncStorage";
 
