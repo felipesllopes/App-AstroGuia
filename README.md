@@ -5,71 +5,70 @@ This application has the functionality to show some information about the planet
 
 ### SplashScreen
 
-![img1](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/02311d84-33ef-4617-9c43-c9874eee02f9)
+![img1](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/06f1a2de-0a6a-4015-a415-4cc4d32446f5)
 
 
 ### Home
 This is the home screen of the application
 
-![img2](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/96a64c48-fd8a-4b91-9013-dba58c132f62)
+![img2](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/5c746b4c-a325-4240-bd7e-57a2ab7172d7)
+
 
 ### Planetas do Sistema Solar
 The first button presents the planets of the Solar System, where each one will contain its information and characteristics. The FlatList component was used to list the Planets, also a file containing the information of each one. By clicking on the chosen planet, another screen will open where it will contain the information.
 
-![img3](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/7eff7ef9-1980-438c-ba94-fefcfc09d536)
-![img6](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/049c93a1-4ea5-4075-a596-25fc92b58ead)
-![img7](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/1afcbddd-d4d9-4b27-aabe-0c2d0d9bec98)
+![img3](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/33553e1f-d8d5-4cd0-ac8f-53dc9fe7e04e)
+![img4](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/6204ac98-9901-4869-b1b9-a69a3f83e126)
+![img5](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/7e5f3c6e-cce4-4c3b-a80d-356bb49ed268)
 
 
-
-https://github.com/felipesllopes/App-AstroGuia/assets/99768939/14fbdba6-f52e-46b8-8506-365d2284f621
+https://github.com/felipesllopes/App-AstroGuia/assets/99768939/0addc460-8bf8-42cf-b6ed-62c1d237ba9d
 
 
 ### Foto Astronômica do dia
 
-![img8](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/3fa41d8c-7eb7-4b82-a18e-8fc05685893f)
+![img12](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/ac96e4ae-6d67-4e09-ba38-0a6b03fad5ca)
 
 
-
-https://github.com/felipesllopes/App-AstroGuia/assets/99768939/8300829a-e3c5-4881-a0d0-9d904f7c5859
+https://github.com/felipesllopes/App-AstroGuia/assets/99768939/fd677574-9b77-4768-98d3-8a5564d9831d
 
 
 ### Imagens Rover em Marte
 This button opens a screen where images provided by NASA, through the API, of the missions on Mars will be shown. The Martian day (sol), the rover and the camera used must be informed. A list will show all images related to the search. It is also possible to open the image to have detailed information about the image and the Rover.
 
-![img11](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/9d65ad6f-d124-4c80-b208-634cf67f6d07)
+![img6](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/c0a392e0-3af9-49dd-9ff9-a1290809932f)
 
 - Curiosity:
 
-![img13](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/fe0e76ad-f5ad-4dfb-b8f1-695ef2f92ccf)
-![img14](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/e453ea22-d32c-44ff-811e-5a66cdf545a3)
+![img7](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/f5a39d36-3620-4a8c-9454-4032388d1ab1)
+![img8](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/9fd5d76c-3349-4ffc-a35f-e5e876520187)
 
 
-https://github.com/felipesllopes/App-AstroGuia/assets/99768939/de7ff28f-56e3-40f2-b3e9-dbc8a01b7d19
+https://github.com/felipesllopes/App-AstroGuia/assets/99768939/5b560c05-9fa5-4000-b92e-6a39437482ad
 
 
 - Opportunity:
 
-![img19](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/3e8204f4-40bb-43c7-a748-e24dbf13e8c2)
-![img20](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/06850171-7a77-4bd2-a01b-4ac8c09c7bf1)
+![img9](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/b92b05de-9680-4ec2-af43-35ed407c4a41)
+![img10](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/fd41b8c5-1a33-47af-8073-4b119befa56d)
 
 
-https://github.com/felipesllopes/App-AstroGuia/assets/99768939/17de5cd7-1cc8-4f90-8a78-34025e9dec06
+https://github.com/felipesllopes/App-AstroGuia/assets/99768939/fba45fef-d2ab-4237-a5d6-02a8f831f2aa
 
 
 - Spirit:
 
 
-https://github.com/felipesllopes/App-AstroGuia/assets/99768939/99fe07cc-28ba-42dc-9fa9-6de13e2213ad
+https://github.com/felipesllopes/App-AstroGuia/assets/99768939/69dea464-db46-4044-a59a-c4aab58cb931
 
 
 ### Foto policromática da Terra
 This button opens a screen where the polychromatic image of the Earth taken by the NOAA DSCOVR satellite will be shown. Contains a picker where all the shooting dates will be shown. Each date corresponds to a different image.
 
-![img26](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/746fbdca-5e90-4b18-8bc5-a0a06a5544f9)
+![img11](https://github.com/felipesllopes/App-AstroGuia/assets/99768939/0a096ae9-9e48-4b45-82c5-13b1ff97b835)
 
 
-https://github.com/felipesllopes/App-AstroGuia/assets/99768939/47730a2c-0789-4e0e-bf8f-4ad005b7d695
+https://github.com/felipesllopes/App-AstroGuia/assets/99768939/d5650812-b21f-497e-9a9c-121190d8ee26
 
 
 ### Technologies used:
