@@ -113,4 +113,4 @@ https://github.com/felipesllopes/App-AstroGuia/assets/99768939/47730a2c-0789-4e0
 - [AsyncStorage](https://docs.expo.dev/versions/latest/sdk/async-storage/?utm_source=google&utm_medium=cpc&utm_content=performancemax&gclid=Cj0KCQjwoeemBhCfARIsADR2QCvEshr6Xc9EIJgHd8zg8AB1C2FQZJsiHy0J4LACgvYHaVEHyVG5guAaAlFWEALw_wcB)
 
 ## Click here to download the project:
-[![APK-Download](https://img.shields.io/badge/APK_Download-07C160?style=for-the-badge&logo=download&logoColor=white)](https://drive.google.com/file/d/1kCIG0-Vyja5Drhaha4--ojj50mfc4rH2/view?usp=sharing)
+[![APK-Download](https://img.shields.io/badge/APK_Download-07C160?style=for-the-badge&logo=download&logoColor=white)](https://drive.google.com/file/d/11QSWd3teMwfz0N8SFtu3x3Uigm8SBrDk/view?usp=sharing)
