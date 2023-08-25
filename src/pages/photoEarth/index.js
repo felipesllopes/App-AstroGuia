@@ -37,7 +37,10 @@ export default function PhotoEarth() {
     }
 
     async function download() {
-        await downloadFromUrl(`https://api.nasa.gov/EPIC/archive/natural/${year}/${month}/${day}/png/${epic[select].image}.png?api_key=${key}`)
+        let url = `https://api.nasa.gov/EPIC/archive/natural/${year}/${month}/${day}/png/${epic[select].image}.png?api_key=${key}`;
+        let subtitle = "Foto da Terra";
+
+        await downloadFromUrl(url, subtitle)
     }
 
     function loadImage() {

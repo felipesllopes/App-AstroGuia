@@ -3,6 +3,7 @@ import * as MediaLibrary from "expo-media-library";
 import * as Notifications from 'expo-notifications';
 import { shareAsync } from 'expo-sharing';
 import { Alert } from 'react-native';
+import { schedulePushNotification } from '../Notification';
 
 // Acões estão demorando a serem realizadas.
 export async function sharedFromUrl(url) {
@@ -18,7 +19,7 @@ export async function sharedFromUrl(url) {
 }
 
 
-export async function downloadFromUrl(url) {
+export async function downloadFromUrl(url, subtitle) {
 
     try {
         const { status } = await MediaLibrary.requestPermissionsAsync();
@@ -41,26 +42,10 @@ export async function downloadFromUrl(url) {
 
         MediaLibrary.saveToLibraryAsync(uri);
 
-        await showImageDownloadedNotification();
+        await schedulePushNotification(subtitle);
 
     } catch (error) {
         Alert.alert("Erro","Erro ao baixar e salvar a imagem.");
     }
 
-}
-
-async function showImageDownloadedNotification() {
-    const content = {
-        title: 'Download concluido.',
-        body: 'A imagem foi baixada com sucesso.',
-    };
-
-    const trigger = null; // Notificação imediata
-
-    const notificationId = await Notifications.scheduleNotificationAsync({
-        content,
-        trigger,
-    });
-
-    return notificationId;
 }

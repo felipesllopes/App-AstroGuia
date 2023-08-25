@@ -31,6 +31,9 @@
       "eas": {
         "projectId": "629308e9-1654-439d-a382-573db61e2720"
       }
+    },
+    "notification": {
+      "icon": "./assets/notification-icon.png"
     }
   }
 }

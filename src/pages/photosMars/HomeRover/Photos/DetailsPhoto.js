@@ -30,12 +30,13 @@ export default function DetailsPhoto() {
     }
 
     async function handleDownload() {
-        console.log("Clicou para download");
-        await downloadFromUrl(route.params?.data.img_src)
+        let url = route.params?.data.img_src;
+        let subtitle = "Imagem rover " + route.params?.data.rover.name;
+
+        await downloadFromUrl(url, subtitle)
     }
 
     async function handleShare() {
-        console.log("Clicou para compartilhar")
         await sharedFromUrl(route.params?.data.img_src);
     }
 

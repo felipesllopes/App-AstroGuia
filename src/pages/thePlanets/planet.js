@@ -1,11 +1,10 @@
-import { useNavigation, useRoute } from "@react-navigation/native";
+import { useRoute } from "@react-navigation/native";
 import { styled } from "styled-components/native";
 import ButtonBack from "../../Components/ButtonBack";
 
 export default function Planet() {
 
     const route = useRoute();
-    const navigation = useNavigation();
 
     return (
         <Container>

@@ -26,7 +26,7 @@ export default function PhotoSpace() {
 
 
     async function handleDownload() {
-        downloadFromUrl(apod.url)
+        downloadFromUrl(apod.url, "Foto astronômica do dia")
     }
 
     async function handleShare() {
