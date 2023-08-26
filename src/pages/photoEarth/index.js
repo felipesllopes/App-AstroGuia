@@ -1,105 +1,71 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { Picker } from "@react-native-picker/picker";
+import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
+import { format } from 'date-fns';
 import { useEffect, useState } from "react";
-import { ScrollView, View } from "react-native";
 import { styled } from "styled-components/native";
-import { downloadFromUrl, sharedFromUrl } from "../../Components/HandleDownloadImg";
+import ButtonBack from "../../Components/ButtonBack";
+import ListPhotoEarth from "../../Components/ListPhotoEarth";
 import api from "../../services/api";
 import { key } from "../../services/key";
-import LogoLoading from "../../Components/LogoLoading";
-import ButtonBack from "../../Components/ButtonBack";
 
 export default function PhotoEarth() {
 
-    const [epic, setEpic] = useState([]);
-    const [select, setSelect] = useState(0);
-    const [loading, setLoading] = useState(true);
-    let year = epic[select] && epic[select].date.substring(0, 4);
-    let month = epic[select] && epic[select].date.substring(5, 7);
-    let day = epic[select] && epic[select].date.substring(8, 10);
-    let epicItem = 0;
+    const [date, setDate] = useState(new Date());
+    const [epic, setEpic] = useState();
+    let data = format(date, 'yyyy-MM-dd');
 
     useEffect(() => {
         (async () => {
-            await api.get(`/EPIC/api/natural?api_key=${key}`)
-                .then(async (current) => {
-                    setEpic(await current.data);
+            api.get(`/EPIC/api/natural/date/${data}?api_key=${key}`)
+                .then((response) => {
+                    setEpic(response.data);
                 })
                 .catch(() => {
-                    alert("Ocorreu um erro inesperado.")
+                    alert("Ocorreu um erro inesperado");
                 })
         })()
-        setLoading(true);
-    }, [select])
+    }, [date])
 
-    async function share() {
-        await sharedFromUrl(`https://api.nasa.gov/EPIC/archive/natural/${year}/${month}/${day}/png/${epic[select].image}.png?api_key=${key}`)
-    }
+    function onChange(event, selectedDate) {
+        const currentDate = selectedDate;
+        setDate(currentDate);
+    };
 
-    async function download() {
-        let url = `https://api.nasa.gov/EPIC/archive/natural/${year}/${month}/${day}/png/${epic[select].image}.png?api_key=${key}`;
-        let subtitle = "Foto da Terra";
+    const showMode = () => {
+        DateTimePickerAndroid.open({
+            value: date,
+            onChange,
+            mode: date,
+        });
+    };
 
-        await downloadFromUrl(url, subtitle)
-    }
-
-    function loadImage() {
-        setLoading(false);
+    function renderList({ item }) {
+        return <ListPhotoEarth item={item} />
     }
 
     return (
         <Container>
-            {epic[select] == undefined
 
-                ? <LogoLoading /> :
+            <ButtonBack pag={'Foto policromática da Terra'} />
 
-                <ScrollView>
+            <Subtitle>Estas imagens foram tiradas pela câmera EPIC da NASA a bordo da espaçonave NOAA DSCOVR</Subtitle>
 
-                    <ButtonBack pag={"Foto Policromática da Terra"} />
+            <ViewDate>
+                <Ionicons name="calendar-outline" size={28} color={'#FFF'} onPress={showMode} />
+                <TextDate> {format(date, 'dd/MM/yyyy')}</TextDate>
+            </ViewDate>
 
-                    <Description>Estas imagens foram tiradas pela câmera EPIC da NASA a bordo do satélite NOAA DSCOVR</Description>
+            <ListImages
+                data={epic}
+                renderItem={renderList}
+                numColumns={2}
+                contentContainerStyle={{ alignItems: 'center' }}
+            />
 
-                    <PickerDate>
-                        <Picker
-                            dropdownIconColor={'#000'}
-                            selectedValue={select}
-                            onValueChange={(item, index) => { setSelect(item) }}
-                        >
-                            {epicItem = epic.map((v, k) => {
-                                return <Picker.Item key={k} value={k} label={v.date} />
-                            })}
-                        </Picker>
-                    </PickerDate>
-
-                    {loading && <ActivityLoading size={50} color={'#F00'} />}
-
-                    <View style={{ display: loading ? 'none' : 'flex' }}>
-                        < ImageEarth
-                            source={{ uri: `https://api.nasa.gov/EPIC/archive/natural/${year}/${month}/${day}/png/${epic[select].image}.png?api_key=${key}` }}
-                            onLoad={loadImage}
-                        />
-
-                        <ViewButtons>
-                            <Ionicons
-                                name="download-outline"
-                                size={33}
-                                color={'#FFF'}
-                                onPress={download}
-                            />
-
-                            <Ionicons
-                                name="share-social"
-                                size={33}
-                                color={'#FFF'}
-                                onPress={share}
-                            />
-                        </ViewButtons>
-                    </View>
-
-                </ScrollView>
-            }
         </Container>
-    )
+    );
+
+
 }
 
 const Container = styled.SafeAreaView`
@@ -107,36 +73,27 @@ flex: 1;
 background-color: #000;
 `;
 
-const Description = styled.Text`
-font-size: 16px;
-color: #FFF;
+const Subtitle = styled.Text`
+font-size: 17px;
+color: white;
 text-align: center;
-margin-bottom: 8px;
-margin: 15px 10px 8px 10px;
+margin: 10px 0;
 `;
 
-const PickerDate = styled.View`
-align-self: center;
-background-color: #FFF;
-margin-top: 20px;
-width: 60%;
-height: 45px;
-justify-content: center;
-border-radius: 8px;
-`;
-
-const ActivityLoading = styled.ActivityIndicator`
-margin: 200px 0;
-`;
-
-const ImageEarth = styled.Image`
-height: 450px;
-width: 450px;
-align-self: center;
-`;
-
-const ViewButtons = styled.View`
+const ViewDate = styled.View`
 flex-direction: row;
-justify-content: space-around;
-margin-bottom: 10%;
+justify-content: center;
+align-items: center;
+margin-bottom: 5px;
+`;
+
+const TextDate = styled.Text`
+font-size: 16px;
+background-color: #FFF;
+border-radius: 5px;
+padding: 1px 2px;
+margin-left: 5px;
+`;
+
+const ListImages = styled.FlatList`
 `;

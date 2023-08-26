@@ -1,7 +1,7 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Picker } from "@react-native-picker/picker";
 import { useRef, useState } from "react";
-import { Keyboard, View } from "react-native";
+import { Keyboard } from "react-native";
 import { styled } from "styled-components/native";
 import ListPhotosMars from "../../../../Components/ListPhotosMars";
 import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
