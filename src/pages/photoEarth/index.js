@@ -36,6 +36,7 @@ export default function PhotoEarth() {
             value: date,
             onChange,
             mode: date,
+            maximumDate: new Date(),
         });
     };
 
@@ -60,6 +61,7 @@ export default function PhotoEarth() {
                 renderItem={renderList}
                 numColumns={2}
                 contentContainerStyle={{ alignItems: 'center' }}
+                ListEmptyComponent={<Message>Não consta nenhum registro nessa data.</Message>}
             />
 
         </Container>
@@ -70,8 +72,8 @@ export default function PhotoEarth() {
 
 const Container = styled.SafeAreaView`
 flex: 1;
-background-color: #000;
-`;
+background-color: #001;
+`
 
 const Subtitle = styled.Text`
 font-size: 17px;
@@ -84,7 +86,7 @@ const ViewDate = styled.View`
 flex-direction: row;
 justify-content: center;
 align-items: center;
-margin-bottom: 5px;
+margin-bottom: 10px;
 `;
 
 const TextDate = styled.Text`
@@ -96,4 +98,17 @@ margin-left: 5px;
 `;
 
 const ListImages = styled.FlatList`
+`;
+
+const Message = styled.Text`
+font-size: 18px;
+color: #FFF;
+text-align: center;
+margin-top: 50%;
+font-style: italic;
+`;
+
+const Loading = styled.ActivityIndicator`
+flex: 1;
+justify-content: center;
 `;
