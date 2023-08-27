@@ -72,14 +72,14 @@ export default function PhotoEarth() {
 
 const Container = styled.SafeAreaView`
 flex: 1;
-background-color: #001;
+background-color: #003;
 `
 
 const Subtitle = styled.Text`
 font-size: 17px;
 color: white;
 text-align: center;
-margin: 10px 0;
+margin: 10px 3px 15px;
 `;
 
 const ViewDate = styled.View`
