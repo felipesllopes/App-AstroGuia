@@ -5,7 +5,6 @@ import Home from "../pages/home";
 import PhotoEarth from "../pages/photoEarth";
 import PhotoSpace from "../pages/photoSpace";
 import HomeRover from "../pages/photosMars/HomeRover";
-import DetailsPhoto from "../pages/photosMars/HomeRover/Photos/DetailsPhoto";
 import ThePlanets from "../pages/thePlanets";
 import Planet from "../pages/thePlanets/planet";
 import BottonRoute from "./bottonRoute";
@@ -65,16 +64,6 @@ export default function StackRoute() {
                 name="PhotoEarth"
                 component={PhotoEarth}
                 options={{ headerShown: false }}
-            />
-
-            <Stack.Screen
-                name="DetailsPhoto"
-                component={DetailsPhoto}
-                options={{
-                    title: 'Detalhes da imagem',
-                    headerStyle: { backgroundColor: '#000' },
-                    headerTintColor: '#FFF'
-                }}
             />
 
             <Stack.Screen

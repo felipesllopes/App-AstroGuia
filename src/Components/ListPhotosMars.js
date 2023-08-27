@@ -1,31 +1,39 @@
-import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
-import { Dimensions } from "react-native";
+import { Dimensions, Modal } from "react-native";
 import { styled } from "styled-components/native";
+import ModalMars from "../pages/photosMars/HomeRover/Photos/ModalMars";
 
 export default function ListPhotosMars({ data }) {
 
-    const navigation = useNavigation();
     const [loading, setLoading] = useState(true);
+    const [visibleModal, setVisibleModal] = useState(false);
     const screenWidth = Dimensions.get('window').width;
     const itemWidth = screenWidth / 3.1;
-
-    function handleNavigate() {
-        navigation.navigate("DetailsPhoto", { data: data })
-    }
 
     function loadImage() {
         setLoading(false);
     }
 
+    function handleVisibleModal(visible) {
+        setVisibleModal(visible);
+    }
+
     return (
         <Container style={{ width: itemWidth, height: itemWidth }}>
-            <TouchableOpacity activeOpacity={0.8} onPress={handleNavigate}>
+            <TouchableOpacity activeOpacity={0.8} onPress={() => handleVisibleModal(true)}>
                 {loading && <ActivityIndicator size={30} color={'#000'} />}
                 <View style={{ display: loading ? 'none' : 'flex' }}>
                     <Photo source={{ uri: data.img_src }} onLoad={loadImage} />
                 </View>
             </TouchableOpacity>
+
+            <Modal visible={visibleModal} transparent={true} animationType="fade">
+                <ModalMars
+                    data={data}
+                    visible={() => handleVisibleModal(false)}
+                />
+            </Modal>
+
         </Container>
     )
 }

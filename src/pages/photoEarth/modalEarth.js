@@ -14,30 +14,40 @@ export default function ModalEarth({ closeModal, url, datatime }) {
     }
 
     return (
-        <Container>
-            <ButtonClose name="close" color={'#FFF'} size={33} onPress={closeModal} />
-            <Image resizeMode="contain" source={{ uri: url }} />
-            <DataTime>{datatime}</DataTime>
+        <Screen>
+            <Container>
+                <ButtonClose name="close" color={'#FFF'} size={33} onPress={closeModal} />
+                <DataTime>{datatime}</DataTime>
+                <Image resizeMode="contain" source={{ uri: url }} />
 
-            <BoxButton>
-                <Ionicons
-                    name={"download-outline"}
-                    size={30}
-                    color={'#FFF'}
-                    onPress={download}
-                />
+                <BoxButton>
+                    <Ionicons
+                        name={"download-outline"}
+                        size={30}
+                        color={'#FFF'}
+                        onPress={download}
+                    />
 
-                <Ionicons
-                    name="share-social"
-                    size={30}
-                    color={'#FFF'}
-                    onPress={shared}
-                />
-            </BoxButton>
+                    <Ionicons
+                        name="share-social"
+                        size={30}
+                        color={'#FFF'}
+                        onPress={shared}
+                    />
+                </BoxButton>
 
-        </Container>
+            </Container>
+        </Screen>
     )
 }
+
+const Screen = styled.View`
+background-color: rgba(0,0,0, 0.8);
+flex: 1;
+width: 100%;
+justify-content: center;
+align-items: center;
+`;
 
 const Container = styled.View`
 width: 90%;
@@ -47,27 +57,25 @@ border-width: 2px;
 border-color: #FFF;
 `;
 
-const DataTime = styled.Text`
-color: white;
-font-size: 19px;
-position: absolute;
-align-self: center;
-top: 8%;
-`;
-
-const Image = styled.Image`
-width: 100%;
-height: 80%;
-align-self: center;
-`;
-
 const ButtonClose = styled(Ionicons)`
 align-self: flex-end;
 margin: 5px 5px 0 0;
 `;
 
+const DataTime = styled.Text`
+color: white;
+font-size: 20px;
+align-self: center;
+`;
+
+const Image = styled.Image`
+width: 360px;
+height: 360px;
+align-self: center;
+`;
+
 const BoxButton = styled.View`
 flex-direction: row;
 justify-content: space-around;
-bottom: 20px;
+margin-bottom: 10px;
 `;

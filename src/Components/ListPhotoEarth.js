@@ -41,13 +41,11 @@ export default function ListPhotoEarth({ item }) {
             />
 
             <Modal transparent={true} visible={modalVisible} animationType="fade">
-                <ViewModal>
-                    <ModalEarth
-                        closeModal={() => openModal(false)}
-                        url={url}
-                        datatime={`${data} - ${time}`}
-                    />
-                </ViewModal>
+                <ModalEarth
+                    closeModal={() => openModal(false)}
+                    url={url}
+                    datatime={`${data} - ${time}`}
+                />
             </Modal>
 
         </Container>
@@ -67,9 +65,4 @@ const Image = styled.Image`
 width: 98%;
 height: 98%;
 border-radius: 10px;
-`;
-
-const ViewModal = styled.View`
-margin-top: 30%;
-align-items: center;
 `;

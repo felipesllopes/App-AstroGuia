@@ -46,24 +46,26 @@ export default function PhotoEarth() {
 
     return (
         <Container>
+            <Wallpaper source={require("../../img/wallpaper3.jpg")}>
 
-            <ButtonBack pag={'Foto policromática da Terra'} />
+                <ButtonBack pag={'Foto policromática da Terra'} />
 
-            <Subtitle>Estas imagens foram tiradas pela câmera EPIC da NASA a bordo da espaçonave NOAA DSCOVR</Subtitle>
+                <Subtitle>Estas imagens foram tiradas pela câmera EPIC da NASA a bordo da espaçonave NOAA DSCOVR</Subtitle>
 
-            <ViewDate>
-                <Ionicons name="calendar-outline" size={28} color={'#FFF'} onPress={showMode} />
-                <TextDate> {format(date, 'dd/MM/yyyy')}</TextDate>
-            </ViewDate>
+                <ViewDate>
+                    <Ionicons name="calendar-outline" size={28} color={'#FFF'} onPress={showMode} />
+                    <TextDate> {format(date, 'dd/MM/yyyy')}</TextDate>
+                </ViewDate>
 
-            <ListImages
-                data={epic}
-                renderItem={renderList}
-                numColumns={2}
-                contentContainerStyle={{ alignItems: 'center' }}
-                ListEmptyComponent={<Message>Não consta nenhum registro nessa data.</Message>}
-            />
+                <ListImages
+                    data={epic}
+                    renderItem={renderList}
+                    numColumns={2}
+                    contentContainerStyle={{ alignItems: 'center' }}
+                    ListEmptyComponent={<Message>Não consta nenhum registro nessa data.</Message>}
+                />
 
+            </Wallpaper>
         </Container>
     );
 
@@ -74,6 +76,11 @@ const Container = styled.SafeAreaView`
 flex: 1;
 background-color: #003;
 `
+
+const Wallpaper = styled.ImageBackground`
+flex: 1;
+width: 100%;
+`;
 
 const Subtitle = styled.Text`
 font-size: 17px;
