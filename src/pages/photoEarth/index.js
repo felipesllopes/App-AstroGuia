@@ -5,13 +5,16 @@ import { useEffect, useState } from "react";
 import { styled } from "styled-components/native";
 import ButtonBack from "../../Components/ButtonBack";
 import ListPhotoEarth from "../../Components/ListPhotoEarth";
+import LogoLoading from "../../Components/LogoLoading";
 import api from "../../services/api";
 import { key } from "../../services/key";
 
 export default function PhotoEarth() {
 
     const [date, setDate] = useState(new Date());
+    const [apiDate, setApiDate] = useState([]);
     const [epic, setEpic] = useState();
+    const [msg, setMsg] = useState('');
     let data = format(date, 'yyyy-MM-dd');
 
     useEffect(() => {
@@ -20,15 +23,30 @@ export default function PhotoEarth() {
                 .then((response) => {
                     setEpic(response.data);
                 })
-                .catch(() => {
-                    alert("Ocorreu um erro inesperado");
-                })
+                .catch(() => alert("Ocorreu um erro inesperado"))
         })()
     }, [date])
 
+    useEffect(() => {
+        (async () => {
+            api.get(`/EPIC/api/natural/all?api_key=${key}`)
+                .then((response) => {
+                    setApiDate(response.data);
+                    setDate(new Date(response.data[0].date));
+                })
+                .catch(() => alert("Ocorreu um erro ao buscar datas."))
+        })()
+    }, [])
+
     function onChange(event, selectedDate) {
-        const currentDate = selectedDate;
-        setDate(currentDate);
+
+        const apiDates = apiDate.map(item => item.date.split('T')[0]);
+        let data = format(selectedDate, 'yyyy-MM-dd')
+
+        if (!apiDates.includes(data)) {
+            setMsg("Não consta nenhum registro nessa data.");
+        }
+        setDate(selectedDate);
     };
 
     const showMode = () => {
@@ -36,7 +54,8 @@ export default function PhotoEarth() {
             value: date,
             onChange,
             mode: date,
-            maximumDate: new Date(),
+            maximumDate: new Date(apiDate[0].date),
+            minimumDate: new Date(apiDate[apiDate.length - 1].date),
         });
     };
 
@@ -48,22 +67,31 @@ export default function PhotoEarth() {
         <Container>
             <Wallpaper source={require("../../img/wallpaper3.jpg")}>
 
-                <ButtonBack pag={'Foto policromática da Terra'} />
+                {!apiDate[0]
 
-                <Subtitle>Estas imagens foram tiradas pela câmera EPIC da NASA a bordo da espaçonave NOAA DSCOVR</Subtitle>
+                    ? <LogoLoading /> :
 
-                <ViewDate>
-                    <Ionicons name="calendar-outline" size={28} color={'#FFF'} onPress={showMode} />
-                    <TextDate> {format(date, 'dd/MM/yyyy')}</TextDate>
-                </ViewDate>
+                    <Container2>
+                        <ButtonBack pag={'Foto policromática da Terra'} />
 
-                <ListImages
-                    data={epic}
-                    renderItem={renderList}
-                    numColumns={2}
-                    contentContainerStyle={{ alignItems: 'center' }}
-                    ListEmptyComponent={<Message>Não consta nenhum registro nessa data.</Message>}
-                />
+                        <Subtitle>Estas imagens foram tiradas pela câmera EPIC da NASA a bordo da espaçonave NOAA DSCOVR</Subtitle>
+
+                        <ViewDate>
+                            <Ionicons name="calendar-outline" size={28} color={'#FFF'} onPress={showMode} />
+                            <TextDate>{format(date, 'dd/MM/yyyy')}</TextDate>
+                        </ViewDate>
+
+
+                        <ListImages
+                            data={epic}
+                            renderItem={renderList}
+                            numColumns={2}
+                            contentContainerStyle={{ alignItems: 'center' }}
+                            ListEmptyComponent={<Message>{msg}</Message>}
+                        />
+
+                    </Container2>
+                }
 
             </Wallpaper>
         </Container>
@@ -80,6 +108,10 @@ background-color: #003;
 const Wallpaper = styled.ImageBackground`
 flex: 1;
 width: 100%;
+`;
+
+const Container2 = styled.View`
+flex: 1;
 `;
 
 const Subtitle = styled.Text`
@@ -100,7 +132,7 @@ const TextDate = styled.Text`
 font-size: 16px;
 background-color: #FFF;
 border-radius: 5px;
-padding: 1px 2px;
+padding: 1px 4px;
 margin-left: 5px;
 `;
 
