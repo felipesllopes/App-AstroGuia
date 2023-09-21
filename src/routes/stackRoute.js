@@ -1,12 +1,12 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import DetailsPlanets from "../Components/DetailsPlanets";
+import DetailsPlanets from "../Components/detailsPlanets";
 import { useMyContext } from "../Context/Context";
 import AstronomicalPhoto from "../pages/AstronomicalPhoto";
 import EarthPolychromaticPhoto from "../pages/EarthPolychromaticPhoto";
+import Home from "../pages/home";
+import MarsRoverPhotos from "../pages/MarsRoverPhotos";
 import PlanetsSolarSystem from "../pages/PlanetsSolarSystem";
 import Planet from "../pages/PlanetsSolarSystem/planet";
-import Home from "../pages/Home";
-import MarsRoverPhotos from "../pages/MarsRoverPhotos";
 import BottonRoute from "./bottonRoute";
 
 export default function StackRoute() {

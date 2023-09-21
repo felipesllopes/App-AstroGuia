@@ -1,6 +1,6 @@
 import { styled } from "styled-components/native";
 import ButtonBack from "../../Components/ButtonBack";
-import DetailsPlanets from "../../Components/DetailsPlanets";
+import DetailsPlanets from "../../Components/detailsPlanets";
 import planetas from "../../Components/planetas";
 
 export default function PlanetsSolarSystem() {
