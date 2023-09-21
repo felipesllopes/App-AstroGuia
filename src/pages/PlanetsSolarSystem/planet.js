@@ -44,17 +44,15 @@ align-self: center;
 margin: 20px 0;
 `;
 
-
 const TitleData = styled.Text`
 font-size: 23px;
 color: #FFF;
 text-align: center;
-background-color: #171717;
-padding: 5px 0;
+padding-bottom: 7px;
+font-weight: bold;
 `;
 
 const ScrollView = styled.ScrollView`
-background-color: #000;
 `;
 
 const Text = styled.Text`
@@ -62,4 +60,7 @@ font-size: 17.5px;
 color: #FFF;
 margin: 6px 10px 0;
 padding: 0 4px;
+background-color: rgba(0,0,0,0.5);
+align-self: flex-start;
+border-radius: 4px;
 `;

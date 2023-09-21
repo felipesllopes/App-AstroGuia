@@ -1,6 +1,5 @@
 import * as FileSystem from 'expo-file-system';
 import * as MediaLibrary from "expo-media-library";
-import * as Notifications from 'expo-notifications';
 import { shareAsync } from 'expo-sharing';
 import { Alert } from 'react-native';
 import { schedulePushNotification } from '../Notification';
