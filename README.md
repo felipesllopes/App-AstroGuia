@@ -186,5 +186,27 @@ https://github.com/felipesllopes/App-AstroGuia/assets/99768939/d5650812-b21f-497
 </table>
 
 
+<br/>
+
+
+To copy and test the project, run:
+
+```
+git clone https://github.com/felipesllopes/App-BlueBank.git
+```
+
+<br/>
+
+Now we must access the folder where the project is contained and run the expo command:
+
+```
+cd App-BlueBank
+
+npx expo start
+```
+
+<br/>
+
+
 ## Click here to download the project:
 [![APK-Download](https://img.shields.io/badge/APK_Download-07C160?style=for-the-badge&logo=download&logoColor=white)](https://drive.google.com/file/d/11QSWd3teMwfz0N8SFtu3x3Uigm8SBrDk/view?usp=sharing)
