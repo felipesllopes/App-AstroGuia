@@ -6,7 +6,7 @@ import EarthPolychromaticPhoto from "../pages/EarthPolychromaticPhoto";
 import PlanetsSolarSystem from "../pages/PlanetsSolarSystem";
 import Planet from "../pages/PlanetsSolarSystem/planet";
 import Home from "../pages/Home";
-import MarsRoverPhotos from "../pages/photosMars";
+import MarsRoverPhotos from "../pages/MarsRoverPhotos";
 import BottonRoute from "./bottonRoute";
 
 export default function StackRoute() {

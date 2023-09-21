@@ -4,7 +4,6 @@ import { shareAsync } from 'expo-sharing';
 import { Alert } from 'react-native';
 import { schedulePushNotification } from '../Notification';
 
-// Acões estão demorando a serem realizadas.
 export async function sharedFromUrl(url) {
 
     const filename = "fotoAstronomicaDoDia.jpg";

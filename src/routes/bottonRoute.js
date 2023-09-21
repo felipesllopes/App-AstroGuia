@@ -1,8 +1,8 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import About from "../pages/photosMars/About";
-import PhotosMars from '../pages/photosMars/Photos';
-import Saved from '../pages/photosMars/Saved';
+import About from "../pages/MarsRoverPhotos/About";
+import PhotosMars from '../pages/MarsRoverPhotos/Photos';
+import Saved from '../pages/MarsRoverPhotos/Saved';
 
 export default function BottonRoute() {
 
