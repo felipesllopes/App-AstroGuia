@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { styled } from "styled-components/native";
-import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
-import { useMyContext } from "../../../../Context/Context";
-import api from "../../../../services/api";
-import { key } from "../../../../services/key";
+import { Container, Screen, Wallpaper } from "../../../Components/styledBackgroundMars";
+import { useMyContext } from "../../../Context/Context";
+import api from "../../../services/api";
+import { key } from "../../../services/key";
 
 export default function About() {
 
@@ -24,10 +24,10 @@ export default function About() {
 
     return (
         <Container>
-            <Wallpaper source={require('../../../../img/martian.png')}>
+            <Wallpaper source={require('../../../img/martian.png')}>
                 <Screen>
                     <Image source={sharedValue == 'Curiosity' ?
-                        require('../../../../img/curiosity.png') : require('../../../../img/spirit.png')} resizeMode="contain"
+                        require('../../../img/curiosity.png') : require('../../../img/spirit.png')} resizeMode="contain"
                     />
 
                     <Informations>Informações:</Informations>

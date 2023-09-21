@@ -11,19 +11,19 @@ export default function Home() {
 
                 <Logo source={require("../../img/logo.png")} resizeMode="contain" />
 
-                <Button activeOpacity={0.6} onPress={() => navigation.navigate('ThePlanets')}>
+                <Button activeOpacity={0.6} onPress={() => navigation.navigate('PlanetsSolarSystem')}>
                     <TextButton>Planetas do Sistema Solar</TextButton>
                 </Button>
 
-                <Button activeOpacity={0.6} onPress={() => navigation.navigate('PhotoSpace')}>
+                <Button activeOpacity={0.6} onPress={() => navigation.navigate('AstronomicalPhoto')}>
                     <TextButton>Foto Astronômica do dia</TextButton>
                 </Button>
 
-                <Button activeOpacity={0.6} onPress={() => navigation.navigate('HomeRover')}>
+                <Button activeOpacity={0.6} onPress={() => navigation.navigate('MarsRoverPhotos')}>
                     <TextButton>Imagens Rovers em Marte</TextButton>
                 </Button>
 
-                <Button activeOpacity={0.6} onPress={() => navigation.navigate('PhotoEarth')}>
+                <Button activeOpacity={0.6} onPress={() => navigation.navigate('EarthPolychromaticPhoto')}>
                     <TextButton>Foto policromática da Terra</TextButton>
                 </Button>
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Dimensions, Modal } from "react-native";
 import { styled } from "styled-components/native";
-import ModalEarth from "../pages/photoEarth/modalEarth";
+import ModalEarth from "../pages/EarthPolychromaticPhoto/modalEarth";
 import { key } from "../services/key";
 
 export default function ListPhotoEarth({ item }) {

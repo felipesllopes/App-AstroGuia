@@ -7,20 +7,21 @@ import LogoLoading from "../../Components/LogoLoading";
 import api from "../../services/api";
 import { key } from "../../services/key";
 
-export default function PhotoSpace() {
+export default function AstronomicalPhoto() {
 
     const [apod, setApod] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         (async () => {
-            await api.get(`/planetary/apod?api_key=${key}`)
-                .then(async (current) => {
-                    setApod(await current.data);
-                })
-                .catch((err) => {
-                    console.log(err)
-                })
+            try {
+                const current = await api.get(`/planetary/apod?api_key=${key}`);
+                setApod(await current.data);
+            } catch (err) {
+                alert('Ocorreu um erro ao carregar os dados. Por favor, tente novamente mais tarde.');
+            } finally {
+                setLoading(false);
+            }
         })()
     }, [])
 
@@ -54,13 +55,12 @@ export default function PhotoSpace() {
 
                         {loading && <ActivityIndicator size={50} color={'red'} style={{ marginVertical: 175 }} />}
 
-                        <View style={{ display: loading ? 'none' : 'flex' }}>
-                            <Photo
-                                source={{ uri: apod.url }}
-                                resizeMode="contain"
-                                onLoad={loadImage}
-                            />
-                        </View>
+                        <Photo
+                            style={{ display: loading ? 'none' : 'flex' }}
+                            source={{ uri: apod.url }}
+                            resizeMode="contain"
+                            onLoad={loadImage}
+                        />
 
                         <Credit style={{ display: apod.copyright ? 'flex' : 'none' }}>Crédito: {apod.copyright}</Credit>
 
@@ -95,7 +95,8 @@ const ImageBackground = styled.ImageBackground`
 flex: 1;
 `;
 
-const ScrollView = styled.ScrollView``;
+const ScrollView = styled.ScrollView`
+`;
 
 const Title = styled.Text`
 font-size: 20px;
@@ -105,13 +106,12 @@ padding: 20px 0 10px 0;
 `;
 
 const ActivityIndicator = styled.ActivityIndicator``;
-const View = styled.View``;
 
 const Photo = styled.Image`
 width: 100%;
 aspect-ratio: 1;
-margin: 4px 0;
 align-self: center;
+height: auto;
 `;
 
 const Credit = styled.Text`
@@ -124,5 +124,4 @@ margin-bottom: 20px;
 const ViewButtons = styled.View`
 flex-direction: row;
 justify-content: space-around;
-margin-bottom: 10%;
 `;

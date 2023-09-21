@@ -1,9 +1,9 @@
 import { styled } from "styled-components/native";
 import ButtonBack from "../../Components/ButtonBack";
-import DetailsPlanets from "../../Components/detailsPlanets";
+import DetailsPlanets from "../../Components/DetailsPlanets";
 import planetas from "../../Components/planetas";
 
-export default function ThePlanets() {
+export default function PlanetsSolarSystem() {
 
     return (
         <ImageBackground source={require("../../img/wallpaper2.jpg")}>

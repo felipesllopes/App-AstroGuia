@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Dimensions, Modal } from "react-native";
 import { styled } from "styled-components/native";
-import ModalMars from "../pages/photosMars/HomeRover/Photos/ModalMars";
+import ModalMars from "../pages/photosMars/Photos/ModalMars";
 
 export default function ListPhotosMars({ data }) {
 

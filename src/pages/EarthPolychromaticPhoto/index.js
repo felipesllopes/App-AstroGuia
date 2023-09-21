@@ -9,7 +9,7 @@ import LogoLoading from "../../Components/LogoLoading";
 import api from "../../services/api";
 import { key } from "../../services/key";
 
-export default function PhotoEarth() {
+export default function EarthPolychromaticPhoto() {
 
     const [date, setDate] = useState(new Date());
     const [apiDate, setApiDate] = useState([]);

@@ -3,10 +3,10 @@ import { Picker } from "@react-native-picker/picker";
 import { useRef, useState } from "react";
 import { Keyboard } from "react-native";
 import { styled } from "styled-components/native";
-import ListPhotosMars from "../../../../Components/ListPhotosMars";
-import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
-import api from "../../../../services/api";
-import { key } from "../../../../services/key";
+import ListPhotosMars from "../../../Components/ListPhotosMars";
+import { Container, Screen, Wallpaper } from "../../../Components/styledBackgroundMars";
+import api from "../../../services/api";
+import { key } from "../../../services/key";
 
 export default function PhotosMars({ route }) {
 
@@ -59,7 +59,7 @@ export default function PhotosMars({ route }) {
 
     return (
         <Container>
-            <Wallpaper source={require('../../../../img/martian.png')}>
+            <Wallpaper source={require('../../../img/martian.png')}>
                 <Screen>
 
                     <ContainerForm>

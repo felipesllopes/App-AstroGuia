@@ -1,12 +1,12 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import DetailsPlanets from "../Components/detailsPlanets";
+import DetailsPlanets from "../Components/DetailsPlanets";
 import { useMyContext } from "../Context/Context";
-import Home from "../pages/home";
-import PhotoEarth from "../pages/photoEarth";
-import PhotoSpace from "../pages/photoSpace";
-import HomeRover from "../pages/photosMars/HomeRover";
-import ThePlanets from "../pages/thePlanets";
-import Planet from "../pages/thePlanets/planet";
+import AstronomicalPhoto from "../pages/AstronomicalPhoto";
+import EarthPolychromaticPhoto from "../pages/EarthPolychromaticPhoto";
+import PlanetsSolarSystem from "../pages/PlanetsSolarSystem";
+import Planet from "../pages/PlanetsSolarSystem/planet";
+import Home from "../pages/Home";
+import MarsRoverPhotos from "../pages/photosMars";
 import BottonRoute from "./bottonRoute";
 
 export default function StackRoute() {
@@ -32,8 +32,8 @@ export default function StackRoute() {
             />
 
             <Stack.Screen
-                name="ThePlanets"
-                component={ThePlanets}
+                name="PlanetsSolarSystem"
+                component={PlanetsSolarSystem}
                 options={{ headerShown: false }}
             />
 
@@ -49,20 +49,20 @@ export default function StackRoute() {
             />
 
             <Stack.Screen
-                name="PhotoSpace"
-                component={PhotoSpace}
+                name="AstronomicalPhoto"
+                component={AstronomicalPhoto}
                 options={{ headerShown: false }}
             />
 
             <Stack.Screen
-                name="HomeRover"
-                component={HomeRover}
+                name="MarsRoverPhotos"
+                component={MarsRoverPhotos}
                 options={{ headerShown: false }}
             />
 
             <Stack.Screen
-                name="PhotoEarth"
-                component={PhotoEarth}
+                name="EarthPolychromaticPhoto"
+                component={EarthPolychromaticPhoto}
                 options={{ headerShown: false }}
             />
 

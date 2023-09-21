@@ -1,9 +1,9 @@
 import { useNavigation } from "@react-navigation/native";
 import { styled } from "styled-components/native";
-import ButtonBack from "../../../Components/ButtonBack";
-import { useMyContext } from "../../../Context/Context";
+import ButtonBack from "../../Components/ButtonBack";
+import { useMyContext } from "../../Context/Context";
 
-export default function HomeRover() {
+export default function MarsRoverPhotos() {
 
     const navigation = useNavigation();
 
@@ -16,23 +16,23 @@ export default function HomeRover() {
 
     return (
         <Container>
-            <ImageBackground source={require('../../../img/mars.jpg')}>
+            <ImageBackground source={require('../../img/mars.jpg')}>
 
                 <ButtonBack pag={"Imagens Rovers em Marte"} />
 
                 <ContainerRover onPress={() => handleNavigation('Curiosity')} activeOpacity={0.85}>
                     <Name>Curiosity</Name>
-                    <Photo source={require('../../../img/curiosity.png')} resizeMode="contain" />
+                    <Photo source={require('../../img/curiosity.png')} resizeMode="contain" />
                 </ContainerRover>
 
                 <ContainerRover onPress={() => handleNavigation('Opportunity')} activeOpacity={0.85}>
                     <Name>Opportunity</Name>
-                    <Photo source={require('../../../img/opportunity.png')} resizeMode="contain" />
+                    <Photo source={require('../../img/opportunity.png')} resizeMode="contain" />
                 </ContainerRover>
 
                 <ContainerRover onPress={() => handleNavigation('Spirit')} activeOpacity={0.85}>
                     <Name>Spirit</Name>
-                    <Photo source={require('../../../img/spirit.png')} resizeMode="contain" />
+                    <Photo source={require('../../img/spirit.png')} resizeMode="contain" />
                 </ContainerRover>
 
             </ImageBackground>

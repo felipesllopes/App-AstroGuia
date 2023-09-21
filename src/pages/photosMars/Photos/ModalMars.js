@@ -1,8 +1,8 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components/native";
-import { downloadFromUrl, sharedFromUrl } from "../../../../Components/HandleDownloadImg";
-import { addItem, isFavorite, rmvItem } from "../../../../Storage/asyncStorage";
+import { downloadFromUrl, sharedFromUrl } from "../../../Components/HandleDownloadImg";
+import { addItem, isFavorite, rmvItem } from "../../../Storage/asyncStorage";
 
 export default function ModalMars({ data, visible }) {
 

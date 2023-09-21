@@ -1,10 +1,10 @@
 import { useIsFocused } from "@react-navigation/native";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { styled } from "styled-components/native";
-import ListPhotosMars from "../../../../Components/ListPhotosMars";
-import { Container, Screen, Wallpaper } from "../../../../Components/styledBackgroundMars";
-import { useMyContext } from "../../../../Context/Context";
-import { getItem } from "../../../../Storage/asyncStorage";
+import ListPhotosMars from "../../../Components/ListPhotosMars";
+import { Container, Screen, Wallpaper } from "../../../Components/styledBackgroundMars";
+import { useMyContext } from "../../../Context/Context";
+import { getItem } from "../../../Storage/asyncStorage";
 
 export default function Saved() {
 
@@ -30,7 +30,7 @@ export default function Saved() {
 
     return (
         <Container>
-            <Wallpaper source={require('../../../../img/martian.png')}>
+            <Wallpaper source={require('../../../img/martian.png')}>
                 <Screen>
 
                     <FlatList
