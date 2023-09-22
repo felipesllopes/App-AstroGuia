@@ -209,4 +209,4 @@ npx expo start
 
 
 ## Click here to download the project:
-[![APK-Download](https://img.shields.io/badge/APK_Download-07C160?style=for-the-badge&logo=download&logoColor=white)](https://drive.google.com/file/d/11QSWd3teMwfz0N8SFtu3x3Uigm8SBrDk/view?usp=sharing)
+[![Download](https://img.shields.io/badge/Download-07C160?style=for-the-badge&logo=download&logoColor=white)](https://drive.google.com/file/d/10cKCZpRUmlhOJnSE7CpxQi8teMupJam5/view?usp=sharing)
