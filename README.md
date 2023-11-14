@@ -192,7 +192,7 @@ https://github.com/felipesllopes/App-AstroGuia/assets/99768939/d5650812-b21f-497
 To copy and test the project, run:
 
 ```
-git clone https://github.com/felipesllopes/App-BlueBank.git
+git clone https://github.com/felipesllopes/App-AstroGuia.git
 ```
 
 <br/>
@@ -200,7 +200,7 @@ git clone https://github.com/felipesllopes/App-BlueBank.git
 Now we must access the folder where the project is contained and run the expo command:
 
 ```
-cd App-BlueBank
+cd App-AstroGuia
 
 npx expo start
 ```
